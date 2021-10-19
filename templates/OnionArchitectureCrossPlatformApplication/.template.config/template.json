@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Vladislav Antonyuk",
+  "classifications": ["Common"],
+  "description": "Creates a new onion architecture cross-platform app.",
+  "name": "Onion Architecture Cross Platform Application",
+  "identity": "VladislavAntonyuk.OnionArchitectureCrossPlatformApplication",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "shortName": "onionapp",
+  "sourceName": "App1",
+  "preferNameDirectory":"true"
+}

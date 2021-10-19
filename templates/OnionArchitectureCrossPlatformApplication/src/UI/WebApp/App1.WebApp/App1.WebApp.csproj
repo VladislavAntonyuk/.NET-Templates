@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>52c84a8f-deda-46b4-b93f-56b318daf645</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrastructure\WebApp\App1.Infrastructure.WebApp.Business\App1.Infrastructure.WebApp.Business.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\WebApp\App1.Infrastructure.WebApp.Data\App1.Infrastructure.WebApp.Data.csproj" />
+  </ItemGroup>
+
+</Project>
