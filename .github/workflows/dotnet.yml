@@ -19,9 +19,8 @@ jobs:
         dotnet-version: 6.0.x
         include-prerelease: true
     - name: Pack
-      run: dotnet pack
+      run: dotnet pack -c Release -p:Version="1.${{github.run_number}}"
     - name: Publish NuGet
-      uses: brandedoutcast/publish-nuget@v2.5.5
-      with:
-          PROJECT_FILE_PATH: VladislavAntonyukDotnetTemplates.csproj
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+      run: dotnet nuget push */bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
