@@ -1,14 +1,33 @@
 # .NET-Templates
 
-1. dotnet pack
+## Build 
 
-2.
+```
+dotnet pack
+```
+
+## Install Template
+
+From NuGet:
+
+```
 dotnet new -i VladislavAntonyuk.OnionArchitecture.CrossPlatformApplication
+```
 
-or
+From file:
 
+```
 dotnet new -i VladislavAntonyuk.OnionArchitecture.CrossPlatformApplication.1.0.0.nupkg
+```
 
-3. dotnet new onionapp
+## Create project
 
-4. dotnet new -u
+```
+dotnet new onionapp -n MyProjectName --entityName MyEntityName
+```
+
+## Uninstall
+
+```
+dotnet new -u VladislavAntonyuk.OnionArchitecture.CrossPlatformApplication
+```

@@ -11,5 +11,23 @@
   },
   "shortName": "onionapp",
   "sourceName": "App1",
-  "preferNameDirectory":"true"
+  "preferNameDirectory":true,
+  "symbols": {
+    "entityName": {
+      "description": "Entity name",
+      "type": "parameter",
+      "replaces": "Class1",
+      "FileRename": "Class1"
+    },
+    "entityNameLower": {
+        "type": "generated",
+        "generator": "casing",
+        "parameters": {
+          "source": "entityName",
+          "toLower": true
+        },
+        "replaces": "class1",
+        "FileRename": "class1"
+    }
+  }
 }
