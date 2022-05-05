@@ -1,24 +1,11 @@
-﻿using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
-using System;
+﻿namespace App1.Mobile;
 
-namespace App1.Mobile
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
-    {
-        int count = 0;
-
-        public MainPage()
-        {
-            InitializeComponent();
-        }
-
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-            CounterLabel.Text = $"Current count: {count}";
-
-            SemanticScreenReader.Announce(CounterLabel.Text);
-        }
-    }
+	public MainPage(MainViewModel mainViewModel)
+	{
+		InitializeComponent();
+		BindingContext = mainViewModel;
+	}
 }
+

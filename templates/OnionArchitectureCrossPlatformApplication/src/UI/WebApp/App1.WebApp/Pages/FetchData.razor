@@ -1,0 +1,72 @@
+﻿@page "/fetchdata"
+@using App1.Application.Interfaces.CQRS
+@using App1.Application.UseCases.Class1
+@using App1.Application.UseCases.Class1.Commands.Create
+@using App1.Application.UseCases.Class1.Queries.GetClass1
+
+<PageTitle>Class1</PageTitle>
+@inject IQueryDispatcher QueryDispatcher
+@inject ICommandDispatcher CommandDispatcher
+
+<h1>Class1</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+<button onclick="@CreateItem">Create item</button>
+@if (classes == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var class1 in classes)
+            {
+                <tr>
+                    <td>@class1.Id</td>
+                    <td>@class1.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Class1Dto[]? classes;
+
+    protected override async Task OnInitializedAsync()
+    {
+	    await GetItems();
+    }
+
+	async Task GetItems()
+	{
+		var result = await QueryDispatcher.SendAsync<GetClass1ByFilterResponse, GetClass1Query>(new GetClass1Query
+		{
+			Limit = 25
+		});
+		if (result.IsSuccessful)
+		{
+			classes = result.Value.Items.ToArray();
+		}
+	}
+
+	async Task CreateItem()
+	{
+		var result = await CommandDispatcher.SendAsync<Class1Dto, CreateClass1Command>(new CreateClass1Command
+		{
+			Name = Path.GetRandomFileName()
+		});
+		if (result.IsSuccessful)
+		{
+			await GetItems();
+		}
+	}
+}

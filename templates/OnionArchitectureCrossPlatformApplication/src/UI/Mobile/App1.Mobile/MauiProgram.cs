@@ -1,25 +1,37 @@
-﻿using App1.Infrastructure.Mobile.Business;
-using App1.Infrastructure.Mobile.Data;
-using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Hosting;
+﻿namespace App1.Mobile;
 
-namespace App1.Mobile
+using Application.Configuration;
+using Infrastructure.Mobile.Business;
+using Infrastructure.Mobile.Data.Configuration;
+using Infrastructure.Mobile.Data.Repositories.Models;
+using Microsoft.EntityFrameworkCore;
+
+public static class MauiProgram
 {
-    public static class MauiProgram
-    {
-        public static MauiApp CreateMauiApp()
-        {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()                
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                });
+	public static MauiApp CreateMauiApp()
+	{
+		var builder = MauiApp.CreateBuilder();
+		builder.UseMauiApp<App>();
+		builder.Services.AddApplication();
+		builder.Services.AddInfrastructureData(GetDatabaseConnectionString("App1"));
+		builder.Services.AddInfrastructureBusiness();
+		builder.Services.AddSingleton<MainViewModel>();
+		builder.Services.AddSingleton<MainPage>();
+		var app = builder.Build();
+		MigrateDb(app.Services);
+		return app;
+	}
 
-            builder.Services.AddInfrastructureData();
-            builder.Services.AddInfrastructureBusiness();
-            return builder.Build();
-        }
-    }
+	private static string GetDatabaseConnectionString(string filename)
+	{
+		return $"Filename={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), filename)}.db";
+	}
+
+	static void MigrateDb(IServiceProvider serviceProvider)
+	{
+		using var scope = serviceProvider.CreateScope();
+		var factory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<MobileAppContext>>();
+		using var context = factory.CreateDbContext();
+		context.Database.Migrate();
+	}
 }

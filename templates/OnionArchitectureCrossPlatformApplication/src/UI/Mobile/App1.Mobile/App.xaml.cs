@@ -1,17 +1,13 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
+﻿namespace App1.Mobile;
+
 using Application = Microsoft.Maui.Controls.Application;
 
-namespace App1.Mobile
+public partial class App : Application
 {
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
+	public App()
+	{
+		InitializeComponent();
 
-            MainPage = new MainPage();
-        }
-    }
+		MainPage = new AppShell();
+	}
 }

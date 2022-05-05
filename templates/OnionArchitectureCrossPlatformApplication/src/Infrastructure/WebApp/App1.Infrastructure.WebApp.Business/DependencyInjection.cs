@@ -1,19 +1,14 @@
-﻿namespace App1.Infrastructure.WebApp.Business
+﻿namespace App1.Infrastructure.WebApp.Business;
+
+using App1.WebApp.Application;
+using Application.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+
+public static class DependencyInjection
 {
-    using App1.Services.Interfaces;
-    using Microsoft.Extensions.DependencyInjection;
-    using System;
-
-    public static class DependencyInjection
-    {
-        public static void AddInfrastructureBusiness(this IServiceCollection services)
-        {
-            if (services is null)
-            {
-                throw new ArgumentNullException(nameof(services));
-            }
-
-            services.AddScoped<IServiceInterface1, ServiceClass1>();
-        }
-    }
+	public static void AddInfrastructureBusiness(this IServiceCollection services)
+	{
+		services.AddScoped<IWebAppInterface, WebServiceClass1>();
+		services.AddScoped<IServiceInterface1, ServiceClass1>();
+	}
 }

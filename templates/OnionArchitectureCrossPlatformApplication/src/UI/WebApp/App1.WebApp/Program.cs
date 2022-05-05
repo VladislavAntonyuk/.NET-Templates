@@ -1,10 +1,12 @@
+﻿using App1.Application.Configuration;
 using App1.Infrastructure.WebApp.Business;
-using App1.Infrastructure.WebApp.Data;
+using App1.Infrastructure.WebApp.Data.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddInfrastructureData();
+builder.Services.AddApplication();
+builder.Services.AddInfrastructureData("server=localhost;port=3306;database=App1;user=root;password=password");
 builder.Services.AddInfrastructureBusiness();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
@@ -24,7 +26,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");

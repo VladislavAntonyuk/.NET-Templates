@@ -1,9 +1,8 @@
-﻿using App1.Services.Interfaces;
+﻿namespace App1.Infrastructure.WebApp.Business;
 
-namespace App1.Infrastructure.WebApp.Business
+using Application.Interfaces;
+
+public class ServiceClass1 : IServiceInterface1
 {
-    public class ServiceClass1 : IServiceInterface1
-    {
 
-    }
 }
