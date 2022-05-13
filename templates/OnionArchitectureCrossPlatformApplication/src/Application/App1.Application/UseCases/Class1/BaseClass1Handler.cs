@@ -5,12 +5,12 @@ using Interfaces.Repositories;
 
 public abstract class BaseClass1Handler
 {
-	protected readonly IUnitOfWork UnitOfWork;
+	protected readonly IClass1Repository Class1Repository;
 	protected readonly IMapper Mapper;
 
-	protected BaseClass1Handler(IUnitOfWork unitOfWork, IMapper mapper)
+	protected BaseClass1Handler(IClass1Repository class1Repository, IMapper mapper)
 	{
-		this.UnitOfWork = unitOfWork;
-		this.Mapper = mapper;
+		Class1Repository = class1Repository;
+		Mapper = mapper;
 	}
 }

@@ -4,11 +4,11 @@ using Interfaces.CQRS;
 
 public class UpdateClass1Command : ICommand<Class1Dto>
 {
-	public UpdateClass1Command(int class1Id)
+	public UpdateClass1Command(int id)
 	{
-		Class1Id = class1Id;
+		Id = id;
 	}
 
-	public int Class1Id { get; }
+	public int Id { get; }
 	public string Name { get; init; } = string.Empty;
 }

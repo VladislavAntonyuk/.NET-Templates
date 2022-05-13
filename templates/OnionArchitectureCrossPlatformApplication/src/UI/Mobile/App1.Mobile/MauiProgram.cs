@@ -1,6 +1,7 @@
 ﻿namespace App1.Mobile;
 
 using Application.Configuration;
+using CommunityToolkit.Maui;
 using Infrastructure.Mobile.Business;
 using Infrastructure.Mobile.Data.Configuration;
 using Infrastructure.Mobile.Data.Repositories.Models;
@@ -12,6 +13,7 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder.UseMauiApp<App>();
+		builder.UseMauiCommunityToolkit();
 		builder.Services.AddApplication();
 		builder.Services.AddInfrastructureData(GetDatabaseConnectionString("App1"));
 		builder.Services.AddInfrastructureBusiness();

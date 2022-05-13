@@ -7,18 +7,25 @@ using Interfaces.Repositories;
 
 public class UpdateClass1CommandHandler : BaseClass1Handler, ICommandHandler<Class1Dto, UpdateClass1Command>
 {
-	public UpdateClass1CommandHandler(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
+	public UpdateClass1CommandHandler(IClass1Repository class1Repository, IMapper mapper) : base(class1Repository, mapper)
 	{
 	}
 
-	public async Task<IOperationResult<Class1Dto>> Handle(UpdateClass1Command request, CancellationToken cancellationToken)
+	public async Task<IOperationResult<Class1Dto>> Handle(UpdateClass1Command command, CancellationToken cancellationToken)
 	{
-		var banner = Mapper.Map<Class1>(request);
-		UnitOfWork.Class1Repository.Update(banner);
-		await UnitOfWork.Save(cancellationToken);
-		return new OperationResult<Class1Dto>
+		var class1 = await Class1Repository.GetById(command.Id, cancellationToken);
+		if (class1 is not null)
 		{
-			Value = Mapper.Map<Class1Dto>(banner)
-		};
+			var classToUpdate = Mapper.Map<Class1>(command);
+			var updatedClass = await Class1Repository.Update(classToUpdate, cancellationToken);
+			return new OperationResult<Class1Dto>
+			{
+				Value = Mapper.Map<Class1Dto>(updatedClass)
+			};
+		}
+
+		var result = new OperationResult<Class1Dto>();
+		result.Errors.Add("Class1 not found");
+		return result;
 	}
 }

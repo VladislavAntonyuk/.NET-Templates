@@ -11,13 +11,13 @@ dotnet pack
 From NuGet:
 
 ```
-dotnet new -i VladislavAntonyuk.OnionArchitecture.CrossPlatformApplication
+dotnet new -i VladislavAntonyuk.DotNetTemplates
 ```
 
 From file:
 
 ```
-dotnet new -i VladislavAntonyuk.OnionArchitecture.CrossPlatformApplication.1.0.0.nupkg
+dotnet new -i VladislavAntonyuk.DotNetTemplates.1.0.0.nupkg
 ```
 
 ## Create project
@@ -29,5 +29,5 @@ dotnet new onionapp -n MyProjectName --entityName MyEntityName
 ## Uninstall
 
 ```
-dotnet new -u VladislavAntonyuk.OnionArchitecture.CrossPlatformApplication
+dotnet new -u VladislavAntonyuk.DotNetTemplates
 ```

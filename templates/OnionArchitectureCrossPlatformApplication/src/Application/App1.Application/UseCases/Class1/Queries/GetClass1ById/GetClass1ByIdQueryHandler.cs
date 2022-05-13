@@ -6,13 +6,13 @@ using Interfaces.Repositories;
 
 public class GetClass1ByIdQueryHandler : BaseClass1Handler, IQueryHandler<Class1Dto, GetClass1ByIdQuery>
 {
-	public GetClass1ByIdQueryHandler(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
+	public GetClass1ByIdQueryHandler(IClass1Repository class1Repository, IMapper mapper) : base(class1Repository, mapper)
 	{
 	}
 
 	public async Task<IOperationResult<Class1Dto>> Handle(GetClass1ByIdQuery request, CancellationToken cancellationToken)
 	{
-		var class1 = await UnitOfWork.Class1Repository.GetById(request.Id, cancellationToken);
+		var class1 = await Class1Repository.GetById(request.Id, cancellationToken);
 		if (class1 is not null)
 		{
 			return new OperationResult<Class1Dto>

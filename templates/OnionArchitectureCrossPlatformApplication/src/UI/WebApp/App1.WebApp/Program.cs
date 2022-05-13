@@ -1,6 +1,7 @@
 ﻿using App1.Application.Configuration;
 using App1.Infrastructure.WebApp.Business;
 using App1.Infrastructure.WebApp.Data.Configuration;
+using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services.AddInfrastructureData("server=localhost;port=3306;database=App1
 builder.Services.AddInfrastructureBusiness();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+
+builder.Services.AddMudServices();
 
 var app = builder.Build();
 

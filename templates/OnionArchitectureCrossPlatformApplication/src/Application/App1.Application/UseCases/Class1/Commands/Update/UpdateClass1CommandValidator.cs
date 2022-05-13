@@ -5,11 +5,11 @@ using Interfaces.Repositories;
 
 public class UpdateClass1CommandValidator : AbstractValidator<UpdateClass1Command>
 {
-	private readonly IUnitOfWork unitOfWork;
+	private readonly IClass1Repository class1Repository;
 
-	public UpdateClass1CommandValidator(IUnitOfWork unitOfWork)
+	public UpdateClass1CommandValidator(IClass1Repository class1Repository)
 	{
-		this.unitOfWork = unitOfWork;
+		this.class1Repository = class1Repository;
 
 		ConfigureValidation();
 	}
@@ -22,7 +22,7 @@ public class UpdateClass1CommandValidator : AbstractValidator<UpdateClass1Comman
 			.NotEmpty()
 			.MustAsync(async (command, name, ctx, cancellationToken) =>
 			{
-				var isExist = await unitOfWork.Class1Repository.IsExist(name, cancellationToken);
+				var isExist = await class1Repository.IsExist(name, cancellationToken);
 
 				if (!isExist)
 				{
