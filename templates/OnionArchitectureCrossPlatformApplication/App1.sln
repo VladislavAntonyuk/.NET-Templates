@@ -44,6 +44,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.runsettings = .runsettings
 		azure-pipelines.yml = azure-pipelines.yml
+		Directory.Build.props = Directory.Build.props
 		NuGet.config = NuGet.config
 		README.md = README.md
 	EndProjectSection
@@ -66,7 +67,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.Mobile.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.WebApp.Application", "src\Application\App1.WebApp.Application\App1.WebApp.Application.csproj", "{00A8B1B9-46B7-4E7D-926E-BDA075825BC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1.Infrastructure.Data", "src\Infrastructure\App1.Infrustructure.Data\App1.Infrastructure.Data.csproj", "{51B88ACD-2011-4873-81E2-C6E58090C7DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.Data", "src\Infrastructure\App1.Infrustructure.Data\App1.Infrastructure.Data.csproj", "{51B88ACD-2011-4873-81E2-C6E58090C7DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

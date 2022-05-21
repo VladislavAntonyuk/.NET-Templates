@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:App1.Mobile"
              x:Class="App1.Mobile.App">
     <Application.Resources>
-        <ResourceDictionary Source="Resources/Styles.xaml" />
-    </Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Resources/Colors.xaml" />
+				<ResourceDictionary Source="Resources/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Application.Resources>
 </Application>

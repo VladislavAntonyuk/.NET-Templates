@@ -4,7 +4,7 @@
   "classifications": ["Common"],
   "description": "Creates a new onion architecture cross-platform app.",
   "name": "Onion Architecture Cross Platform Application",
-  "identity": "VladislavAntonyuk.OnionArchitectureCrossPlatformApplication",
+  "identity": "VladislavAntonyuk.DotNetTemplates.OnionArchitectureCrossPlatformApplication",
   "tags": {
     "language": "C#",
     "type": "project"

@@ -1,25 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App1.Mobile.MainPage">
+             x:Class="App1.Mobile.MainPage"
+			 xmlns:viewModels="clr-namespace:App1.Mobile;assembly=App1.Mobile"
+             x:Name="Class1Page">
 
 	<ScrollView>
 		<VerticalStackLayout Spacing="25" Padding="30">
 
-			<Label 
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
 			<Button Text="Create" Command="{Binding CreateItemCommand}"/>
-			<CollectionView ItemsSource="{Binding Items}">
+
+			<CollectionView ItemsSource="{Binding Items}"
+			                EmptyView="No items">
 				<CollectionView.ItemTemplate>
 					<DataTemplate>
-						<HorizontalStackLayout>
-							<Label Text="{Binding Id}"/>
-							<Label Text="{Binding Name}"/>
-						</HorizontalStackLayout>
+						<Grid ColumnDefinitions="*,2*,*, *">
+							<Label Grid.Column="0"
+							       Text="{Binding Id}"/>
+							
+							<Label Grid.Column="1"
+							       Text="{Binding Name}"/>
+							
+							<Button Grid.Column="2"
+									HeightRequest="50"
+							        Text="Update"
+									Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=UpdateItemCommand}"
+							        CommandParameter="{Binding Id}"/>
+							
+							<Button Grid.Column="3"
+									HeightRequest="50"
+							        Text="Delete"
+									Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=DeleteItemCommand}"
+							        CommandParameter="{Binding Id}"/>
+						</Grid>
 					</DataTemplate>
 				</CollectionView.ItemTemplate>
 			</CollectionView>

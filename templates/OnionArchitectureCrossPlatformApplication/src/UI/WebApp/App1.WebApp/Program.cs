@@ -1,7 +1,11 @@
 ﻿using App1.Application.Configuration;
 using App1.Infrastructure.WebApp.Business;
 using App1.Infrastructure.WebApp.Data.Configuration;
+using App1.WebApp.Extensions;
+using App1.WebApp.Models;
+using Microsoft.AspNetCore.Localization;
 using MudBlazor.Services;
+using Toolbelt.Blazor.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +17,14 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
 builder.Services.AddMudServices();
+builder.Services.AddI18nText();
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+	var supportedCultures = Enum.GetValues<Language>().Select(x => x.GetDescription()).ToArray();
+	options.DefaultRequestCulture = new RequestCulture(supportedCultures.First());
+	options.AddSupportedCultures(supportedCultures);
+	options.AddSupportedUICultures(supportedCultures);
+});
 
 var app = builder.Build();
 
@@ -25,6 +37,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseRequestLocalization();
 
 app.UseStaticFiles();
 

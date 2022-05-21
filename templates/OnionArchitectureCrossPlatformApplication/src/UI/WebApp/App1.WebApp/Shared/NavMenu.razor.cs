@@ -2,6 +2,6 @@
 
 using Microsoft.AspNetCore.Components;
 
-public partial class NavMenu : ComponentBase
+public partial class NavMenu : App1BaseComponent
 {
 }

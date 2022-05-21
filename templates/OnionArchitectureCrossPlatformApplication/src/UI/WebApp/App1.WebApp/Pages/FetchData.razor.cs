@@ -9,7 +9,7 @@ using App1.Application.UseCases.Class1.Queries.GetClass1;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
-public partial class FetchData : ComponentBase
+public partial class FetchData : App1BaseComponent
 {
 	[Inject]
 	public IQueryDispatcher QueryDispatcher { get; set; } = null!;
@@ -21,7 +21,7 @@ public partial class FetchData : ComponentBase
 	public ISnackbar Snackbar { get; set; } = null!;
 
 	private MudTable<Class1Dto> table = null!;
-	private MudTextField<string> searchString = null!;
+	private MudTextField<string>? searchString;
 	private readonly System.Windows.Input.ICommand updateCommand;
 	private readonly System.Windows.Input.ICommand deleteCommand;
 
@@ -36,7 +36,7 @@ public partial class FetchData : ComponentBase
 		var result = await QueryDispatcher.SendAsync<GetClass1ByFilterResponse, GetClass1Query>(new GetClass1Query
 		{
 			Limit = state.PageSize,
-			Name = searchString.Value,
+			Name = searchString?.Value,
 			Offset = state.Page
 		});
 		if (result.IsSuccessful)
@@ -46,7 +46,6 @@ public partial class FetchData : ComponentBase
 				TotalItems = result.Value.TotalCount,
 				Items = result.Value.Items
 			};
-
 		}
 
 		return new TableData<Class1Dto>();
@@ -56,7 +55,7 @@ public partial class FetchData : ComponentBase
 	{
 		var result = await CommandDispatcher.SendAsync<Class1Dto, CreateClass1Command>(new CreateClass1Command
 		{
-			Name = Path.GetRandomFileName()
+			Name = DateTime.Now.ToString("O")
 		});
 		if (result.IsSuccessful)
 		{
@@ -92,7 +91,7 @@ public partial class FetchData : ComponentBase
 	{
 		var result = await CommandDispatcher.SendAsync<Class1Dto, UpdateClass1Command>(new UpdateClass1Command(id)
 		{
-			Name = Path.GetRandomFileName()
+			Name = DateTime.Now.ToString("O")
 		});
 		if (result.IsSuccessful)
 		{
