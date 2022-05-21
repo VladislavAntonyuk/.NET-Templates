@@ -24,6 +24,5 @@ public class GetClass1ByIdQueryHandler : BaseClass1Handler, IQueryHandler<Class1
 		var result = new OperationResult<Class1Dto>();
 		result.Errors.Add("Class1 not found");
 		return result;
-
 	}
 }

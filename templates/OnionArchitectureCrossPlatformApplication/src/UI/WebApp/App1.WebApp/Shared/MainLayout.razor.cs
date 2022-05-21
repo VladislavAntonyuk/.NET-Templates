@@ -1,16 +1,16 @@
-namespace App1.WebApp.Shared;
+﻿namespace App1.WebApp.Shared;
 
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
 public partial class MainLayout : LayoutComponentBase
 {
-	private MudThemeProvider? mudThemeProvider;
+	private bool drawerOpen = true;
 	private bool isDarkMode = true;
-	bool drawerOpen = true;
+	private MudThemeProvider? mudThemeProvider;
 	private bool rightToLeft;
-	
-	void DrawerToggle()
+
+	private void DrawerToggle()
 	{
 		drawerOpen = !drawerOpen;
 	}

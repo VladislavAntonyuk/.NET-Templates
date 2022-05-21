@@ -6,6 +6,8 @@ using Infrastructure.Mobile.Business;
 using Infrastructure.Mobile.Data.Configuration;
 using Infrastructure.Mobile.Data.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
+using ViewModels;
+using Views;
 
 public static class MauiProgram
 {
@@ -29,7 +31,7 @@ public static class MauiProgram
 		return $"Filename={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), filename)}.db";
 	}
 
-	static void MigrateDb(IServiceProvider serviceProvider)
+	private static void MigrateDb(IServiceProvider serviceProvider)
 	{
 		using var scope = serviceProvider.CreateScope();
 		var factory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<MobileAppContext>>();

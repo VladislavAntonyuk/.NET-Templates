@@ -15,7 +15,7 @@
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.app1.mobile</ApplicationId>
-		<ApplicationIdGuid>02089ddf-b7c0-4555-94f9-7169d94d7f22</ApplicationIdGuid>
+		<ApplicationIdGuid>02089ddf-b7c0-4555-94f9-7169d94d7f23</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -38,8 +38,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Maui" Version="1.0.0-rc3" />
-	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview3" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="1.0.0-rc3" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview3" />
 	</ItemGroup>
 
 	<ItemGroup>

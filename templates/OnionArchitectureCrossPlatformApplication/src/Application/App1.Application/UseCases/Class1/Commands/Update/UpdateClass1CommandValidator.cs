@@ -16,8 +16,6 @@ public class UpdateClass1CommandValidator : AbstractValidator<UpdateClass1Comman
 
 	private void ConfigureValidation()
 	{
-		RuleFor(x => x).NotEmpty();
-
 		RuleFor(x => x.Name)
 			.NotEmpty()
 			.MustAsync(async (command, name, ctx, cancellationToken) =>

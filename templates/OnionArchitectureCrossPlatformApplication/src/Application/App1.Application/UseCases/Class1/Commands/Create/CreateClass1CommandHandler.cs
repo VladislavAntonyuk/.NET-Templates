@@ -11,10 +11,10 @@ public class CreateClass1CommandHandler : BaseClass1Handler, ICommandHandler<Cla
 	{
 	}
 
-	public async Task<IOperationResult<Class1Dto>> Handle(CreateClass1Command request, CancellationToken cancellationToken)
+	public async Task<IOperationResult<Class1Dto>> Handle(CreateClass1Command command, CancellationToken cancellationToken)
 	{
-		var banner = Mapper.Map<Class1>(request);
-		var result = await Class1Repository.Add(banner, cancellationToken);
+		var class1 = Mapper.Map<Class1>(command);
+		var result = await Class1Repository.Add(class1, cancellationToken);
 		return new OperationResult<Class1Dto>
 		{
 			Value = Mapper.Map<Class1Dto>(result)

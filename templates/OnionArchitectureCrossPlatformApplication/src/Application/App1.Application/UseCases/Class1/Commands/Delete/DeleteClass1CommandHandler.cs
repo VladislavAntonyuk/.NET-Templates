@@ -10,7 +10,7 @@ public class DeleteClass1CommandHandler : BaseClass1Handler, ICommandHandler<boo
 	{
 	}
 
-	public async Task<IOperationResult<bool>> Handle(DeleteClass1Command command, CancellationToken cancellationToken = default)
+	public async Task<IOperationResult<bool>> Handle(DeleteClass1Command command, CancellationToken cancellationToken)
 	{
 		var class1 = await Class1Repository.GetById(command.Class1Id, cancellationToken);
 		if (class1 is not null)

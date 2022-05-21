@@ -12,7 +12,6 @@ public class AutoMapperProfile : Profile
 
 	private void SetupBanner()
 	{
-		CreateMap<Class1, Domain.Entities.Class1>()
-			.ReverseMap();
+		CreateMap<Class1, Domain.Entities.Class1>().ReverseMap();
 	}
 }

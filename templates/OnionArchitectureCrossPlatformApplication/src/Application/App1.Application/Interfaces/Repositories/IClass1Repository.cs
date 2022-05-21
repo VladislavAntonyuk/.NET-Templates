@@ -10,5 +10,9 @@ public interface IClass1Repository
 	Task<Class1?> GetById(int id, CancellationToken cancellationToken);
 	Task<bool> IsExist(string parameter, CancellationToken cancellationToken);
 	Task<IEnumerable<Class1>> GetAll(CancellationToken cancellationToken);
-	Task<IPaginatedList<Class1>> GetPagedAsync(string? parameter, int requestOffset, int requestLimit, CancellationToken cancellationToken);
+
+	Task<IPaginatedList<Class1>> GetPagedAsync(string? parameter,
+		int requestOffset,
+		int requestLimit,
+		CancellationToken cancellationToken);
 }

@@ -1,10 +1,10 @@
 ﻿namespace App1.Infrastructure.WebApp.Data.Repositories;
 
-using App1.Infrastructure.Data.Repositories;
 using Application.Interfaces;
 using Application.Interfaces.Repositories;
 using Application.UseCases;
 using AutoMapper;
+using Infrastructure.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using DomainClass1 = Domain.Entities.Class1;
@@ -64,14 +64,6 @@ public class Class1Repository : BaseRepository, IClass1Repository
 		return await context.Class1.AnyAsync(x => x.Name == parameter, cancellationToken);
 	}
 
-	public async Task<DomainClass1?> GetByName(string name, CancellationToken cancellationToken)
-	{
-		cancellationToken.ThrowIfCancellationRequested();
-		await using var context = await factory.CreateDbContextAsync(cancellationToken);
-		var class1 = await context.Class1.AsNoTracking().SingleOrDefaultAsync(x => x.Name.Contains(name), cancellationToken);
-		return mapper.Map<DomainClass1>(class1);
-	}
-
 	public async Task<IEnumerable<DomainClass1>> GetAll(CancellationToken cancellationToken)
 	{
 		await using var context = await factory.CreateDbContextAsync(cancellationToken);
@@ -79,23 +71,33 @@ public class Class1Repository : BaseRepository, IClass1Repository
 		return mapper.Map<IEnumerable<DomainClass1>>(class1);
 	}
 
-	public async Task<IPaginatedList<DomainClass1>> GetPagedAsync(string? requestName, int requestOffset, int requestLimit, CancellationToken cancellationToken)
+	public async Task<IPaginatedList<DomainClass1>> GetPagedAsync(string? requestName,
+		int requestOffset,
+		int requestLimit,
+		CancellationToken cancellationToken)
 	{
 		cancellationToken.ThrowIfCancellationRequested();
 		await using var context = await factory.CreateDbContextAsync(cancellationToken);
-		var totalCount = await context.Class1
-		                              .AsNoTracking()
-		                              .CountAsync(x => x.Name.Contains(requestName ?? string.Empty), cancellationToken);
+		var totalCount = await context.Class1.AsNoTracking()
+									  .CountAsync(x => x.Name.Contains(requestName ?? string.Empty), cancellationToken);
 
-		var result = await context.Class1
-		                          .AsNoTracking()
-		                          .Where(x => x.Name.Contains(requestName ?? string.Empty))
-		                          .OrderBy(q => q.Id)
-		                          .Skip(requestOffset)
-		                          .Take(requestLimit)
-		                          .ToListAsync(cancellationToken);
+		var result = await context.Class1.AsNoTracking()
+								  .Where(x => x.Name.Contains(requestName ?? string.Empty))
+								  .OrderBy(q => q.Id)
+								  .Skip(requestOffset)
+								  .Take(requestLimit)
+								  .ToListAsync(cancellationToken);
 
 		return new PaginatedList<DomainClass1>(mapper.Map<List<DomainClass1>>(result), totalCount, requestOffset,
-		                                       requestLimit);
+											   requestLimit);
+	}
+
+	public async Task<DomainClass1?> GetByName(string name, CancellationToken cancellationToken)
+	{
+		cancellationToken.ThrowIfCancellationRequested();
+		await using var context = await factory.CreateDbContextAsync(cancellationToken);
+		var class1 = await context.Class1.AsNoTracking()
+								  .SingleOrDefaultAsync(x => x.Name.Contains(name), cancellationToken);
+		return mapper.Map<DomainClass1>(class1);
 	}
 }

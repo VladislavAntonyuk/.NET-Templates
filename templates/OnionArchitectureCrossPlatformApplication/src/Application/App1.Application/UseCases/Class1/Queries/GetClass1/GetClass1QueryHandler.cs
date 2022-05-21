@@ -1,4 +1,4 @@
-﻿namespace App1.Application.UseCases.Class1.Queries.GetClass1;
+namespace App1.Application.UseCases.Class1.Queries.GetClass1;
 
 using AutoMapper;
 using Interfaces.CQRS;
