@@ -2,14 +2,14 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "Vladislav Antonyuk",
   "classifications": ["Common"],
-  "description": "Creates a new onion architecture cross-platform app.",
-  "name": "Onion Architecture Cross Platform Application",
-  "identity": "VladislavAntonyuk.DotNetTemplates.OnionArchitectureCrossPlatformApplication",
+  "description": "Creates a new onion architecture Blazor Server web application.",
+  "name": "Onion Architecture Blazor Server Web Application",
+  "identity": "VladislavAntonyuk.DotNetTemplates.OnionArchitectureBlazorServer",
   "tags": {
     "language": "C#",
     "type": "project"
   },
-  "shortName": "onionapp",
+  "shortName": "onion-blazor-server",
   "sourceName": "App1",
   "preferNameDirectory":true,
   "symbols": {
