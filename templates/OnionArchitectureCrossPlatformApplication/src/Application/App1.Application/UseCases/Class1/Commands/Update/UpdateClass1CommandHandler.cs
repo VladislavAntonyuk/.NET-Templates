@@ -16,8 +16,10 @@ public class UpdateClass1CommandHandler : BaseClass1Handler, ICommandHandler<Cla
 		var class1 = await Class1Repository.GetById(command.Id, cancellationToken);
 		if (class1 is not null)
 		{
-			var classToUpdate = Mapper.Map<Class1>(command);
-			var updatedClass = await Class1Repository.Update(classToUpdate, cancellationToken);
+			var class1ToUpdate = Mapper.Map<Class1>(command);
+			class1ToUpdate.CreatedBy = class1.CreatedBy;
+			class1ToUpdate.CreatedOn = class1.CreatedOn;
+			var updatedClass = await Class1Repository.Update(class1ToUpdate, cancellationToken);
 			return new OperationResult<Class1Dto>
 			{
 				Value = Mapper.Map<Class1Dto>(updatedClass)

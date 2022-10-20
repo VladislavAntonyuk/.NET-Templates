@@ -20,7 +20,12 @@ public static class MauiProgram
 			       fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 			       fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			   });
-		builder.UseMauiCommunityToolkit();
+		builder.UseMauiCommunityToolkit(options =>
+		{
+			options.SetShouldSuppressExceptionsInAnimations(true);
+			options.SetShouldSuppressExceptionsInBehaviors(true);
+			options.SetShouldSuppressExceptionsInConverters(true);
+		});
 		builder.Services.AddApplication();
 		builder.Services.AddInfrastructureData(GetDatabaseConnectionString("App1"));
 		builder.Services.AddInfrastructureBusiness();

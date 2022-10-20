@@ -46,10 +46,17 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="1.0.0" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview3" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="1.3.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios' or $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) =='maccatalyst' ">
+		<PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
+		<PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.2" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.2" />
+		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.2" />
 	</ItemGroup>
 
 	<ItemGroup>

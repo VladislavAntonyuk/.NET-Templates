@@ -27,7 +27,7 @@ public partial class MainViewModel : ObservableObject
 		GetItemsCommand.Execute(null);
 	}
 
-	[ICommand]
+	[RelayCommand]
 	private async Task GetItems(CancellationToken cancellationToken)
 	{
 		var result = await queryDispatcher.SendAsync<GetClass1ByFilterResponse, GetClass1Query>(new GetClass1Query
@@ -49,7 +49,7 @@ public partial class MainViewModel : ObservableObject
 		}
 	}
 
-	[ICommand]
+	[RelayCommand]
 	private async Task CreateItem(CancellationToken cancellationToken)
 	{
 		var result = await commandDispatcher.SendAsync<Class1Dto, CreateClass1Command>(new CreateClass1Command
@@ -67,7 +67,7 @@ public partial class MainViewModel : ObservableObject
 		}
 	}
 
-	[ICommand]
+	[RelayCommand]
 	private async Task UpdateItem(int itemId, CancellationToken cancellationToken)
 	{
 		var result = await commandDispatcher.SendAsync<Class1Dto, UpdateClass1Command>(new UpdateClass1Command(itemId)
@@ -85,7 +85,7 @@ public partial class MainViewModel : ObservableObject
 		}
 	}
 
-	[ICommand]
+	[RelayCommand]
 	private async Task DeleteItem(int itemId, CancellationToken cancellationToken)
 	{
 		var result = await commandDispatcher.SendAsync<bool, DeleteClass1Command>(new DeleteClass1Command(itemId), cancellationToken);

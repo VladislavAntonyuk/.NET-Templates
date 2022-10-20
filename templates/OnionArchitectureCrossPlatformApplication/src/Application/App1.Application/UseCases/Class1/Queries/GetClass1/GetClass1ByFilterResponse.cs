@@ -2,7 +2,7 @@
 
 public class GetClass1ByFilterResponse
 {
-	public IReadOnlyCollection<Class1Dto> Items { get; set; } = new List<Class1Dto>();
+	public List<Class1Dto> Items { get; set; } = new ();
 	public int PageIndex { get; }
 	public int TotalPages { get; }
 	public int TotalCount { get; }
