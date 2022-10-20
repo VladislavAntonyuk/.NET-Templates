@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  webapp:
+    image: ${DOCKER_REGISTRY-}webapp
+    ports:
+      - "8000:80"
+    build:
+      context: .
+      dockerfile: src/UI/App1.WebApp/Dockerfile
+    depends_on:
+      - "db"
+    environment:
+      MySqlConnectionString: "server=db;port=3306;database=App1;user=root;password=password"
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: App1
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - webapp_mysql:/var/lib/mysql
+
+volumes:
+  webapp_mysql:

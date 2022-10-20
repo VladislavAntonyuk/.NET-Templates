@@ -28,7 +28,7 @@ dotnet new -u VladislavAntonyuk.DotNetTemplates
 
 ## Templates
 
-### OnionArchitectureCrossPlatformApplication
+### Onion Architecture Cross-Platform Application
 
 Cross-platform application (Blazor Server WebApp + .NET MAUI) with onion archirecture.
 
@@ -36,5 +36,25 @@ Cross-platform application (Blazor Server WebApp + .NET MAUI) with onion archire
 
 ```pwsh
 dotnet new onionapp -n MyProjectName --entityName MyEntityName
+```
+
+### Onion Architecture Blazor Application
+
+Blazor Server application with onion archirecture.
+
+#### Create project
+
+```pwsh
+dotnet new onion-blazor-server -n MyProjectName --entityName MyEntityName
+```
+
+### Onion Architecture .NET MAUI Application
+
+.NET MAUI application with onion archirecture.
+
+#### Create project
+
+```pwsh
+dotnet new onion-maui -n MyProjectName --entityName MyEntityName
 ```
 
