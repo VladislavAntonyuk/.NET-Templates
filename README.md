@@ -11,19 +11,19 @@ dotnet pack
 From NuGet:
 
 ```pwsh
-dotnet new -i VladislavAntonyuk.DotNetTemplates
+dotnet new install VladislavAntonyuk.DotNetTemplates
 ```
 
 From file:
 
 ```pwsh
-dotnet new -i VladislavAntonyuk.DotNetTemplates.1.0.0.nupkg
+dotnet new install VladislavAntonyuk.DotNetTemplates.2.0.0.nupkg
 ```
 
 ## Uninstall
 
 ```pwsh
-dotnet new -u VladislavAntonyuk.DotNetTemplates
+dotnet new uninstall VladislavAntonyuk.DotNetTemplates
 ```
 
 ## Templates
@@ -35,7 +35,7 @@ Cross-platform application (Blazor Server WebApp + .NET MAUI) with onion archire
 #### Create project
 
 ```pwsh
-dotnet new onionapp -n MyProjectName --entityName MyEntityName
+dotnet new onion-app -n MyProjectName --entityName MyEntityName
 ```
 
 ### Onion Architecture Blazor Application
@@ -58,3 +58,13 @@ dotnet new onion-blazor-server -n MyProjectName --entityName MyEntityName
 dotnet new onion-maui -n MyProjectName --entityName MyEntityName
 ```
 
+
+### iOS Extension for .NET MAUI Application
+
+iOS Extension for .NET MAUI application.
+
+#### Create project
+
+```pwsh
+dotnet new ios-extension -n MyProjectName --applicationId com.vladislavantonyuk.myapp.myapp-Share
+```

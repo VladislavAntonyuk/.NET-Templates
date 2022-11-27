@@ -16,10 +16,10 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 7.0.x
         include-prerelease: true
     - name: Pack
-      run: dotnet pack -c Release -p:PackageVersion="1.0.${{github.run_number}}"
+      run: dotnet pack -c Release -p:PackageVersion="2.0.${{github.run_number}}"
     - name: Publish NuGet
       run: dotnet nuget push **/bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
       if: github.ref == 'refs/heads/main'

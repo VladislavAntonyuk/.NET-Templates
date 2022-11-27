@@ -9,7 +9,7 @@
     "language": "C#",
     "type": "project"
   },
-  "shortName": "onionapp",
+  "shortName": "onion-app",
   "sourceName": "App1",
   "preferNameDirectory":true,
   "symbols": {

@@ -6,6 +6,7 @@ using Infrastructure.Mobile.Business;
 using Infrastructure.Mobile.Data.Configuration;
 using Infrastructure.Mobile.Data.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using ViewModels;
 using Views;
 
@@ -31,6 +32,11 @@ public static class MauiProgram
 		builder.Services.AddInfrastructureBusiness();
 		builder.Services.AddSingleton<MainViewModel>();
 		builder.Services.AddSingleton<MainPage>();
+
+#if DEBUG
+		builder.Logging.AddDebug();
+#endif
+
 		var app = builder.Build();
 		MigrateDb(app.Services);
 		return app;
