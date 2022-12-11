@@ -2,14 +2,14 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "Vladislav Antonyuk",
   "classifications": ["Blazor","Web"],
-  "description": "Creates a new onion architecture Blazor Server web application.",
-  "name": "Onion Architecture Blazor Server Web Application",
-  "identity": "VladislavAntonyuk.DotNetTemplates.OnionArchitectureBlazorServer",
+  "description": "Creates a new onion architecture Blazor WebAssembly web application.",
+  "name": "Onion Architecture Blazor WebAssembly Web Application",
+  "identity": "VladislavAntonyuk.DotNetTemplates.OnionArchitectureBlazorWebAssembly",
   "tags": {
     "language": "C#",
     "type": "project"
   },
-  "shortName": "onion-blazor-server",
+  "shortName": "onion-blazor-webassembly",
   "sourceName": "App1",
   "preferNameDirectory":true,
   "symbols": {

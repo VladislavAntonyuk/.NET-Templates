@@ -1,15 +1,15 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Vladislav Antonyuk",
-  "classifications": ["iOS"],
-  "description": "Creates a new iOS Extension.",
-  "name": "iOS Extension",
-  "identity": "VladislavAntonyuk.DotNetTemplates.iOSExtension",
+  "classifications": ["MAUI","iOS"],
+  "description": "Creates a new iOS Share Extension.",
+  "name": "iOS Share Extension",
+  "identity": "VladislavAntonyuk.DotNetTemplates.iOSShareExtension",
   "tags": {
     "language": "C#",
     "type": "project"
   },
-  "shortName": "ios-extension",
+  "shortName": "ios-share-extension",
   "sourceName": "App1",
   "preferNameDirectory":true,
   "symbols": {

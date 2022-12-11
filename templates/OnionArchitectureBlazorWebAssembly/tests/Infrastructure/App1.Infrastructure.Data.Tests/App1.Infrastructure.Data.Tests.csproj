@@ -3,7 +3,6 @@
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
 		<IsPackable>false</IsPackable>
-		<RootNamespace>App1.Infrastructure.WebApp.Business.Tests</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -22,7 +21,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\src\Infrastructure\App1.Infrastructure.Business\App1.Infrastructure.Business.csproj" />
+	  <ProjectReference Include="..\..\..\src\Infrastructure\App1.Infrustructure.Data\App1.Infrastructure.Data.csproj" />
 	</ItemGroup>
 
 </Project>

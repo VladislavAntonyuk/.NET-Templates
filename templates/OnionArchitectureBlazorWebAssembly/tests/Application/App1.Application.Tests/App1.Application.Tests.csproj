@@ -1,12 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
-		<IsPackable>false</IsPackable>
-		<RootNamespace>App1.Infrastructure.WebApp.Business.Tests</RootNamespace>
-	</PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
 
-	<ItemGroup>
+    <ItemGroup>
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
 		<PackageReference Include="xunit" Version="2.4.2" />
 		<PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
@@ -21,8 +20,8 @@
 		</PackageReference>
 	</ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\..\..\src\Infrastructure\App1.Infrastructure.Business\App1.Infrastructure.Business.csproj" />
-	</ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\src\Application\App1.Application\App1.Application.csproj" />
+    </ItemGroup>
 
 </Project>

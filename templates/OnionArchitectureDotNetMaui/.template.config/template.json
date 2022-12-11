@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Vladislav Antonyuk",
-  "classifications": ["Common"],
+  "classifications": ["MAUI","Android","iOS","Mac Catalyst","Windows","Tizen"],
   "description": "Creates a new onion architecture .NET MAUI app.",
   "name": "Onion Architecture .NET MAUI Application",
   "identity": "VladislavAntonyuk.DotNetTemplates.OnionArchitectureDotNetMaui",
