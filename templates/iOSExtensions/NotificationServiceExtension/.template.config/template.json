@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Vladislav Antonyuk",
+  "classifications": ["MAUI","iOS"],
+  "description": "Creates a new iOS Notification Service Extension.",
+  "name": "iOS Notification Service Extension",
+  "identity": "VladislavAntonyuk.DotNetTemplates.iOSExtensions.NotificationServiceExtension",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "shortName": "ios-notification-service-extension",
+  "sourceName": "App1",
+  "preferNameDirectory":true,
+  "symbols": {
+    "applicationId": {
+      "description": "ApplicationId",
+      "type": "parameter",
+      "replaces": "com.companyname.app.app"
+    }
+  }
+}

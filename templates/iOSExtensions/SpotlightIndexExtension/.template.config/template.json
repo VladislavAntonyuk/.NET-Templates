@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Vladislav Antonyuk",
+  "classifications": ["MAUI","iOS"],
+  "description": "Creates a new iOS Spotlight Index Extension.",
+  "name": "iOS Spotlight Index Extension",
+  "identity": "VladislavAntonyuk.DotNetTemplates.iOSExtensions.SpotlightIndexExtension",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "shortName": "ios-spotlight-index-extension",
+  "sourceName": "App1",
+  "preferNameDirectory":true,
+  "symbols": {
+    "applicationId": {
+      "description": "ApplicationId",
+      "type": "parameter",
+      "replaces": "com.companyname.app.app"
+    }
+  }
+}

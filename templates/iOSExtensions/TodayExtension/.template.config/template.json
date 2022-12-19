@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Vladislav Antonyuk",
+  "classifications": ["MAUI","iOS"],
+  "description": "Creates a new iOS Today Extension.",
+  "name": "iOS Today Extension",
+  "identity": "VladislavAntonyuk.DotNetTemplates.iOSExtensions.TodayExtension",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "shortName": "ios-today-extension",
+  "sourceName": "App1",
+  "preferNameDirectory":true,
+  "symbols": {
+    "applicationId": {
+      "description": "ApplicationId",
+      "type": "parameter",
+      "replaces": "com.companyname.app.app"
+    }
+  }
+}

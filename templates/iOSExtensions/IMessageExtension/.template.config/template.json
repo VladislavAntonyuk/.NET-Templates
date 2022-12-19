@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Vladislav Antonyuk",
+  "classifications": ["MAUI","iOS"],
+  "description": "Creates a new iOS iMessage Extension.",
+  "name": "iOS iMessage Extension",
+  "identity": "VladislavAntonyuk.DotNetTemplates.iOSExtensions.iMessageExtension",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "shortName": "ios-imessage-extension",
+  "sourceName": "App1",
+  "preferNameDirectory":true,
+  "symbols": {
+    "applicationId": {
+      "description": "ApplicationId",
+      "type": "parameter",
+      "replaces": "com.companyname.app.app"
+    }
+  }
+}
