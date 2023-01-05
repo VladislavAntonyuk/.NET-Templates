@@ -4,8 +4,9 @@
 
 [![Stand With Ukraine](https://img.shields.io/badge/made_in-ukraine-ffd700.svg?labelColor=0057b7)](https://stand-with-ukraine.pp.ua)
 
-<a href="https://www.nuget.org/packages/VladislavAntonyuk.DotNetTemplates"><img src="https://img.shields.io/nuget/v/VladislavAntonyuk.DotNetTemplates?color=blue&style=flat-square&logo=nuget"></a>
-<a href="https://www.nuget.org/packages/VladislavAntonyuk.DotNetTemplates"><img src="https://img.shields.io/nuget/dt/VladislavAntonyuk.DotNetTemplates.svg?style=flat-square"></a>
+[![NuGet Version](https://img.shields.io/nuget/v/VladislavAntonyuk.DotNetTemplates?color=blue&style=flat-square&logo=nuget)](https://www.nuget.org/packages/VladislavAntonyuk.DotNetTemplates)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/VladislavAntonyuk.DotNetTemplates.svg?style=flat-square)](https://www.nuget.org/packages/VladislavAntonyuk.DotNetTemplates)
+
 
 ## Onion Architecture Templates
 
