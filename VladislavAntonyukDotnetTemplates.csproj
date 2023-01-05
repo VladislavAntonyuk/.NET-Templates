@@ -7,7 +7,7 @@
     <Title>Vladislav Antonyuk .NET Templates</Title>
     <Authors>Vladislav Antonyuk</Authors>
     <Description>.NET Application templates like cross-platform app with onion architecture.</Description>
-    <PackageTags>dotnet-new;templates;onion;architecture;maui;dotnet-maui</PackageTags>
+    <PackageTags>dotnet;dotnet-new;templates;onion;architecture;maui;dotnet-maui;ios;extensions;</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <TargetFramework>netstandard2.0</TargetFramework>
     <IncludeContentInPack>true</IncludeContentInPack>
