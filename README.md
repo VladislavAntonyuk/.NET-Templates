@@ -7,12 +7,41 @@
 [![NuGet Version](https://img.shields.io/nuget/v/VladislavAntonyuk.DotNetTemplates?color=blue&style=flat-square&logo=nuget)](https://www.nuget.org/packages/VladislavAntonyuk.DotNetTemplates)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/VladislavAntonyuk.DotNetTemplates.svg?style=flat-square)](https://www.nuget.org/packages/VladislavAntonyuk.DotNetTemplates)
 
+Table of contents:
+* [Onion Architecture Templates](#onion-architecture-templates)
+  + [Onion Architecture Cross-Platform Application](#onion-architecture-cross-platform-application)
+  + [Onion Architecture Blazor Server Application](#onion-architecture-blazor-server-application)
+  + [Onion Architecture Blazor WebAssembly Application](#onion-architecture-blazor-webassembly-application)
+  + [Onion Architecture .NET MAUI Application](#onion-architecture-net-maui-application)
+* [iOS Extensions for .NET MAUI Application](#ios-extensions-for-net-maui-application)
+  + [Action Extension](#action-extension)
+  + [Audio Unit Extension](#audio-unit-extension)
+  + [Broadcast UI Extension](#broadcast-ui-extension)
+  + [CallDirectory Extension](#calldirectory-extension)
+  + [Content Blocker Extension](#content-blocker-extension)
+  + [Custom Keyboard Extension](#custom-keyboard-extension)
+  + [Document Picker File Provider Extension](#document-picker-file-provider-extension)
+  + [iMessage Extension](#imessage-extension)
+  + [Intents UI Extension](#intents-ui-extension)
+  + [Notification Content Extension](#notification-content-extension)
+  + [Notification Service Extension](#notification-service-extension)
+  + [Photo Editing Extension](#photo-editing-extension)
+  + [Shared Links Extension](#shared-links-extension)
+  + [Share Extension](#share-extension)
+  + [Spotlight Index Extension](#spotlight-index-extension)
+  + [Today Extension](#today-extension)
+* [Build](#build)
+* [Install Templates](#install-templates)
+* [Uninstall](#uninstall)
+
+[<a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a>]: <>
+
 
 ## Onion Architecture Templates
 
 ### Onion Architecture Cross-Platform Application
 
-Cross-platform application (Blazor Server WebApp + .NET MAUI) with onion archirecture.
+Cross-platform application (Blazor Server WebApp + .NET MAUI) with onion architecture.
 
 Create project:
 
@@ -22,7 +51,7 @@ dotnet new onion-app -n MyProjectName --entityName MyEntityName
 
 ### Onion Architecture Blazor Server Application
 
-Blazor Server application with onion archirecture.
+Blazor Server application with onion architecture.
 
 Create project:
 
@@ -32,7 +61,7 @@ dotnet new onion-blazor-server -n MyProjectName --entityName MyEntityName
 
 ### Onion Architecture Blazor WebAssembly Application
 
-Blazor WebAssembly application with onion archirecture.
+Blazor WebAssembly application with onion architecture.
 
 Create project:
 
@@ -42,7 +71,7 @@ dotnet new onion-blazor-webassembly -n MyProjectName --entityName MyEntityName
 
 ### Onion Architecture .NET MAUI Application
 
-.NET MAUI application with onion archirecture.
+.NET MAUI application with onion architecture.
 
 Create project:
 

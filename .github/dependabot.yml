@@ -1,7 +1,140 @@
 version: 2
 updates:
 - package-ecosystem: nuget
-  directory: "/"
+  directory: "/templates/iOSExtensions/ActionExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/AudioUnitExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/BroadcastUIExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/CallDirectoryExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/ContentBlockerExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/CustomKeyboardExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/DocumentPickerFileProviderExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/iMessageExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/IntentsUIExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/NotificationContentExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/NotificationServiceExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/PhotoEditingExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/SharedLinksExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/ShareExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/SpotlightIndexExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/iOSExtensions/TodayExtension"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/OnionArchitectureBlazorServer"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/OnionArchitectureBlazorWebAssembly"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/OnionArchitectureCrossPlatformApplication"
+  schedule:
+    interval: daily
+  reviewers:
+    - "VladislavAntonyuk"
+  open-pull-requests-limit: 10
+- package-ecosystem: nuget
+  directory: "/templates/OnionArchitectureDotNetMaui"
   schedule:
     interval: daily
   reviewers:
