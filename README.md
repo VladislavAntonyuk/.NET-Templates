@@ -36,7 +36,6 @@ Table of contents:
 
 [<a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a>]: <>
 
-
 ## Onion Architecture Templates
 
 ### Onion Architecture Cross-Platform Application
