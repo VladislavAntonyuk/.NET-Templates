@@ -17,11 +17,14 @@ Table of contents:
   + [Action Extension](#action-extension)
   + [Audio Unit Extension](#audio-unit-extension)
   + [Broadcast UI Extension](#broadcast-ui-extension)
+  + [Broadcast Upload Extension](#broadcast-upload-extension)
   + [CallDirectory Extension](#calldirectory-extension)
   + [Content Blocker Extension](#content-blocker-extension)
   + [Custom Keyboard Extension](#custom-keyboard-extension)
+  + [Document Picker Extension](#document-picker-extension)
   + [Document Picker File Provider Extension](#document-picker-file-provider-extension)
   + [iMessage Extension](#imessage-extension)
+  + [Intents Extension](#intents-extension)
   + [Intents UI Extension](#intents-ui-extension)
   + [Notification Content Extension](#notification-content-extension)
   + [Notification Service Extension](#notification-service-extension)
@@ -116,6 +119,18 @@ dotnet new ios-broadcast-ui-extension -n MyProjectName --applicationId com.vladi
 
 The final application id: `com.vladislavantonyuk.myapp.myapp-BroadcastUIExtension`.
 
+### Broadcast Upload Extension
+
+iOS Broadcast Upload Extension for .NET MAUI application.
+
+Create project:
+
+```pwsh
+dotnet new ios-broadcast-upload-extension -n MyProjectName --applicationId com.vladislavantonyuk.myapp.myapp
+```
+
+The final application id: `com.vladislavantonyuk.myapp.myapp-BroadcastUploadExtension`.
+
 ### CallDirectory Extension
 
 iOS Call Directory Extension for .NET MAUI application.
@@ -152,9 +167,21 @@ dotnet new ios-custom-keyboard-extension -n MyProjectName --applicationId com.vl
 
 The final application id: `com.vladislavantonyuk.myapp.myapp-CustomKeyboardExtension`.
 
-### Document Picker File Provider Extension
+### Document Picker Extension
 
 iOS Document Picker Extension for .NET MAUI application.
+
+Create project:
+
+```pwsh
+dotnet new ios-document-picker-extension -n MyProjectName --applicationId com.vladislavantonyuk.myapp.myapp
+```
+
+The final application id: `com.vladislavantonyuk.myapp.myapp-DocumentPickerExtension`.
+
+### Document Picker File Provider Extension
+
+iOS Document Picker File Provider Extension for .NET MAUI application.
 
 Create project:
 
@@ -175,6 +202,18 @@ dotnet new ios-imessage-extension -n MyProjectName --applicationId com.vladislav
 ```
 
 The final application id: `com.vladislavantonyuk.myapp.myapp-IMessageExtension`.
+
+### Intents Extension
+
+iOS Intents Extension for .NET MAUI application.
+
+Create project:
+
+```pwsh
+dotnet new ios-intents-extension -n MyProjectName --applicationId com.vladislavantonyuk.myapp.myapp
+```
+
+The final application id: `com.vladislavantonyuk.myapp.myapp-IntentsExtension`.
 
 ### Intents UI Extension
 

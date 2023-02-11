@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Vladislav Antonyuk",
+  "classifications": ["MAUI","iOS"],
+  "description": "Creates a new iOS Document Picker Extension.",
+  "name": "iOS Document Picker Extension",
+  "identity": "VladislavAntonyuk.DotNetTemplates.iOSExtensions.DocumentPickerExtension",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "shortName": "ios-document-picker-extension",
+  "sourceName": "App1",
+  "preferNameDirectory":true,
+  "symbols": {
+    "applicationId": {
+      "description": "ApplicationId",
+      "type": "parameter",
+      "replaces": "com.companyname.app.app"
+    }
+  }
+}
