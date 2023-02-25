@@ -10,11 +10,15 @@ public static class DependencyInjection
 {
 	public static void AddApplication(this IServiceCollection services)
 	{
-		services.AddMediatR(Assembly.GetExecutingAssembly());
-		services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
-		services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
-		services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-		services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-		services.AddAutoMapper(Assembly.GetExecutingAssembly());
+		var assembly = Assembly.GetExecutingAssembly();
+		services.AddMediatR(configuration =>
+		{
+			configuration.RegisterServicesFromAssembly(assembly);
+			configuration.AddOpenBehavior(typeof(UnhandledExceptionBehaviour<,>));
+			configuration.AddOpenBehavior(typeof(PerformanceBehaviour<,>));
+			configuration.AddOpenBehavior(typeof(ValidationBehavior<,>));
+		});
+		services.AddValidatorsFromAssembly(assembly);
+		services.AddAutoMapper(assembly);
 	}
 }
