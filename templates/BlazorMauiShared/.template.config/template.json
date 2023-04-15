@@ -3,13 +3,13 @@
   "author": "Vladislav Antonyuk",
   "classifications": ["MAUI","Blazor"],
   "description": "Creates a new solution with a shared UI for .NET MAUI, Blazor Server and Blazor WebAssembly.",
-  "name": "Blazor and .NET MAUI Shared UI Extension",
+  "name": "Blazor and .NET MAUI Shared UI",
   "identity": "VladislavAntonyuk.DotNetTemplates.BlazorMauiShared",
   "tags": {
     "language": "C#",
     "type": "project"
   },
-  "shortName": "blazor-maui-shared-extension",
+  "shortName": "blazor-maui-shared",
   "sourceName": "App1",
   "preferNameDirectory":true,
   "symbols": {

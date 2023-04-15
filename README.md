@@ -8,6 +8,7 @@
 [![NuGet Downloads](https://img.shields.io/nuget/dt/VladislavAntonyuk.DotNetTemplates.svg?style=flat-square)](https://www.nuget.org/packages/VladislavAntonyuk.DotNetTemplates)
 
 Table of contents:
+* [BlazorMauiShared](#blazor-maui-shared)
 * [Onion Architecture Templates](#onion-architecture-templates)
   + [Onion Architecture Cross-Platform Application](#onion-architecture-cross-platform-application)
   + [Onion Architecture Blazor Server Application](#onion-architecture-blazor-server-application)
@@ -39,46 +40,56 @@ Table of contents:
 
 [<a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a>]: <>
 
+## BlazorMauiShared
+
+Creates .NET MAUI application, Blazor Server and Blazor WebAssembly projects with shared UI.
+
+Create solution:
+
+```pwsh
+dotnet new blazor-maui-shared -n MyProductName --ApplicationId com.vladislavantonyuk.myapp
+```
+
 ## Onion Architecture Templates
 
 ### Onion Architecture Cross-Platform Application
 
 Cross-platform application (Blazor Server WebApp + .NET MAUI) with onion architecture.
 
-Create project:
+Create solution:
 
 ```pwsh
-dotnet new onion-app -n MyProjectName --entityName MyEntityName
+dotnet new onion-app -n MyProductName --entityName MyEntityName
 ```
 
 ### Onion Architecture Blazor Server Application
 
 Blazor Server application with onion architecture.
 
-Create project:
+Create solution:
 
 ```pwsh
-dotnet new onion-blazor-server -n MyProjectName --entityName MyEntityName
+dotnet new onion-blazor-server -n MyProductName --entityName MyEntityName
 ```
 
 ### Onion Architecture Blazor WebAssembly Application
 
 Blazor WebAssembly application with onion architecture.
 
-Create project:
+Create solution:
 
 ```pwsh
-dotnet new onion-blazor-webassembly -n MyProjectName --entityName MyEntityName
+dotnet new onion-blazor-webassembly -n MyProductName --entityName MyEntityName
 ```
 
 ### Onion Architecture .NET MAUI Application
 
 .NET MAUI application with onion architecture.
 
-Create project:
+Create solution:
 
 ```pwsh
-dotnet new onion-maui -n MyProjectName --entityName MyEntityName
+dotnet new onion-maui -n MyProductName --entityName MyEntityName
 ```
 
 ## iOS Extensions for .NET MAUI Application
