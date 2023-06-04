@@ -21,9 +21,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{AEFAFB5E-83E6-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{52979624-CE2B-4077-A87F-A33E8D8C333A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{04EECB06-BF81-4920-B425-4A729911A7E3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{04EECB06-BF81-4920-B425-4A729911A7E3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Mobile", "src\UI\Mobile\App1.Mobile\App1.Mobile.csproj", "{B0B79B76-7225-4F57-A9F5-2757799EE58C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Client", "src\UI\Client\App1.Client\App1.Client.csproj", "{B0B79B76-7225-4F57-A9F5-2757799EE58C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Domain", "src\Domain\App1.Domain\App1.Domain.csproj", "{E0CFAE7F-F7A5-4DD1-99D6-1A6239CB51AB}"
 EndProject
@@ -33,11 +33,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.WebApp.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.WebApp.Business", "src\Infrastructure\WebApp\App1.Infrastructure.WebApp.Business\App1.Infrastructure.WebApp.Business.csproj", "{FD48A0BE-F297-4EF8-B2DB-0E775F9CF8E4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{AD1602E9-25CC-41CA-9789-0BA80AD2AE43}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{AD1602E9-25CC-41CA-9789-0BA80AD2AE43}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.Mobile.Data", "src\Infrastructure\Mobile\App1.Infrastructure.Mobile.Data\App1.Infrastructure.Mobile.Data.csproj", "{AD9B0641-981D-4C3E-95AA-7BF4CE95D349}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.Client.Data", "src\Infrastructure\Client\App1.Infrastructure.Client.Data\App1.Infrastructure.Client.Data.csproj", "{AD9B0641-981D-4C3E-95AA-7BF4CE95D349}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.Mobile.Business", "src\Infrastructure\Mobile\App1.Infrastructure.Mobile.Business\App1.Infrastructure.Mobile.Business.csproj", "{1E477792-5062-4E73-B217-AF20652115B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.Client.Business", "src\Infrastructure\Client\App1.Infrastructure.Client.Business\App1.Infrastructure.Client.Business.csproj", "{1E477792-5062-4E73-B217-AF20652115B3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D4CEC1CF-0411-49C5-AB2C-40BAFB5BC459}"
 	ProjectSection(SolutionItems) = preProject
@@ -53,7 +53,7 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{C047EBEB-2B76-4C46-9E55-B46A24CDCEBB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{88D6B654-9234-4FE7-B80B-EAD9458A7AD9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{88D6B654-9234-4FE7-B80B-EAD9458A7AD9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{90106D7D-24CC-4945-9E52-BFABE4302482}"
 EndProject
@@ -61,9 +61,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.WebApp.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.WebApp.Data.Tests", "tests\Infrastructure\WebApp\App1.Infrastructure.WebApp.Data.Tests\App1.Infrastructure.WebApp.Data.Tests.csproj", "{F2CB2772-F378-4739-9837-9F9DF6C689D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.Mobile.Data.Tests", "tests\Infrastructure\Mobile\App1.Infrastructure.Mobile.Data.Tests\App1.Infrastructure.Mobile.Data.Tests.csproj", "{29705F4E-6161-46E9-8F62-C8701C8FCE34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.Client.Data.Tests", "tests\Infrastructure\Client\App1.Infrastructure.Client.Data.Tests\App1.Infrastructure.Client.Data.Tests.csproj", "{29705F4E-6161-46E9-8F62-C8701C8FCE34}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.Mobile.Business.Tests", "tests\Infrastructure\Mobile\App1.Infrastructure.Mobile.Business.Tests\App1.Infrastructure.Mobile.Business.Tests.csproj", "{B64AF9D3-1B7F-4B08-A88A-1DDCA271DD2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Infrastructure.Client.Business.Tests", "tests\Infrastructure\Client\App1.Infrastructure.Client.Business.Tests\App1.Infrastructure.Client.Business.Tests.csproj", "{B64AF9D3-1B7F-4B08-A88A-1DDCA271DD2B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.WebApp.Application", "src\Application\App1.WebApp.Application\App1.WebApp.Application.csproj", "{00A8B1B9-46B7-4E7D-926E-BDA075825BC3}"
 EndProject
