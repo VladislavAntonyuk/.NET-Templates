@@ -2,7 +2,7 @@
 
 using Interfaces.CQRS;
 
-public class UpdateClass1Command : ICommand<Class1Dto>
+public class UpdateClass1Command : ICommand<bool>
 {
 	public UpdateClass1Command(int id)
 	{
@@ -10,5 +10,5 @@ public class UpdateClass1Command : ICommand<Class1Dto>
 	}
 
 	public int Id { get; }
-	public string Title { get; init; } = string.Empty;
+	public string Name { get; init; } = string.Empty;
 }

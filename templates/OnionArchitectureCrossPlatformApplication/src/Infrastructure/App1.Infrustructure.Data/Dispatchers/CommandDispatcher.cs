@@ -1,7 +1,7 @@
 ﻿namespace App1.Infrastructure.Data.Dispatchers;
 
 using Application.Interfaces.CQRS;
-using MediatR;
+using Mediator;
 
 public class CommandDispatcher : ICommandDispatcher
 {
@@ -12,8 +12,8 @@ public class CommandDispatcher : ICommandDispatcher
 		this.sender = sender;
 	}
 
-	public Task<IOperationResult<TResult>> SendAsync<TResult, TCommand>(TCommand command, CancellationToken cancellationToken)
-		where TCommand : ICommand<TResult>
+	public ValueTask<IOperationResult<TResult>> SendAsync<TResult, TCommand>(TCommand command, CancellationToken cancellationToken)
+		where TCommand : Application.Interfaces.CQRS.ICommand<TResult>
 	{
 		return sender.Send(command, cancellationToken);
 	}

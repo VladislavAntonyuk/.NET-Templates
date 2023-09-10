@@ -1,4 +1,4 @@
-namespace App1.Client;
+﻿namespace App1.Client;
 
 using Android.App;
 using Android.Runtime;

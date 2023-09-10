@@ -1,7 +1,6 @@
 ﻿namespace App1;
 
 using App1Shared;
-using Microsoft.Extensions.Logging;
 
 public static class MauiProgram
 {
@@ -15,7 +14,6 @@ public static class MauiProgram
 
 #if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();
-		builder.Logging.AddDebug();
 #endif
 
 		return builder.Build();

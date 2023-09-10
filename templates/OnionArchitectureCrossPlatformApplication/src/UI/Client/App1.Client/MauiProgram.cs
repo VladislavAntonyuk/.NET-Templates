@@ -4,9 +4,8 @@ using Application.Configuration;
 using CommunityToolkit.Maui;
 using Infrastructure.Client.Business;
 using Infrastructure.Client.Data.Configuration;
-using Infrastructure.Client.Data.Repositories.Models;
+using Infrastructure.Data.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using ViewModels;
 using Views;
 
@@ -16,10 +15,10 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder.UseMauiApp<App>()
-		       .ConfigureFonts(fonts =>
-		       {
-			       fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-			       fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+			   .ConfigureFonts(fonts =>
+			   {
+				   fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+				   fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			   });
 		builder.UseMauiCommunityToolkit(options =>
 		{
@@ -32,10 +31,6 @@ public static class MauiProgram
 		builder.Services.AddInfrastructureBusiness();
 		builder.Services.AddSingleton<MainViewModel>();
 		builder.Services.AddSingleton<MainPage>();
-
-#if DEBUG
-		builder.Logging.AddDebug();
-#endif
 
 		var app = builder.Build();
 		MigrateDb(app.Services);
@@ -50,7 +45,7 @@ public static class MauiProgram
 	private static void MigrateDb(IServiceProvider serviceProvider)
 	{
 		using var scope = serviceProvider.CreateScope();
-		var factory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<ClientAppContext>>();
+		var factory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<ApplicationContext>>();
 		using var context = factory.CreateDbContext();
 		context.Database.Migrate();
 	}

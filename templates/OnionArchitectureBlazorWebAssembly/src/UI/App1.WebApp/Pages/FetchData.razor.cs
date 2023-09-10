@@ -1,6 +1,5 @@
 ﻿namespace App1.WebApp.Pages;
 
-using System.Windows.Input;
 using App1.Application.Interfaces.CQRS;
 using App1.Application.UseCases.Class1;
 using App1.Application.UseCases.Class1.Commands.Create;
@@ -12,17 +11,9 @@ using MudBlazor;
 
 public partial class FetchData : App1BaseComponent
 {
-	private readonly ICommand deleteCommand;
-	private readonly ICommand updateCommand;
 	private MudTextField<string>? searchString;
 
 	private MudTable<Class1Dto> table = null!;
-
-	public FetchData()
-	{
-		updateCommand = new ModelCommand<int>(async id => await Update(id));
-		deleteCommand = new ModelCommand<int>(async id => await Delete(id));
-	}
 
 	[Inject]
 	public IQueryDispatcher QueryDispatcher { get; set; } = null!;
@@ -57,7 +48,7 @@ public partial class FetchData : App1BaseComponent
 	{
 		var result = await CommandDispatcher.SendAsync<Class1Dto, CreateClass1Command>(new CreateClass1Command
 		{
-			Title = DateTime.Now.ToString("O")
+			Name = DateTime.Now.ToString("O")
 		}, CancellationToken.None);
 		if (result.IsSuccessful)
 		{
@@ -91,9 +82,9 @@ public partial class FetchData : App1BaseComponent
 
 	private async Task Update(int id)
 	{
-		var result = await CommandDispatcher.SendAsync<Class1Dto, UpdateClass1Command>(new UpdateClass1Command(id)
+		var result = await CommandDispatcher.SendAsync<bool, UpdateClass1Command>(new UpdateClass1Command(id)
 		{
-			Title = DateTime.Now.ToString("O")
+			Name = DateTime.Now.ToString("O")
 		}, CancellationToken.None);
 		if (result.IsSuccessful)
 		{

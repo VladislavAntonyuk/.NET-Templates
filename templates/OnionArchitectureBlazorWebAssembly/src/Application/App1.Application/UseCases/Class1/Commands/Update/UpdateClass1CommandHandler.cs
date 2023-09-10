@@ -1,31 +1,28 @@
 ﻿namespace App1.Application.UseCases.Class1.Commands.Update;
 
-using AutoMapper;
 using Domain.Entities;
+using Interfaces;
 using Interfaces.CQRS;
-using Interfaces.Repositories;
 
-public class UpdateClass1CommandHandler : BaseClass1Handler, ICommandHandler<Class1Dto, UpdateClass1Command>
+public class UpdateClass1CommandHandler : ICommandHandler<bool, UpdateClass1Command>
 {
-	public UpdateClass1CommandHandler(IClass1Repository class1Repository, IMapper mapper) : base(class1Repository, mapper)
+	private readonly IClass1Repository class1Repository;
+
+	public UpdateClass1CommandHandler(IClass1Repository class1Repository)
 	{
+		this.class1Repository = class1Repository;
 	}
 
-	public async Task<IOperationResult<Class1Dto>> Handle(UpdateClass1Command command, CancellationToken cancellationToken)
+	public async ValueTask<IOperationResult<bool>> Handle(UpdateClass1Command command, CancellationToken cancellationToken)
 	{
-		var class1 = await Class1Repository.GetById(command.Id, cancellationToken);
-		if (class1 is not null)
+		var result = await class1Repository.Update(new Class1()
 		{
-			var class1ToUpdate = Mapper.Map<Class1>(command);
-			var updatedClass = await Class1Repository.Update(class1ToUpdate, cancellationToken);
-			return new OperationResult<Class1Dto>
-			{
-				Value = Mapper.Map<Class1Dto>(updatedClass)
-			};
-		}
-
-		var result = new OperationResult<Class1Dto>();
-		result.Errors.Add("Class1 not found");
-		return result;
+			Id = command.Id,
+			Name = command.Name
+		}, cancellationToken);
+		return new OperationResult<bool>()
+		{
+			Value = result
+		};
 	}
 }

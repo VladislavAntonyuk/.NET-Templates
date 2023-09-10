@@ -1,33 +1,26 @@
 ﻿namespace App1.Application.UseCases.Class1.Commands.Update;
 
-using AutoMapper;
-using Domain.Entities;
+using App1.Infrastructure.Data.Repositories.Models;
 using Interfaces.CQRS;
-using Interfaces.Repositories;
+using Microsoft.EntityFrameworkCore;
 
-public class UpdateClass1CommandHandler : BaseClass1Handler, ICommandHandler<Class1Dto, UpdateClass1Command>
+public class UpdateClass1CommandHandler : ICommandHandler<bool, UpdateClass1Command>
 {
-	public UpdateClass1CommandHandler(IClass1Repository class1Repository, IMapper mapper) : base(class1Repository, mapper)
+	private readonly IDbContextFactory<ApplicationContext> dbContextFactory;
+
+	public UpdateClass1CommandHandler(IDbContextFactory<ApplicationContext> dbContextFactory)
 	{
+		this.dbContextFactory = dbContextFactory;
 	}
 
-	public async Task<IOperationResult<Class1Dto>> Handle(UpdateClass1Command command, CancellationToken cancellationToken)
+	public async ValueTask<IOperationResult<bool>> Handle(UpdateClass1Command command, CancellationToken cancellationToken)
 	{
-		var class1 = await Class1Repository.GetById(command.Id, cancellationToken);
-		if (class1 is not null)
+		await using var dbContext = await dbContextFactory.CreateDbContextAsync(cancellationToken);
+		await dbContext.Class1.Where(x => x.Id == command.Id)
+					   .ExecuteUpdateAsync(x => x.SetProperty(y => y.Name, command.Name), cancellationToken: cancellationToken);
+		return new OperationResult<bool>()
 		{
-			var class1ToUpdate = Mapper.Map<Class1>(command);
-			class1ToUpdate.CreatedBy = class1.CreatedBy;
-			class1ToUpdate.CreatedOn = class1.CreatedOn;
-			var updatedClass = await Class1Repository.Update(class1ToUpdate, cancellationToken);
-			return new OperationResult<Class1Dto>
-			{
-				Value = Mapper.Map<Class1Dto>(updatedClass)
-			};
-		}
-
-		var result = new OperationResult<Class1Dto>();
-		result.Errors.Add("Class1 not found");
-		return result;
+			Value = true
+		};
 	}
 }

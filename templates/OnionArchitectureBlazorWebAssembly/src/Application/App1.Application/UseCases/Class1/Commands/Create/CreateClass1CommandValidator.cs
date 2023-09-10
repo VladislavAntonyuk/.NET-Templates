@@ -1,7 +1,7 @@
 ﻿namespace App1.Application.UseCases.Class1.Commands.Create;
 
+using App1.Application.Interfaces;
 using FluentValidation;
-using Interfaces.Repositories;
 
 public class CreateClass1CommandValidator : AbstractValidator<CreateClass1Command>
 {
@@ -16,7 +16,7 @@ public class CreateClass1CommandValidator : AbstractValidator<CreateClass1Comman
 
 	private void ConfigureValidation()
 	{
-		RuleFor(x => x.Title)
+		RuleFor(x => x.Name)
 			.NotEmpty()
 			.MustAsync(async (command, name, ctx, cancellationToken) =>
 			{
@@ -27,7 +27,7 @@ public class CreateClass1CommandValidator : AbstractValidator<CreateClass1Comman
 					return true;
 				}
 
-				ctx.AddFailure(nameof(command.Title), $"Class1 with Title:'{command.Title}' already exist");
+				ctx.AddFailure(nameof(command.Name), $"Class1 with Name:'{command.Name}' already exist");
 				return false;
 			});
 	}

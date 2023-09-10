@@ -1,14 +1,13 @@
 ﻿namespace App1.Client;
 
 using Application.Configuration;
-using Infrastructure.Data.Repositories.Models;
 using CommunityToolkit.Maui;
 using Infrastructure.Business;
 using Infrastructure.Data.Configuration;
+using Infrastructure.Data.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
 using ViewModels;
 using Views;
-using Microsoft.Extensions.Logging;
 
 public static class MauiProgram
 {
@@ -16,10 +15,10 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder.UseMauiApp<App>()
-		       .ConfigureFonts(fonts =>
-		       {
-			       fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-			       fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+			   .ConfigureFonts(fonts =>
+			   {
+				   fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+				   fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			   });
 		builder.UseMauiCommunityToolkit(options =>
 		{
@@ -32,10 +31,6 @@ public static class MauiProgram
 		builder.Services.AddInfrastructureBusiness();
 		builder.Services.AddSingleton<MainViewModel>();
 		builder.Services.AddSingleton<MainPage>();
-
-#if DEBUG
-		builder.Logging.AddDebug();
-#endif
 
 		var app = builder.Build();
 		MigrateDb(app.Services);

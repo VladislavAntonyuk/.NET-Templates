@@ -1,73 +1,68 @@
 ﻿namespace App1.Infrastructure.Data.Repositories;
 
 using System.Net.Http.Json;
-using App1.Application.Interfaces.Repositories;
-using AutoMapper;
-using Models;
-using DomainClass1 = Domain.Entities.Class1;
+using Application.Interfaces;
+using Application.UseCases.Class1;
+using Domain.Entities;
 
 public class Class1Repository : IClass1Repository
 {
 	private readonly HttpClient httpClient;
-	private readonly IMapper mapper;
 
-	public Class1Repository(HttpClient httpClient, IMapper mapper)
+	public Class1Repository(HttpClient httpClient)
 	{
 		this.httpClient = httpClient;
-		this.mapper = mapper;
 	}
 
-	public async Task<DomainClass1> Add(DomainClass1 class1, CancellationToken cancellationToken)
+	public async Task<Class1?> Add(Class1 class1, CancellationToken cancellationToken)
 	{
 		cancellationToken.ThrowIfCancellationRequested();
-		var newClass1 = mapper.Map<Class1>(class1);
+		var newClass1 = Class1Dto.From(class1);
 		var result = await httpClient.PostAsJsonAsync("/products", newClass1, cancellationToken);
 		result.EnsureSuccessStatusCode();
-		newClass1 = await result.Content.ReadFromJsonAsync<Class1>(cancellationToken: cancellationToken);
-		return mapper.Map<DomainClass1>(newClass1);
+		newClass1 = await result.Content.ReadFromJsonAsync<Class1Dto>(cancellationToken: cancellationToken);
+		return Class1Dto.ToDomain(newClass1);
 	}
 
-	public async Task<DomainClass1> Update(DomainClass1 class1, CancellationToken cancellationToken)
+	public async Task<bool> Update(Class1 class1, CancellationToken cancellationToken)
 	{
 		cancellationToken.ThrowIfCancellationRequested();
-		var class1ToUpdate = mapper.Map<Class1>(class1);
+		var class1ToUpdate = Class1Dto.From(class1);
 		var result = await httpClient.PutAsJsonAsync("/products", class1ToUpdate, cancellationToken);
-		result.EnsureSuccessStatusCode();
-		class1ToUpdate = await result.Content.ReadFromJsonAsync<Class1>(cancellationToken: cancellationToken);
-		return mapper.Map<DomainClass1>(class1ToUpdate);
+		return result.IsSuccessStatusCode;
 	}
 
-	public async Task Delete(DomainClass1 class1, CancellationToken cancellationToken)
+	public async Task Delete(Class1 class1, CancellationToken cancellationToken)
 	{
 		cancellationToken.ThrowIfCancellationRequested();
 		var result = await httpClient.DeleteAsync($"/products/{class1.Id}", cancellationToken);
 		result.EnsureSuccessStatusCode();
 	}
 
-	public async Task<DomainClass1?> GetById(int id, CancellationToken cancellationToken)
+	public async Task<Class1?> GetById(int id, CancellationToken cancellationToken)
 	{
 		cancellationToken.ThrowIfCancellationRequested();
-		var class1 = await httpClient.GetFromJsonAsync<Class1>($"/products/{id}", cancellationToken);
-		return mapper.Map<DomainClass1>(class1);
+		var class1 = await httpClient.GetFromJsonAsync<Class1Dto>($"/products/{id}", cancellationToken);
+		return Class1Dto.ToDomain(class1);
 	}
 
 	public async Task<bool> IsExist(string parameter, CancellationToken cancellationToken)
 	{
 		cancellationToken.ThrowIfCancellationRequested();
-		var results = await httpClient.GetFromJsonAsync<IEnumerable<Class1>>($"/products?title={parameter}", cancellationToken);
+		var results = await httpClient.GetFromJsonAsync<IEnumerable<Class1Dto>>($"/products?title={parameter}", cancellationToken);
 		return results != null && results.Any();
 	}
 
-	public async Task<IEnumerable<DomainClass1>> GetAll(CancellationToken cancellationToken)
+	public async Task<IEnumerable<Class1>> GetAll(CancellationToken cancellationToken)
 	{
-		var results = await httpClient.GetFromJsonAsync<IEnumerable<Class1>>("/products", cancellationToken);
-		return mapper.Map<IEnumerable<DomainClass1>>(results);
+		var results = await httpClient.GetFromJsonAsync<IEnumerable<Class1Dto>>("/products", cancellationToken);
+		return results?.Select(x => Class1Dto.ToDomain(x)!) ?? Enumerable.Empty<Class1>();
 	}
 
-	public async Task<DomainClass1?> GetByName(string name, CancellationToken cancellationToken)
+	public async Task<Class1?> GetByName(string name, CancellationToken cancellationToken)
 	{
 		cancellationToken.ThrowIfCancellationRequested();
-		var results = await httpClient.GetFromJsonAsync<IEnumerable<Class1>>($"/products?title=*{name}*", cancellationToken);
-		return mapper.Map<DomainClass1>(results?.SingleOrDefault());
+		var results = await httpClient.GetFromJsonAsync<IEnumerable<Class1Dto>>($"/products?title=*{name}*", cancellationToken);
+		return Class1Dto.ToDomain(results?.FirstOrDefault());
 	}
 }

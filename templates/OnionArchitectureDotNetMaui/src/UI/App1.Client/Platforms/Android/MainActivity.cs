@@ -1,10 +1,10 @@
-namespace App1.Client;
+﻿namespace App1.Client;
 
 using Android.App;
 using Android.Content.PM;
 
 [Activity(Theme = "@style/Maui.SplashTheme",
-          MainLauncher = true,
+		  MainLauncher = true,
 		  ConfigurationChanges = ConfigChanges.ScreenSize |
 								 ConfigChanges.Orientation |
 								 ConfigChanges.UiMode |

@@ -25,13 +25,7 @@ namespace App1.Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ModifiedBy")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ModifiedOn")

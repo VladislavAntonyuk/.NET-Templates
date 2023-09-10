@@ -2,6 +2,6 @@
 
 public interface IQueryDispatcher
 {
-	Task<IOperationResult<TResult>> SendAsync<TResult, TQuery>(TQuery query, CancellationToken cancellationToken)
+	ValueTask<IOperationResult<TResult>> SendAsync<TResult, TQuery>(TQuery query, CancellationToken cancellationToken)
 		where TQuery : IQuery<TResult>;
 }

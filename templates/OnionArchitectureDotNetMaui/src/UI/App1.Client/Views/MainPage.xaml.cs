@@ -1,4 +1,4 @@
-namespace App1.Client.Views;
+﻿namespace App1.Client.Views;
 
 using ViewModels;
 

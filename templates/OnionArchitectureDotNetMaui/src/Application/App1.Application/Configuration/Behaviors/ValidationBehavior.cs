@@ -1,7 +1,7 @@
-namespace App1.Application.Configuration.Behaviors;
+﻿namespace App1.Application.Configuration.Behaviors;
 
 using FluentValidation;
-using MediatR;
+using Mediator;
 
 public sealed class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
 	where TRequest : class, IRequest<TResponse>
@@ -13,13 +13,13 @@ public sealed class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<
 		this.validators = validators;
 	}
 
-	public async Task<TResponse> Handle(TRequest request,
-		RequestHandlerDelegate<TResponse> next,
+	public async ValueTask<TResponse> Handle(TRequest request,
+		MessageHandlerDelegate<TRequest, TResponse> next,
 		CancellationToken cancellationToken)
 	{
 		if (!validators.Any())
 		{
-			return await next();
+			return await next(request, cancellationToken);
 		}
 
 		var context = new ValidationContext<TRequest>(request);
@@ -31,6 +31,6 @@ public sealed class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<
 			throw new ValidationException(failures);
 		}
 
-		return await next();
+		return await next(request, cancellationToken);
 	}
 }

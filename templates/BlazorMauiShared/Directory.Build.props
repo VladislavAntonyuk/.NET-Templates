@@ -8,5 +8,6 @@
 		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
 		<AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
+		<NoWarn>$(NoWarn);NU1603</NoWarn>
 	</PropertyGroup>
 </Project>

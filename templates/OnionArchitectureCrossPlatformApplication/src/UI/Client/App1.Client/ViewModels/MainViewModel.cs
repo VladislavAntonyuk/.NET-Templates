@@ -70,7 +70,7 @@ public partial class MainViewModel : ObservableObject
 	[RelayCommand]
 	private async Task UpdateItem(int itemId, CancellationToken cancellationToken)
 	{
-		var result = await commandDispatcher.SendAsync<Class1Dto, UpdateClass1Command>(new UpdateClass1Command(itemId)
+		var result = await commandDispatcher.SendAsync<bool, UpdateClass1Command>(new UpdateClass1Command(itemId)
 		{
 			Name = DateTime.Now.ToString("O")
 		}, cancellationToken);

@@ -1,6 +1,6 @@
 ﻿namespace App1.Application.Interfaces.CQRS;
 
-using MediatR;
+using Mediator;
 
 public interface ICommand<out TResult> : IRequest<IOperationResult<TResult>>
 {

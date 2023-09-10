@@ -4,5 +4,5 @@ namespace App1Shared.Shared;
 
 public partial class MainLayout : LayoutComponentBase
 {
-    
+
 }

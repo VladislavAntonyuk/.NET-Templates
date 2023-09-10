@@ -1,29 +1,25 @@
 ﻿namespace App1.Application.UseCases.Class1.Commands.Delete;
 
-using AutoMapper;
+using Infrastructure.Data.Repositories.Models;
 using Interfaces.CQRS;
-using Interfaces.Repositories;
+using Microsoft.EntityFrameworkCore;
 
-public class DeleteClass1CommandHandler : BaseClass1Handler, ICommandHandler<bool, DeleteClass1Command>
+public class DeleteClass1CommandHandler : ICommandHandler<bool, DeleteClass1Command>
 {
-	public DeleteClass1CommandHandler(IClass1Repository class1Repository, IMapper mapper) : base(class1Repository, mapper)
+	private readonly IDbContextFactory<ApplicationContext> dbContextFactory;
+
+	public DeleteClass1CommandHandler(IDbContextFactory<ApplicationContext> dbContextFactory)
 	{
+		this.dbContextFactory = dbContextFactory;
 	}
 
-	public async Task<IOperationResult<bool>> Handle(DeleteClass1Command command, CancellationToken cancellationToken)
+	public async ValueTask<IOperationResult<bool>> Handle(DeleteClass1Command command, CancellationToken cancellationToken)
 	{
-		var class1 = await Class1Repository.GetById(command.Class1Id, cancellationToken);
-		if (class1 is not null)
+		await using var dbContext = await dbContextFactory.CreateDbContextAsync(cancellationToken);
+		await dbContext.Class1.Where(x => x.Id == command.Class1Id).ExecuteDeleteAsync(cancellationToken);
+		return new OperationResult<bool>
 		{
-			await Class1Repository.Delete(class1, cancellationToken);
-			return new OperationResult<bool>
-			{
-				Value = true
-			};
-		}
-
-		var result = new OperationResult<bool>();
-		result.Errors.Add("Class1 not found");
-		return result;
+			Value = true
+		};
 	}
 }

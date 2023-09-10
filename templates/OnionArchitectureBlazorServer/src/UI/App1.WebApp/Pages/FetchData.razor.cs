@@ -91,7 +91,7 @@ public partial class FetchData : App1BaseComponent
 
 	private async Task Update(int id)
 	{
-		var result = await CommandDispatcher.SendAsync<Class1Dto, UpdateClass1Command>(new UpdateClass1Command(id)
+		var result = await CommandDispatcher.SendAsync<bool, UpdateClass1Command>(new UpdateClass1Command(id)
 		{
 			Name = DateTime.Now.ToString("O")
 		}, CancellationToken.None);

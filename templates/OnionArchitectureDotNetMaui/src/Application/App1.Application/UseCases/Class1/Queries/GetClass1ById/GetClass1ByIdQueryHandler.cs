@@ -1,23 +1,27 @@
 ﻿namespace App1.Application.UseCases.Class1.Queries.GetClass1ById;
 
-using AutoMapper;
+using Infrastructure.Data.Repositories.Models;
 using Interfaces.CQRS;
-using Interfaces.Repositories;
+using Microsoft.EntityFrameworkCore;
 
-public class GetClass1ByIdQueryHandler : BaseClass1Handler, IQueryHandler<Class1Dto, GetClass1ByIdQuery>
+public class GetClass1ByIdQueryHandler : IQueryHandler<Class1Dto, GetClass1ByIdQuery>
 {
-	public GetClass1ByIdQueryHandler(IClass1Repository class1Repository, IMapper mapper) : base(class1Repository, mapper)
+	private readonly IDbContextFactory<ApplicationContext> dbContextFactory;
+
+	public GetClass1ByIdQueryHandler(IDbContextFactory<ApplicationContext> dbContextFactory)
 	{
+		this.dbContextFactory = dbContextFactory;
 	}
 
-	public async Task<IOperationResult<Class1Dto>> Handle(GetClass1ByIdQuery request, CancellationToken cancellationToken)
+	public async ValueTask<IOperationResult<Class1Dto>> Handle(GetClass1ByIdQuery request, CancellationToken cancellationToken)
 	{
-		var class1 = await Class1Repository.GetById(request.Id, cancellationToken);
+		await using var dbContext = await dbContextFactory.CreateDbContextAsync(cancellationToken);
+		var class1 = await dbContext.Class1.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
 		if (class1 is not null)
 		{
 			return new OperationResult<Class1Dto>
 			{
-				Value = Mapper.Map<Class1Dto>(class1)
+				Value = Class1Dto.From(class1)
 			};
 		}
 

@@ -1,21 +1,34 @@
 ﻿namespace App1.Application.UseCases.Class1.Queries.GetClass1;
 
-using AutoMapper;
+using Interfaces;
 using Interfaces.CQRS;
-using Interfaces.Repositories;
 
-public class GetClass1QueryHandler : BaseClass1Handler, IQueryHandler<GetClass1ByFilterResponse, GetClass1Query>
+public class GetClass1QueryHandler : IQueryHandler<GetClass1ByFilterResponse, GetClass1Query>
 {
-	public GetClass1QueryHandler(IClass1Repository class1Repository, IMapper mapper) : base(class1Repository, mapper)
+	private readonly IClass1Repository class1Repository;
+
+	public GetClass1QueryHandler(IClass1Repository class1Repository)
 	{
+		this.class1Repository = class1Repository;
 	}
 
-	public async Task<IOperationResult<GetClass1ByFilterResponse>> Handle(GetClass1Query request, CancellationToken cancellationToken)
+	public async ValueTask<IOperationResult<GetClass1ByFilterResponse>> Handle(GetClass1Query request, CancellationToken cancellationToken)
 	{
-		var result = await Class1Repository.GetAll(cancellationToken);
+		var items = await class1Repository.GetAll(cancellationToken);
+		var result = items.Where(x => x.Name.Contains(request.Name ?? string.Empty))
+						  .Skip(request.Offset)
+						  .Take(request.Limit)
+						  .Select(Class1Dto.From)
+						  .ToList();
 		return new OperationResult<GetClass1ByFilterResponse>
 		{
-			Value = Mapper.Map<GetClass1ByFilterResponse>(result)
+			Value = new GetClass1ByFilterResponse()
+			{
+				Items = result,
+				TotalCount = result.Count,
+				PageIndex = request.Offset / request.Limit,
+				TotalPages = (int)Math.Round((double)result.Count / request.Limit, MidpointRounding.ToPositiveInfinity),
+			}
 		};
 	}
 }

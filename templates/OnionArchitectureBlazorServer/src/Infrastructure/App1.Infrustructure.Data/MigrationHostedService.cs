@@ -17,7 +17,7 @@ internal class MigrationHostedService : IHostedService
 	public async Task StartAsync(CancellationToken cancellationToken)
 	{
 		await using var scope = serviceProvider.CreateAsyncScope();
-		var factory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<WebAppContext>>();
+		var factory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<ApplicationContext>>();
 		await using var context = await factory.CreateDbContextAsync(cancellationToken);
 		await context.Database.MigrateAsync(cancellationToken);
 	}

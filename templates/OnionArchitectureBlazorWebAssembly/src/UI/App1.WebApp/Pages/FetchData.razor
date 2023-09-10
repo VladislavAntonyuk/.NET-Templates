@@ -27,8 +27,8 @@
         <MudTd DataLabel="Id">@context.Id</MudTd>
         <MudTd DataLabel="Title">@context.Title</MudTd>
         <MudTd DataLabel="">
-            <MudButton Color="Color.Primary" Command="updateCommand" CommandParameter="@context.Id">Update</MudButton>
-            <MudButton Color="Color.Primary" Command="deleteCommand" CommandParameter="@context.Id">Delete</MudButton>
+            <MudButton Color="Color.Primary" OnClick="() => Update(context.Id)">Update</MudButton>
+            <MudButton Color="Color.Primary" OnClick="() => Delete(context.Id)">Delete</MudButton>
         </MudTd>
     </RowTemplate>
     <NoRecordsContent>

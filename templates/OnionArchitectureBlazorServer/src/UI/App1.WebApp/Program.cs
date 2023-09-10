@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddApplication();
-builder.Services.AddInfrastructureData("server=localhost;port=3306;database=App1;user=root;password=password");
+builder.Services.AddInfrastructureData(builder.Configuration.GetConnectionString("Database"));
 builder.Services.AddInfrastructureBusiness();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();

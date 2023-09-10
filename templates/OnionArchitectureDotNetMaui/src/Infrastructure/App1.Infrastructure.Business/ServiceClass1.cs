@@ -1,4 +1,4 @@
-namespace App1.Infrastructure.Business;
+﻿namespace App1.Infrastructure.Business;
 
 using Application.Interfaces;
 

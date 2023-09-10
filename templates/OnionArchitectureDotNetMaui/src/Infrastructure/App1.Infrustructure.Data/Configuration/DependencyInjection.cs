@@ -2,11 +2,9 @@
 
 using System.Reflection;
 using Application.Interfaces.CQRS;
-using Application.Interfaces.Repositories;
 using Dispatchers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Repositories;
 using Repositories.Models;
 
 public static class DependencyInjection
@@ -19,9 +17,5 @@ public static class DependencyInjection
 		{
 			builder.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName);
 		}));
-
-		services.AddAutoMapper(typeof(DependencyInjection));
-
-		services.AddScoped<IClass1Repository, Class1Repository>();
 	}
 }

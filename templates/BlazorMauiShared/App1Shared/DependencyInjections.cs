@@ -6,6 +6,6 @@ public static class DependencyInjections
 {
 	public static void AddShared(this IServiceCollection services)
 	{
-	
+
 	}
 }

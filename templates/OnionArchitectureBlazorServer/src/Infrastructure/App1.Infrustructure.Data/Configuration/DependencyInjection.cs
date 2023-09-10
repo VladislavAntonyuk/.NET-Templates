@@ -2,30 +2,25 @@
 
 using System.Reflection;
 using Application.Interfaces.CQRS;
-using Application.Interfaces.Repositories;
 using Dispatchers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Repositories;
 using Repositories.Models;
 
 public static class DependencyInjection
 {
-	public static void AddInfrastructureData(this IServiceCollection services, string connectionString)
+	public static void AddInfrastructureData(this IServiceCollection services, string? connectionString)
 	{
+		ArgumentException.ThrowIfNullOrEmpty(connectionString);
 		services.AddTransient<ICommandDispatcher, CommandDispatcher>();
 		services.AddTransient<IQueryDispatcher, QueryDispatcher>();
-		services.AddPooledDbContextFactory<WebAppContext>(opt =>
-			                                                  opt.UseMySql(connectionString,
-			                                                               ServerVersion.AutoDetect(connectionString),
-			                                                               builder =>
-			                                                               {
-				                                                               builder.EnableRetryOnFailure(5);
-			                                                               }));
-
-		services.AddAutoMapper(typeof(DependencyInjection));
-
-		services.AddScoped<IClass1Repository, Class1Repository>();
+		services.AddPooledDbContextFactory<ApplicationContext>(opt =>
+																   opt.UseSqlServer(connectionString,
+																	 builder =>
+																	 {
+																		 builder.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName);
+																		 builder.EnableRetryOnFailure(5);
+																	 }));
 		services.AddHostedService<MigrationHostedService>();
 	}
 }

@@ -1,23 +1,35 @@
 ﻿namespace App1.Application.UseCases.Class1.Commands.Create;
 
-using AutoMapper;
 using Domain.Entities;
+using Interfaces;
 using Interfaces.CQRS;
-using Interfaces.Repositories;
 
-public class CreateClass1CommandHandler : BaseClass1Handler, ICommandHandler<Class1Dto, CreateClass1Command>
+public class CreateClass1CommandHandler : ICommandHandler<Class1Dto, CreateClass1Command>
 {
-	public CreateClass1CommandHandler(IClass1Repository class1Repository, IMapper mapper) : base(class1Repository, mapper)
+	private readonly IClass1Repository class1Repository;
+
+	public CreateClass1CommandHandler(IClass1Repository class1Repository)
 	{
+		this.class1Repository = class1Repository;
 	}
 
-	public async Task<IOperationResult<Class1Dto>> Handle(CreateClass1Command command, CancellationToken cancellationToken)
+	public async ValueTask<IOperationResult<Class1Dto>> Handle(CreateClass1Command command, CancellationToken cancellationToken)
 	{
-		var class1 = Mapper.Map<Class1>(command);
-		var result = await Class1Repository.Add(class1, cancellationToken);
+		var class1 = new Class1
+		{
+			Name = command.Name
+		};
+		var result = await class1Repository.Add(class1, cancellationToken);
+		if (result is null)
+		{
+			var operationResult = new OperationResult<Class1Dto>();
+			operationResult.Errors.Add("Class1 not created");
+			return operationResult;
+		}
+
 		return new OperationResult<Class1Dto>
 		{
-			Value = Mapper.Map<Class1Dto>(result)
+			Value = Class1Dto.From(result)
 		};
 	}
 }
