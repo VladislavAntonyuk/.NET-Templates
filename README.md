@@ -12,6 +12,8 @@ Table of contents:
 * [Onion Architecture Templates](#onion-architecture-templates)
   + [Onion Architecture Cross-Platform Application](#onion-architecture-cross-platform-application)
   + [Onion Architecture Cross-Platform Application Repository](#onion-architecture-cross-platform-application-repository)
+  + [Onion Architecture Blazor Application](#onion-architecture-blazor-application)
+  + [Onion Architecture Blazor Application Repository](#onion-architecture-blazor-application-repository)
   + [Onion Architecture Blazor Server Application](#onion-architecture-blazor-server-application)
   + [Onion Architecture Blazor Server Application Repository](#onion-architecture-blazor-server-application-repository)
   + [Onion Architecture Blazor WebAssembly Application](#onion-architecture-blazor-webassembly-application)
@@ -93,6 +95,26 @@ Create solution:
 
 ```pwsh
 dotnet new onion-blazor-server-repository -n MyProductName --entityName MyEntityName
+```
+
+### Onion Architecture Blazor Application
+
+Blazor application with onion architecture.
+
+Create solution:
+
+```pwsh
+dotnet new onion-blazor -n MyProductName --entityName MyEntityName
+```
+
+### Onion Architecture Blazor Application Repository
+
+Blazor application with onion architecture, using Repository pattern.
+
+Create solution:
+
+```pwsh
+dotnet new onion-blazor-repository -n MyProductName --entityName MyEntityName
 ```
 
 ### Onion Architecture Blazor WebAssembly Application

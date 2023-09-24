@@ -15,13 +15,13 @@ public static class DependencyInjection
 		ArgumentException.ThrowIfNullOrWhiteSpace(connectionString);
 		services.AddCommonInfrastructureData();
 		services.AddPooledDbContextFactory<WebAppContext>(opt =>
-			                                                  opt.UseSqlServer(connectionString,
-			                                                               builder =>
-			                                                               {
-				                                                               builder.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName);
-				                                                               builder.EnableRetryOnFailure(5);
-			                                                               }));
-		
+															  opt.UseSqlServer(connectionString,
+																		   builder =>
+																		   {
+																			   builder.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName);
+																			   builder.EnableRetryOnFailure(5);
+																		   }));
+
 		services.AddScoped<IClass1Repository, Class1Repository>();
 		services.AddHostedService<MigrationHostedService>();
 	}

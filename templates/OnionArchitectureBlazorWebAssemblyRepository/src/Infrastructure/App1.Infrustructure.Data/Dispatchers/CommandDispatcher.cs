@@ -14,7 +14,7 @@ public class CommandDispatcher : ICommandDispatcher
 
 	public ValueTask<IOperationResult<TResult>> SendAsync<TResult, TCommand>(TCommand command, CancellationToken cancellationToken)
 		where TCommand : Application.Interfaces.CQRS.ICommand<TResult>
-    {
+	{
 		return sender.Send(command, cancellationToken);
 	}
 }

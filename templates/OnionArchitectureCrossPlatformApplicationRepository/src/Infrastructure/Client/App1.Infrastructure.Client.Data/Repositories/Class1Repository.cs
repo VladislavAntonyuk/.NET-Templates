@@ -1,9 +1,9 @@
 ﻿namespace App1.Infrastructure.Client.Data.Repositories;
 
 using App1.Application.Interfaces.Repositories;
-using Models;
 using Infrastructure.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Models;
 using DomainClass1 = Domain.Entities.Class1;
 
 public class Class1Repository : BaseRepository, IClass1Repository

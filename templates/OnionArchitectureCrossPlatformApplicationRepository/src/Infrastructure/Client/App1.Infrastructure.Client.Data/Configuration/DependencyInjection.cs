@@ -17,7 +17,7 @@ public static class DependencyInjection
 		{
 			builder.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName);
 		}));
-		
+
 		services.AddScoped<IClass1Repository, Class1Repository>();
 	}
 }

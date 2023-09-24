@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Vladislav Antonyuk",
+  "classifications": ["Blazor","Web"],
+  "description": "Creates a new onion architecture Blazor web application.",
+  "name": "Onion Architecture Blazor Web Application",
+  "identity": "VladislavAntonyuk.DotNetTemplates.OnionArchitectureBlazor",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "shortName": "onion-blazor",
+  "sourceName": "App1",
+  "preferNameDirectory":true,
+  "symbols": {
+    "entityName": {
+      "description": "Entity name",
+      "type": "parameter",
+      "replaces": "Class1",
+      "FileRename": "Class1"
+    },
+    "entityNameLower": {
+        "type": "generated",
+        "generator": "casing",
+        "parameters": {
+          "source": "entityName",
+          "toLower": true
+        },
+        "replaces": "class1",
+        "FileRename": "class1"
+    }
+  }
+}
