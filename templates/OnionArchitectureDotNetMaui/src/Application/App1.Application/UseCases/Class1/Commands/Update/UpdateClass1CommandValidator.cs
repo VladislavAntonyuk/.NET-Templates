@@ -1,7 +1,8 @@
-﻿namespace App1.Application.UseCases.Class1.Commands.Create;
+﻿namespace App1.Application.UseCases.Class1.Commands.Update;
 
+using Configuration.Database;
+using Create;
 using FluentValidation;
-using Infrastructure.Data.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class UpdateClass1CommandValidator : AbstractValidator<CreateClass1Command>

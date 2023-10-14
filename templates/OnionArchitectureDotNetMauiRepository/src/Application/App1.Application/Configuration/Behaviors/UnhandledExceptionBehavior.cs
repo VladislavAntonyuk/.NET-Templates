@@ -1,31 +1,26 @@
 ﻿namespace App1.Application.Configuration.Behaviors;
 
+using Interfaces.CQRS;
 using Mediator;
 using Microsoft.Extensions.Logging;
 
-public class UnhandledExceptionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-	where TRequest : IRequest<TResponse>
+public sealed class UnhandledExceptionBehavior<TRequest, TResponse>
+	(ILogger<TRequest> logger) : MessageExceptionHandler<TRequest, TResponse> where TRequest : IMessage where TResponse : OperationResult, new()
 {
-	private readonly ILogger<TRequest> logger;
-
-	public UnhandledExceptionBehavior(ILogger<TRequest> logger)
+	protected override ValueTask<ExceptionHandlingResult<TResponse>> Handle(TRequest request, Exception exception, CancellationToken cancellationToken)
 	{
-		this.logger = logger;
-	}
-
-	public async ValueTask<TResponse> Handle(TRequest request,
-		MessageHandlerDelegate<TRequest, TResponse> next,
-		CancellationToken cancellationToken)
-	{
-		try
+		var result = new TResponse
 		{
-			return await next(request, cancellationToken);
-		}
-		catch (Exception ex)
-		{
-			var requestName = typeof(TRequest).Name;
-			logger.LogError(ex, "Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
-			throw;
-		}
+			Errors =
+			{
+				new()
+				{
+					Description = exception.Message
+				}
+			}
+		};
+		var requestName = typeof(TRequest).Name;
+		logger.LogError(exception, "Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
+		return ValueTask.FromResult(ExceptionHandlingResult<TResponse>.Handled(result));
 	}
 }

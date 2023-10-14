@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-#nullable disable
+﻿#nullable disable
 
 namespace App1.Infrastructure.Data.Migrations
 {
-    public partial class Initial : Migration
+	using Microsoft.EntityFrameworkCore.Migrations;
+
+	public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

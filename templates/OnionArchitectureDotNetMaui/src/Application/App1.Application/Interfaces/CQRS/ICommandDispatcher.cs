@@ -1,7 +1,10 @@
 ﻿namespace App1.Application.Interfaces.CQRS;
 
+using Mediator;
+
 public interface ICommandDispatcher
 {
-	ValueTask<IOperationResult<TResult>> SendAsync<TResult, TCommand>(TCommand command, CancellationToken cancellationToken)
-		where TCommand : ICommand<TResult>;
+	ValueTask<TResult> SendAsync<TResult>(
+		ICommand<TResult> command,
+		CancellationToken cancellationToken = default);
 }

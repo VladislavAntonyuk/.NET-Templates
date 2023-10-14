@@ -5,7 +5,6 @@ using Application.Interfaces.CQRS;
 using Dispatchers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Repositories.Models;
 
 public static class DependencyInjection
 {

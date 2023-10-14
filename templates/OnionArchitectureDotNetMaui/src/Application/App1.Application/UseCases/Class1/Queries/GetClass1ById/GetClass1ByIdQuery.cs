@@ -1,13 +1,10 @@
 ﻿namespace App1.Application.UseCases.Class1.Queries.GetClass1ById;
 
 using Interfaces.CQRS;
+using Mediator;
+using Models;
 
-public class GetClass1ByIdQuery : IQuery<Class1Dto>
+public class GetClass1ByIdQuery(int id) : IQuery<OperationResult<Class1Dto>>
 {
-	public GetClass1ByIdQuery(int id)
-	{
-		Id = id;
-	}
-
-	public int Id { get; }
+	public int Id { get; } = id;
 }

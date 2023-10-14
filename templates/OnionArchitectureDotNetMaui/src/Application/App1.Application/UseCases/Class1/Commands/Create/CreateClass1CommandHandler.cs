@@ -1,20 +1,15 @@
 ﻿namespace App1.Application.UseCases.Class1.Commands.Create;
 
-using App1.Infrastructure.Data.Repositories.Models;
+using Configuration.Database;
 using Domain.Entities;
 using Interfaces.CQRS;
+using Mediator;
 using Microsoft.EntityFrameworkCore;
+using Models;
 
-public class CreateClass1CommandHandler : ICommandHandler<Class1Dto, CreateClass1Command>
+public class CreateClass1CommandHandler(IDbContextFactory<ApplicationContext> dbContextFactory) : ICommandHandler<CreateClass1Command, OperationResult<Class1Dto>>
 {
-	private readonly IDbContextFactory<ApplicationContext> dbContextFactory;
-
-	public CreateClass1CommandHandler(IDbContextFactory<ApplicationContext> dbContextFactory)
-	{
-		this.dbContextFactory = dbContextFactory;
-	}
-
-	public async ValueTask<IOperationResult<Class1Dto>> Handle(CreateClass1Command command, CancellationToken cancellationToken)
+	public async ValueTask<OperationResult<Class1Dto>> Handle(CreateClass1Command command, CancellationToken cancellationToken)
 	{
 		var class1 = new Class1
 		{

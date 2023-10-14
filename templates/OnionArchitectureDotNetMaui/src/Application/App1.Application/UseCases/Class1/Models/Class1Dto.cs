@@ -1,4 +1,4 @@
-﻿namespace App1.Application.UseCases.Class1;
+﻿namespace App1.Application.UseCases.Class1.Models;
 
 using Domain.Entities;
 

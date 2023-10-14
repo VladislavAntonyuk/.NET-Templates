@@ -1,12 +1,12 @@
 ﻿namespace App1.Client.ViewModels;
 
 using System.Collections.ObjectModel;
-using App1.Application.Interfaces.CQRS;
-using App1.Application.UseCases.Class1;
-using App1.Application.UseCases.Class1.Commands.Create;
-using App1.Application.UseCases.Class1.Commands.Delete;
-using App1.Application.UseCases.Class1.Commands.Update;
-using App1.Application.UseCases.Class1.Queries.GetClass1;
+using Application.Interfaces.CQRS;
+using Application.UseCases.Class1.Commands.Create;
+using Application.UseCases.Class1.Commands.Delete;
+using Application.UseCases.Class1.Commands.Update;
+using Application.UseCases.Class1.Models;
+using Application.UseCases.Class1.Queries.GetClass1;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -30,7 +30,7 @@ public partial class MainViewModel : ObservableObject
 	[RelayCommand]
 	private async Task GetItems(CancellationToken cancellationToken)
 	{
-		var result = await queryDispatcher.SendAsync<GetClass1ByFilterResponse, GetClass1Query>(new GetClass1Query
+		var result = await queryDispatcher.SendAsync(new GetClass1Query
 		{
 			Limit = 25
 		}, cancellationToken);
@@ -52,7 +52,7 @@ public partial class MainViewModel : ObservableObject
 	[RelayCommand]
 	private async Task CreateItem(CancellationToken cancellationToken)
 	{
-		var result = await commandDispatcher.SendAsync<Class1Dto, CreateClass1Command>(new CreateClass1Command
+		var result = await commandDispatcher.SendAsync(new CreateClass1Command
 		{
 			Name = DateTime.Now.ToString("O")
 		}, cancellationToken);
@@ -70,7 +70,7 @@ public partial class MainViewModel : ObservableObject
 	[RelayCommand]
 	private async Task UpdateItem(int itemId, CancellationToken cancellationToken)
 	{
-		var result = await commandDispatcher.SendAsync<bool, UpdateClass1Command>(new UpdateClass1Command(itemId)
+		var result = await commandDispatcher.SendAsync(new UpdateClass1Command(itemId)
 		{
 			Name = DateTime.Now.ToString("O")
 		}, cancellationToken);
@@ -88,7 +88,7 @@ public partial class MainViewModel : ObservableObject
 	[RelayCommand]
 	private async Task DeleteItem(int itemId, CancellationToken cancellationToken)
 	{
-		var result = await commandDispatcher.SendAsync<bool, DeleteClass1Command>(new DeleteClass1Command(itemId), cancellationToken);
+		var result = await commandDispatcher.SendAsync(new DeleteClass1Command(itemId), cancellationToken);
 		if (result.IsSuccessful)
 		{
 			await GetItems(cancellationToken);

@@ -1,9 +1,9 @@
 ﻿namespace App1.Infrastructure.Data;
 
 using System.Reflection;
+using Application.Configuration.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Repositories.Models;
 
 public class AppContextFactory : IDesignTimeDbContextFactory<ApplicationContext>
 {

@@ -1,19 +1,14 @@
 ﻿namespace App1.Application.UseCases.Class1.Queries.GetClass1ById;
 
-using Infrastructure.Data.Repositories.Models;
+using Configuration.Database;
 using Interfaces.CQRS;
+using Mediator;
 using Microsoft.EntityFrameworkCore;
+using Models;
 
-public class GetClass1ByIdQueryHandler : IQueryHandler<Class1Dto, GetClass1ByIdQuery>
+public class GetClass1ByIdQueryHandler(IDbContextFactory<ApplicationContext> dbContextFactory) : IQueryHandler<GetClass1ByIdQuery, OperationResult<Class1Dto>>
 {
-	private readonly IDbContextFactory<ApplicationContext> dbContextFactory;
-
-	public GetClass1ByIdQueryHandler(IDbContextFactory<ApplicationContext> dbContextFactory)
-	{
-		this.dbContextFactory = dbContextFactory;
-	}
-
-	public async ValueTask<IOperationResult<Class1Dto>> Handle(GetClass1ByIdQuery request, CancellationToken cancellationToken)
+	public async ValueTask<OperationResult<Class1Dto>> Handle(GetClass1ByIdQuery request, CancellationToken cancellationToken)
 	{
 		await using var dbContext = await dbContextFactory.CreateDbContextAsync(cancellationToken);
 		var class1 = await dbContext.Class1.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
@@ -26,7 +21,10 @@ public class GetClass1ByIdQueryHandler : IQueryHandler<Class1Dto, GetClass1ByIdQ
 		}
 
 		var result = new OperationResult<Class1Dto>();
-		result.Errors.Add("Class1 not found");
+		result.Errors.Add(new Error()
+		{
+			Description = "Class1 not found"
+		});
 		return result;
 	}
 }
