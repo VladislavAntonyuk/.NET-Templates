@@ -6,7 +6,6 @@ using Application.UseCases.Class1.Commands.Create;
 using Application.UseCases.Class1.Commands.Delete;
 using Application.UseCases.Class1.Commands.Update;
 using Application.UseCases.Class1.Queries.GetClass1;
-using Mediator;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 

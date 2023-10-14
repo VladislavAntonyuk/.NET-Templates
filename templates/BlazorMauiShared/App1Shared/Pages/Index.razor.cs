@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿namespace App1Shared.Pages;
 
-namespace App1Shared.Pages;
+using Microsoft.AspNetCore.Components;
 
-public partial class Index : ComponentBase
-{
-
-}
+public partial class Index : ComponentBase;

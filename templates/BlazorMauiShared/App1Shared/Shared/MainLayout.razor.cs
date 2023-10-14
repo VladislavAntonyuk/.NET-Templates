@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿namespace App1Shared.Shared;
 
-namespace App1Shared.Shared;
+using Microsoft.AspNetCore.Components;
 
-public partial class MainLayout : LayoutComponentBase
-{
-
-}
+public partial class MainLayout : LayoutComponentBase;
