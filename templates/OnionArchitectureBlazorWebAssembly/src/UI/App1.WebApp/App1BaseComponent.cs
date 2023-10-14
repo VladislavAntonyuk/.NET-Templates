@@ -8,7 +8,7 @@ public abstract class App1BaseComponent : ComponentBase
 	protected Translation Translation = new();
 
 	[Inject]
-	protected required Toolbelt.Blazor.I18nText.I18nText I18NText { get; set; }
+	public required Toolbelt.Blazor.I18nText.I18nText I18NText { get; set; }
 
 	protected override async Task OnInitializedAsync()
 	{

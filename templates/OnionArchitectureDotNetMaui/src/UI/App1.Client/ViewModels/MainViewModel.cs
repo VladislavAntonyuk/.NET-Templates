@@ -18,7 +18,7 @@ public partial class MainViewModel : ObservableObject
 	private readonly IQueryDispatcher queryDispatcher;
 
 	[ObservableProperty]
-	private ObservableCollection<Class1Dto> items = new();
+	private ObservableCollection<Class1Dto> items = [];
 
 	public MainViewModel(IQueryDispatcher queryDispatcher, ICommandDispatcher commandDispatcher)
 	{

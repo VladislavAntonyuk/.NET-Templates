@@ -4,7 +4,7 @@ using Models;
 
 public class GetClass1ByFilterResponse
 {
-	public List<Class1Dto> Items { get; set; } = new();
+	public List<Class1Dto> Items { get; set; } = [];
 	public int PageIndex { get; init; }
 	public int TotalPages { get; init; }
 	public int TotalCount { get; init; }

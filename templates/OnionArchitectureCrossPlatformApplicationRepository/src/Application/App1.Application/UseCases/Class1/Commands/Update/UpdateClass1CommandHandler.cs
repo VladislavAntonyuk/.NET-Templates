@@ -19,7 +19,7 @@ public class UpdateClass1CommandHandler(IClass1Repository class1Repository) : Ba
 				CreatedOn = class1.CreatedOn,
 				Name = command.Name
 			};
-			var updatedClass = await Class1Repository.Update(class1ToUpdate, cancellationToken);
+			await Class1Repository.Update(class1ToUpdate, cancellationToken);
 			return new OperationResult();
 		}
 

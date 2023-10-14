@@ -18,7 +18,7 @@ public partial class MainViewModel : ObservableObject
 	private readonly IQueryDispatcher queryDispatcher;
 
 	[ObservableProperty]
-	private ObservableCollection<Class1Dto> items = new();
+	private ObservableCollection<Class1Dto> items = [];
 
 	public MainViewModel(IQueryDispatcher queryDispatcher, ICommandDispatcher commandDispatcher)
 	{
@@ -30,7 +30,7 @@ public partial class MainViewModel : ObservableObject
 	[RelayCommand]
 	private async Task GetItems(CancellationToken cancellationToken)
 	{
-		var result = await queryDispatcher.SendAsync<GetClass1ByFilterResponse, GetClass1Query>(new GetClass1Query(), cancellationToken);
+		var result = await queryDispatcher.SendAsync(new GetClass1Query(), cancellationToken);
 		if (result.IsSuccessful)
 		{
 			Items.Clear();
@@ -49,7 +49,7 @@ public partial class MainViewModel : ObservableObject
 	[RelayCommand]
 	private async Task CreateItem(CancellationToken cancellationToken)
 	{
-		var result = await commandDispatcher.SendAsync<Class1Dto, CreateClass1Command>(new CreateClass1Command
+		var result = await commandDispatcher.SendAsync(new CreateClass1Command
 		{
 			Name = DateTime.Now.ToString("O")
 		}, cancellationToken);
@@ -67,7 +67,7 @@ public partial class MainViewModel : ObservableObject
 	[RelayCommand]
 	private async Task UpdateItem(int itemId, CancellationToken cancellationToken)
 	{
-		var result = await commandDispatcher.SendAsync<bool, UpdateClass1Command>(new UpdateClass1Command(itemId)
+		var result = await commandDispatcher.SendAsync(new UpdateClass1Command(itemId)
 		{
 			Name = DateTime.Now.ToString("O")
 		}, cancellationToken);
@@ -85,7 +85,7 @@ public partial class MainViewModel : ObservableObject
 	[RelayCommand]
 	private async Task DeleteItem(int itemId, CancellationToken cancellationToken)
 	{
-		var result = await commandDispatcher.SendAsync<bool, DeleteClass1Command>(new DeleteClass1Command(itemId), cancellationToken);
+		var result = await commandDispatcher.SendAsync(new DeleteClass1Command(itemId), cancellationToken);
 		if (result.IsSuccessful)
 		{
 			await GetItems(cancellationToken);

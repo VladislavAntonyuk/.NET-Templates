@@ -1,6 +1,7 @@
 ﻿namespace App1.Client;
 
 using Application.Configuration;
+using Application.Configuration.Database;
 using CommunityToolkit.Maui;
 using Infrastructure.Business;
 using Infrastructure.Data.Configuration;
