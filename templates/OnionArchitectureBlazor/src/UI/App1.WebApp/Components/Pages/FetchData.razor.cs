@@ -1,12 +1,12 @@
 ﻿namespace App1.WebApp.Components.Pages;
 
-using App1.Application.Interfaces.CQRS;
-using App1.Application.UseCases.Class1;
-using App1.Application.UseCases.Class1.Commands.Create;
-using App1.Application.UseCases.Class1.Commands.Delete;
-using App1.Application.UseCases.Class1.Commands.Update;
-using App1.Application.UseCases.Class1.Queries.GetClass1;
-using App1.WebApp.Components;
+using Application.Interfaces.CQRS;
+using Application.UseCases.Class1.Commands.Create;
+using Application.UseCases.Class1.Commands.Delete;
+using Application.UseCases.Class1.Commands.Update;
+using Application.UseCases.Class1.Models;
+using Application.UseCases.Class1.Queries.GetClass1;
+using Mediator;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
@@ -23,11 +23,14 @@ public partial class FetchData : App1BaseComponent
 	public ICommandDispatcher CommandDispatcher { get; set; } = null!;
 
 	[Inject]
+	public ISender Sender { get; set; } = null!;
+
+	[Inject]
 	public ISnackbar Snackbar { get; set; } = null!;
 
 	private async Task<TableData<Class1Dto>> LoadClass1s(TableState state)
 	{
-		var result = await QueryDispatcher.SendAsync<GetClass1ByFilterResponse, GetClass1Query>(new GetClass1Query
+		var result = await QueryDispatcher.SendAsync(new GetClass1Query
 		{
 			Limit = state.PageSize,
 			Name = searchString?.Value,
@@ -47,7 +50,7 @@ public partial class FetchData : App1BaseComponent
 
 	private async Task CreateClass1()
 	{
-		var result = await CommandDispatcher.SendAsync<Class1Dto, CreateClass1Command>(new CreateClass1Command
+		var result = await CommandDispatcher.SendAsync(new CreateClass1Command
 		{
 			Name = DateTime.Now.ToString("O")
 		}, CancellationToken.None);
@@ -58,7 +61,7 @@ public partial class FetchData : App1BaseComponent
 		}
 		else
 		{
-			Snackbar.Add(result.Errors.FirstOrDefault("Error has occurred"), Severity.Error);
+			Snackbar.Add(result.Errors.Select(x => x.Description).FirstOrDefault("Error has occurred"), Severity.Error);
 		}
 	}
 
@@ -69,7 +72,7 @@ public partial class FetchData : App1BaseComponent
 
 	private async Task Delete(int id)
 	{
-		var result = await CommandDispatcher.SendAsync<bool, DeleteClass1Command>(new DeleteClass1Command(id), CancellationToken.None);
+		var result = await CommandDispatcher.SendAsync(new DeleteClass1Command(id), CancellationToken.None);
 		if (result.IsSuccessful)
 		{
 			Snackbar.Add("Deleted", Severity.Success);
@@ -77,13 +80,13 @@ public partial class FetchData : App1BaseComponent
 		}
 		else
 		{
-			Snackbar.Add(result.Errors.FirstOrDefault("Error has occurred"), Severity.Error);
+			Snackbar.Add(result.Errors.Select(x => x.Description).FirstOrDefault("Error has occurred"), Severity.Error);
 		}
 	}
 
 	private async Task Update(int id)
 	{
-		var result = await CommandDispatcher.SendAsync<bool, UpdateClass1Command>(new UpdateClass1Command(id)
+		var result = await CommandDispatcher.SendAsync(new UpdateClass1Command(id)
 		{
 			Name = DateTime.Now.ToString("O")
 		}, CancellationToken.None);
@@ -94,7 +97,7 @@ public partial class FetchData : App1BaseComponent
 		}
 		else
 		{
-			Snackbar.Add(result.Errors.FirstOrDefault("Error has occurred"), Severity.Error);
+			Snackbar.Add(result.Errors.Select(x => x.Description).FirstOrDefault("Error has occurred"), Severity.Error);
 		}
 	}
 }

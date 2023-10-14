@@ -1,4 +1,4 @@
-﻿namespace App1.Application.UseCases.Class1;
+﻿namespace App1.Application.UseCases.Class1.Models;
 
 using Domain.Entities;
 
@@ -9,6 +9,7 @@ public class Class1Dto
 	public DateTime CreatedOn { get; set; }
 
 	public DateTime? ModifiedOn { get; set; }
+
 	public required string Name { get; set; }
 
 	public static Class1Dto From(Class1 class1)

@@ -1,14 +1,10 @@
 ﻿namespace App1.Application.UseCases.Class1.Commands.Update;
 
 using Interfaces.CQRS;
+using Mediator;
 
-public class UpdateClass1Command : ICommand<bool>
+public class UpdateClass1Command(int id) : ICommand<OperationResult>
 {
-	public UpdateClass1Command(int id)
-	{
-		Id = id;
-	}
-
-	public int Id { get; }
+	public int Id { get; } = id;
 	public string Name { get; init; } = string.Empty;
 }

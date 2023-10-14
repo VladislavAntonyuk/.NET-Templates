@@ -1,11 +1,11 @@
 ﻿namespace App1.Infrastructure.Data.Configuration;
 
 using System.Reflection;
+using Application.Configuration.Database;
 using Application.Interfaces.CQRS;
 using Dispatchers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Repositories.Models;
 
 public static class DependencyInjection
 {

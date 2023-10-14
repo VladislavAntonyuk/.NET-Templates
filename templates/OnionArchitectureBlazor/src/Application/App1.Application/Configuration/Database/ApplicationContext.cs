@@ -1,23 +1,16 @@
-﻿namespace App1.Infrastructure.Data.Repositories.Models;
+﻿namespace App1.Application.Configuration.Database;
 
 using Domain;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-public class ApplicationContext : DbContext
+public class ApplicationContext(DbContextOptions<ApplicationContext> options) : DbContext(options)
 {
-	public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
-	{
-	}
-
 	public virtual DbSet<Class1> Class1 => Set<Class1>();
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
-		modelBuilder.Entity<Class1>(entity =>
-		{
-			entity.HasIndex(e => e.Name).IsUnique();
-		});
+		modelBuilder.ApplyConfiguration(new Class1Configuration());
 	}
 
 	public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())

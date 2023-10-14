@@ -1,13 +1,9 @@
 ﻿namespace App1.Application.UseCases.Class1.Commands.Delete;
 
 using Interfaces.CQRS;
+using Mediator;
 
-public class DeleteClass1Command : ICommand<bool>
+public class DeleteClass1Command(int class1Id) : ICommand<OperationResult>
 {
-	public DeleteClass1Command(int class1Id)
-	{
-		Class1Id = class1Id;
-	}
-
-	public int Class1Id { get; }
+	public int Class1Id { get; } = class1Id;
 }
