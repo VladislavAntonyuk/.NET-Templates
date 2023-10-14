@@ -3,25 +3,16 @@
 using Domain.Entities;
 using Interfaces;
 using Interfaces.CQRS;
+using Mediator;
 
-public class DeleteClass1CommandHandler : ICommandHandler<bool, DeleteClass1Command>
+public class DeleteClass1CommandHandler(IClass1Repository class1Repository) : ICommandHandler<DeleteClass1Command, OperationResult>
 {
-	private readonly IClass1Repository class1Repository;
-
-	public DeleteClass1CommandHandler(IClass1Repository class1Repository)
+	public async ValueTask<OperationResult> Handle(DeleteClass1Command command, CancellationToken cancellationToken)
 	{
-		this.class1Repository = class1Repository;
-	}
-
-	public async ValueTask<IOperationResult<bool>> Handle(DeleteClass1Command command, CancellationToken cancellationToken)
-	{
-		await class1Repository.Delete(new Class1()
+		await class1Repository.Delete(new Class1
 		{
 			Id = command.Class1Id
 		}, cancellationToken);
-		return new OperationResult<bool>()
-		{
-			Value = true
-		};
+		return new OperationResult();
 	}
 }

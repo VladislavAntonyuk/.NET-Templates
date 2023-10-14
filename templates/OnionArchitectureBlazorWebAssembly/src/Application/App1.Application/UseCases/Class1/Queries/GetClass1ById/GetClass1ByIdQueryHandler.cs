@@ -2,17 +2,12 @@
 
 using Interfaces;
 using Interfaces.CQRS;
+using Mediator;
+using Models;
 
-public class GetClass1ByIdQueryHandler : IQueryHandler<Class1Dto, GetClass1ByIdQuery>
+public class GetClass1ByIdQueryHandler(IClass1Repository class1Repository) : IQueryHandler<GetClass1ByIdQuery,OperationResult<Class1Dto>>
 {
-	private readonly IClass1Repository class1Repository;
-
-	public GetClass1ByIdQueryHandler(IClass1Repository class1Repository)
-	{
-		this.class1Repository = class1Repository;
-	}
-
-	public async ValueTask<IOperationResult<Class1Dto>> Handle(GetClass1ByIdQuery request, CancellationToken cancellationToken)
+	public async ValueTask<OperationResult<Class1Dto>> Handle(GetClass1ByIdQuery request, CancellationToken cancellationToken)
 	{
 		var class1 = await class1Repository.GetById(request.Id, cancellationToken);
 		if (class1 is not null)
@@ -24,7 +19,10 @@ public class GetClass1ByIdQueryHandler : IQueryHandler<Class1Dto, GetClass1ByIdQ
 		}
 
 		var result = new OperationResult<Class1Dto>();
-		result.Errors.Add("Class1 not found");
+		result.Errors.Add(new Error()
+		{
+			Description = "Class1 not found"
+		});
 		return result;
 	}
 }

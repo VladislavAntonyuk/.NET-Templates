@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 public partial class Head : App1BaseComponent
 {
 	[Inject]
-	private NavigationManager NavigationManager { get; set; } = null!;
+	public required NavigationManager NavigationManager { get; set; }
 
 	[Parameter]
 	public string Title { get; set; } = "App1";

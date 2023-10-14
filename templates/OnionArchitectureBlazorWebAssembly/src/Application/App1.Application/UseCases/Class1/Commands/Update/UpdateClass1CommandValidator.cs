@@ -1,5 +1,6 @@
-﻿namespace App1.Application.UseCases.Class1.Commands.Create;
+﻿namespace App1.Application.UseCases.Class1.Commands.Update;
 
+using Create;
 using FluentValidation;
 using Interfaces;
 

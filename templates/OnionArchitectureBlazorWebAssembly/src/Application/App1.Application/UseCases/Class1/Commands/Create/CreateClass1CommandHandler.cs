@@ -3,17 +3,12 @@
 using Domain.Entities;
 using Interfaces;
 using Interfaces.CQRS;
+using Mediator;
+using Models;
 
-public class CreateClass1CommandHandler : ICommandHandler<Class1Dto, CreateClass1Command>
+public class CreateClass1CommandHandler(IClass1Repository class1Repository) : ICommandHandler<CreateClass1Command, OperationResult<Class1Dto>>
 {
-	private readonly IClass1Repository class1Repository;
-
-	public CreateClass1CommandHandler(IClass1Repository class1Repository)
-	{
-		this.class1Repository = class1Repository;
-	}
-
-	public async ValueTask<IOperationResult<Class1Dto>> Handle(CreateClass1Command command, CancellationToken cancellationToken)
+	public async ValueTask<OperationResult<Class1Dto>> Handle(CreateClass1Command command, CancellationToken cancellationToken)
 	{
 		var class1 = new Class1
 		{
@@ -23,7 +18,10 @@ public class CreateClass1CommandHandler : ICommandHandler<Class1Dto, CreateClass
 		if (result is null)
 		{
 			var operationResult = new OperationResult<Class1Dto>();
-			operationResult.Errors.Add("Class1 not created");
+			operationResult.Errors.Add(new Error()
+			{
+				Description = "Class1 not created"
+			});
 			return operationResult;
 		}
 

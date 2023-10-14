@@ -2,17 +2,12 @@
 
 using Interfaces;
 using Interfaces.CQRS;
+using Mediator;
+using Models;
 
-public class GetClass1QueryHandler : IQueryHandler<GetClass1ByFilterResponse, GetClass1Query>
+public class GetClass1QueryHandler(IClass1Repository class1Repository) : IQueryHandler<GetClass1Query, OperationResult<GetClass1ByFilterResponse>>
 {
-	private readonly IClass1Repository class1Repository;
-
-	public GetClass1QueryHandler(IClass1Repository class1Repository)
-	{
-		this.class1Repository = class1Repository;
-	}
-
-	public async ValueTask<IOperationResult<GetClass1ByFilterResponse>> Handle(GetClass1Query request, CancellationToken cancellationToken)
+	public async ValueTask<OperationResult<GetClass1ByFilterResponse>> Handle(GetClass1Query request, CancellationToken cancellationToken)
 	{
 		var items = await class1Repository.GetAll(cancellationToken);
 		var result = items.Where(x => x.Name.Contains(request.Name ?? string.Empty))
@@ -22,7 +17,7 @@ public class GetClass1QueryHandler : IQueryHandler<GetClass1ByFilterResponse, Ge
 						  .ToList();
 		return new OperationResult<GetClass1ByFilterResponse>
 		{
-			Value = new GetClass1ByFilterResponse()
+			Value = new GetClass1ByFilterResponse
 			{
 				Items = result,
 				TotalCount = result.Count,

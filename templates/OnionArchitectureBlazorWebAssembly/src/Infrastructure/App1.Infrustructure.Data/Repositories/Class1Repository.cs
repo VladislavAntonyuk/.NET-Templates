@@ -2,18 +2,11 @@
 
 using System.Net.Http.Json;
 using Application.Interfaces;
-using Application.UseCases.Class1;
+using Application.UseCases.Class1.Models;
 using Domain.Entities;
 
-public class Class1Repository : IClass1Repository
+public class Class1Repository(HttpClient httpClient) : IClass1Repository
 {
-	private readonly HttpClient httpClient;
-
-	public Class1Repository(HttpClient httpClient)
-	{
-		this.httpClient = httpClient;
-	}
-
 	public async Task<Class1?> Add(Class1 class1, CancellationToken cancellationToken)
 	{
 		cancellationToken.ThrowIfCancellationRequested();

@@ -1,11 +1,11 @@
 ﻿namespace App1.WebApp.Pages;
 
-using App1.Application.Interfaces.CQRS;
-using App1.Application.UseCases.Class1;
-using App1.Application.UseCases.Class1.Commands.Create;
-using App1.Application.UseCases.Class1.Commands.Delete;
-using App1.Application.UseCases.Class1.Commands.Update;
-using App1.Application.UseCases.Class1.Queries.GetClass1;
+using Application.Interfaces.CQRS;
+using Application.UseCases.Class1.Commands.Create;
+using Application.UseCases.Class1.Commands.Delete;
+using Application.UseCases.Class1.Commands.Update;
+using Application.UseCases.Class1.Models;
+using Application.UseCases.Class1.Queries.GetClass1;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
@@ -13,16 +13,16 @@ public partial class FetchData : App1BaseComponent
 {
 	private MudTextField<string>? searchString;
 
-	private MudTable<Class1Dto> table = null!;
+	private MudTable<Class1Dto>? table;
 
 	[Inject]
-	public IQueryDispatcher QueryDispatcher { get; set; } = null!;
+	public required IQueryDispatcher QueryDispatcher { get; set; }
 
 	[Inject]
-	public ICommandDispatcher CommandDispatcher { get; set; } = null!;
+	public required ICommandDispatcher CommandDispatcher { get; set; }
 
 	[Inject]
-	public ISnackbar Snackbar { get; set; } = null!;
+	public required ISnackbar Snackbar { get; set; }
 
 	private async Task<TableData<Class1Dto>> LoadClass1s(TableState state)
 	{

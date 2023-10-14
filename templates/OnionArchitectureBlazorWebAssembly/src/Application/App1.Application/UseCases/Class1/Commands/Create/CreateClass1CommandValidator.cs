@@ -1,7 +1,7 @@
 ﻿namespace App1.Application.UseCases.Class1.Commands.Create;
 
-using App1.Application.Interfaces;
 using FluentValidation;
+using Interfaces;
 
 public class CreateClass1CommandValidator : AbstractValidator<CreateClass1Command>
 {

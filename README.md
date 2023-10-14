@@ -15,7 +15,6 @@ Table of contents:
   + [Onion Architecture Blazor Application](#onion-architecture-blazor-application)
   + [Onion Architecture Blazor Application Repository](#onion-architecture-blazor-application-repository)
   + [Onion Architecture Blazor WebAssembly Application](#onion-architecture-blazor-webassembly-application)
-  + [Onion Architecture Blazor WebAssembly Application Repository](#onion-architecture-blazor-webassembly-application-repository)
   + [Onion Architecture .NET MAUI Application](#onion-architecture-net-maui-application)
   + [Onion Architecture .NET MAUI Application Repository](#onion-architecture-net-maui-application-repository)
 * [iOS Extensions for .NET MAUI Application](#ios-extensions-for-net-maui-application)
@@ -103,16 +102,6 @@ Create solution:
 
 ```pwsh
 dotnet new onion-blazor-webassembly -n MyProductName --entityName MyEntityName
-```
-
-### Onion Architecture Blazor WebAssembly Application Repository
-
-Blazor WebAssembly application with onion architecture, using Repository pattern.
-
-Create solution:
-
-```pwsh
-dotnet new onion-blazor-webassembly-repository -n MyProductName --entityName MyEntityName
 ```
 
 ### Onion Architecture .NET MAUI Application
