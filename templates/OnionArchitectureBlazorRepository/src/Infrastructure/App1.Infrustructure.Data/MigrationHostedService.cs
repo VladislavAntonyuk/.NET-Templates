@@ -5,15 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repositories.Models;
 
-internal class MigrationHostedService : IHostedService
+internal class MigrationHostedService(IServiceProvider serviceProvider) : IHostedService
 {
-	private readonly IServiceProvider serviceProvider;
-
-	public MigrationHostedService(IServiceProvider serviceProvider)
-	{
-		this.serviceProvider = serviceProvider;
-	}
-
 	public async Task StartAsync(CancellationToken cancellationToken)
 	{
 		await using var scope = serviceProvider.CreateAsyncScope();

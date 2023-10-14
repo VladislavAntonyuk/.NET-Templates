@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 public class ApplicationContext(DbContextOptions<ApplicationContext> options) : DbContext(options)
 {
-	public virtual DbSet<Class1> Class1 => Set<Class1>();
+	public DbSet<Class1> Class1 => Set<Class1>();
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{

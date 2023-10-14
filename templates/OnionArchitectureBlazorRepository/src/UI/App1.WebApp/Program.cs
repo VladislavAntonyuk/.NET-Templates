@@ -16,7 +16,7 @@ builder.Services.AddInfrastructureData(builder.Configuration.GetConnectionString
 builder.Services.AddInfrastructureBusiness();
 
 builder.Services.AddRazorComponents()
-    .AddServerComponents();
+    .AddInteractiveServerComponents();
 
 builder.Services.AddMudServices();
 builder.Services.AddI18nText();
@@ -41,8 +41,9 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
+app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
-    .AddServerRenderMode();
+    .AddInteractiveServerRenderMode();
 
 app.Run();

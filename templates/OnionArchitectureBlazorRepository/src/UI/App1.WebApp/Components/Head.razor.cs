@@ -14,7 +14,7 @@ public partial class Head : App1BaseComponent
 	public string Description { get; set; } = "App1";
 
 	[Parameter]
-	public string Image { get; set; } = "favicon.png";
+	public string Image { get; set; } = "favicon.ico";
 
 	[Parameter]
 	public string Keywords { get; set; } = "App1";

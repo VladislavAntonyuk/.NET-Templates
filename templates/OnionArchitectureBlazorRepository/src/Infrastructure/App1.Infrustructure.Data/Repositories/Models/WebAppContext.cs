@@ -2,23 +2,12 @@
 
 using Microsoft.EntityFrameworkCore;
 
-public partial class WebAppContext : DbContext
+public class WebAppContext(DbContextOptions<WebAppContext> options) : DbContext(options)
 {
-	public WebAppContext(DbContextOptions<WebAppContext> options) : base(options)
-	{
-	}
-
-	public virtual DbSet<Class1> Class1 => Set<Class1>();
+	public DbSet<Class1> Class1 => Set<Class1>();
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
-		modelBuilder.Entity<Class1>(entity =>
-		{
-			entity.HasIndex(e => e.Name).IsUnique();
-		});
-
-		OnModelCreatingPartial(modelBuilder);
+		modelBuilder.ApplyConfiguration(new Class1Configuration());
 	}
-
-	partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

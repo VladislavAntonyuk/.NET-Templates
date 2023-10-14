@@ -5,22 +5,17 @@ using Models;
 
 public abstract class BaseRepository
 {
-	protected async Task SaveChangesAsync(DbContext context, CancellationToken cancellationToken)
+	protected Task SaveChangesAsync(DbContext context, CancellationToken cancellationToken)
 	{
-		foreach (var entry in context.ChangeTracker.Entries<BaseModel>())
+		foreach (var entry in context.ChangeTracker.Entries<BaseModel>().Where(x => x.State is EntityState.Added or EntityState.Modified).Select(x => x.Entity))
 		{
-			switch (entry.State)
+			entry.ModifiedOn = DateTime.UtcNow;
+			if (entry.CreatedOn <= DateTime.MinValue)
 			{
-				case EntityState.Added:
-					entry.Entity.CreatedOn = DateTime.UtcNow;
-					break;
-
-				case EntityState.Modified:
-					entry.Entity.ModifiedOn = DateTime.UtcNow;
-					break;
+				entry.CreatedOn = DateTime.UtcNow;
 			}
 		}
 
-		await context.SaveChangesAsync(cancellationToken);
+		return context.SaveChangesAsync(cancellationToken);
 	}
 }

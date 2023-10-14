@@ -3,14 +3,12 @@
 using Domain.Entities;
 using Interfaces.CQRS;
 using Interfaces.Repositories;
+using Mediator;
 
-public class UpdateClass1CommandHandler : BaseClass1Handler, ICommandHandler<bool, UpdateClass1Command>
+public class UpdateClass1CommandHandler(IClass1Repository class1Repository) : BaseClass1Handler(class1Repository),
+                                                                              ICommandHandler<UpdateClass1Command, OperationResult>
 {
-	public UpdateClass1CommandHandler(IClass1Repository class1Repository) : base(class1Repository)
-	{
-	}
-
-	public async ValueTask<IOperationResult<bool>> Handle(UpdateClass1Command command, CancellationToken cancellationToken)
+	public async ValueTask<OperationResult> Handle(UpdateClass1Command command, CancellationToken cancellationToken)
 	{
 		var class1 = await Class1Repository.GetById(command.Id, cancellationToken);
 		if (class1 is not null)
@@ -29,7 +27,8 @@ public class UpdateClass1CommandHandler : BaseClass1Handler, ICommandHandler<boo
 		}
 
 		var result = new OperationResult<bool>();
-		result.Errors.Add("Class1 not found");
+		result.Errors.Add(new Error
+			                  { Description = "Class1 not found" });
 		return result;
 	}
 }

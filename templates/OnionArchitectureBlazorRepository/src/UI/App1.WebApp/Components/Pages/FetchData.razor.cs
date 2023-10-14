@@ -1,10 +1,10 @@
 ﻿namespace App1.WebApp.Components.Pages;
 
 using Application.Interfaces.CQRS;
+using Application.UseCases.Class1;
 using Application.UseCases.Class1.Commands.Create;
 using Application.UseCases.Class1.Commands.Delete;
 using Application.UseCases.Class1.Commands.Update;
-using Application.UseCases.Class1.Models;
 using Application.UseCases.Class1.Queries.GetClass1;
 using Mediator;
 using Microsoft.AspNetCore.Components;
@@ -27,12 +27,7 @@ public partial class FetchData : App1BaseComponent
 
 	private async Task<TableData<Class1Dto>> LoadClass1s(TableState state)
 	{
-		var result = await QueryDispatcher.SendAsync(new GetClass1Query
-		{
-			Limit = state.PageSize,
-			Name = searchString?.Value,
-			Offset = state.Page
-		}, CancellationToken.None);
+		var result = await QueryDispatcher.SendAsync(new GetClass1Query(), CancellationToken.None);
 		if (result.IsSuccessful)
 		{
 			return new TableData<Class1Dto>

@@ -4,18 +4,10 @@ using System.Diagnostics;
 using Mediator;
 using Microsoft.Extensions.Logging;
 
-public class PerformanceBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+public class PerformanceBehavior<TRequest, TResponse>(ILogger<TRequest> logger) : IPipelineBehavior<TRequest, TResponse>
 	where TRequest : IRequest<TResponse>
 {
-	private readonly ILogger<TRequest> logger;
-	private readonly Stopwatch timer;
-
-	public PerformanceBehavior(ILogger<TRequest> logger)
-	{
-		timer = new Stopwatch();
-
-		this.logger = logger;
-	}
+	private readonly Stopwatch timer = new();
 
 	public async ValueTask<TResponse> Handle(TRequest request,
 		MessageHandlerDelegate<TRequest, TResponse> next,

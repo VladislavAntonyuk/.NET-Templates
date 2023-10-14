@@ -1,6 +1,6 @@
 ﻿namespace App1.Infrastructure.Business;
 
-using App1.Application.Interfaces;
+using Application.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 public static class DependencyInjection

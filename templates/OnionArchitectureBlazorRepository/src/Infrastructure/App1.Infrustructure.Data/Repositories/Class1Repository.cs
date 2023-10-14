@@ -1,20 +1,12 @@
 ﻿namespace App1.Infrastructure.Data.Repositories;
 
-using System.Diagnostics.CodeAnalysis;
-using App1.Application.Interfaces.Repositories;
+using Application.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using DomainClass1 = Domain.Entities.Class1;
 
-public class Class1Repository : BaseRepository, IClass1Repository
+public class Class1Repository(IDbContextFactory<WebAppContext> factory) : BaseRepository, IClass1Repository
 {
-	private readonly IDbContextFactory<WebAppContext> factory;
-
-	public Class1Repository(IDbContextFactory<WebAppContext> factory)
-	{
-		this.factory = factory;
-	}
-
 	public async Task<DomainClass1> Add(DomainClass1 class1, CancellationToken cancellationToken)
 	{
 		cancellationToken.ThrowIfCancellationRequested();
@@ -67,7 +59,7 @@ public class Class1Repository : BaseRepository, IClass1Repository
 
 	private static DomainClass1 From(Class1 class1)
 	{
-		return new DomainClass1()
+		return new DomainClass1
 		{
 			Id = class1.Id,
 			Name = class1.Name,
@@ -78,7 +70,7 @@ public class Class1Repository : BaseRepository, IClass1Repository
 
 	private static Class1 From(DomainClass1 class1)
 	{
-		return new Class1()
+		return new Class1
 		{
 			Id = class1.Id,
 			Name = class1.Name,

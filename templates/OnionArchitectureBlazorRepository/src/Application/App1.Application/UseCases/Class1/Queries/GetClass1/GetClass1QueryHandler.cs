@@ -2,14 +2,12 @@
 
 using Interfaces.CQRS;
 using Interfaces.Repositories;
+using Mediator;
 
-public class GetClass1QueryHandler : BaseClass1Handler, IQueryHandler<GetClass1ByFilterResponse, GetClass1Query>
+public class GetClass1QueryHandler(IClass1Repository class1Repository) : BaseClass1Handler(class1Repository),
+                                                                         IQueryHandler<GetClass1Query, OperationResult<GetClass1ByFilterResponse>>
 {
-	public GetClass1QueryHandler(IClass1Repository class1Repository) : base(class1Repository)
-	{
-	}
-
-	public async ValueTask<IOperationResult<GetClass1ByFilterResponse>> Handle(GetClass1Query request, CancellationToken cancellationToken)
+	public async ValueTask<OperationResult<GetClass1ByFilterResponse>> Handle(GetClass1Query request, CancellationToken cancellationToken)
 	{
 		var result = await Class1Repository.GetAll(cancellationToken);
 		return new OperationResult<GetClass1ByFilterResponse>
