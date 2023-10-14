@@ -2,9 +2,9 @@
 namespace App1.Infrastructure.WebApp.Data;
 
 using System.Reflection;
-using Infrastructure.Data.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Repositories.Models;
 
 public class WebAppContextFactory : IDesignTimeDbContextFactory<WebAppContext>
 {

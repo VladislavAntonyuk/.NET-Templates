@@ -1,10 +1,10 @@
 ﻿namespace App1.Client;
 
-using App1.Infrastructure.Client.Data.Repositories.Models;
 using Application.Configuration;
 using CommunityToolkit.Maui;
 using Infrastructure.Client.Business;
 using Infrastructure.Client.Data.Configuration;
+using Infrastructure.Client.Data.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
 using ViewModels;
 using Views;

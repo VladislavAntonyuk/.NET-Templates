@@ -1,7 +1,7 @@
 ﻿namespace App1.Application.UseCases.Class1.Commands.Create;
 
+using Configuration.Database;
 using FluentValidation;
-using Infrastructure.Data.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class CreateClass1CommandValidator : AbstractValidator<CreateClass1Command>

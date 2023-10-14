@@ -1,6 +1,7 @@
 ﻿using App1.Application.Configuration;
 using App1.Infrastructure.WebApp.Business;
 using App1.Infrastructure.WebApp.Data.Configuration;
+using App1.WebApp.Components;
 using App1.WebApp.Extensions;
 using App1.WebApp.Models;
 using Microsoft.AspNetCore.Localization;
@@ -13,8 +14,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplication();
 builder.Services.AddInfrastructureData(builder.Configuration.GetConnectionString("Database"));
 builder.Services.AddInfrastructureBusiness();
-builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
+
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
 
 builder.Services.AddMudServices();
 builder.Services.AddI18nText();
@@ -31,20 +33,17 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-	app.UseExceptionHandler("/Error");
-	// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-	app.UseHsts();
+    app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 
-app.UseRequestLocalization();
-
 app.UseStaticFiles();
+app.UseAntiforgery();
 
-app.UseRouting();
-
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
 
 app.Run();

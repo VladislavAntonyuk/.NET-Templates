@@ -2,10 +2,10 @@
 
 using System.Collections.ObjectModel;
 using Application.Interfaces.CQRS;
-using Application.UseCases.Class1;
 using Application.UseCases.Class1.Commands.Create;
 using Application.UseCases.Class1.Commands.Delete;
 using Application.UseCases.Class1.Commands.Update;
+using Application.UseCases.Class1.Models;
 using Application.UseCases.Class1.Queries.GetClass1;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;

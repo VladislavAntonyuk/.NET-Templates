@@ -1,7 +1,10 @@
 ﻿namespace App1.Application.Interfaces.CQRS;
 
+using Mediator;
+
 public interface IQueryDispatcher
 {
-	ValueTask<IOperationResult<TResult>> SendAsync<TResult, TQuery>(TQuery query, CancellationToken cancellationToken)
-		where TQuery : IQuery<TResult>;
+	ValueTask<TResult> SendAsync<TResult>(
+		IQuery<TResult> query,
+		CancellationToken cancellationToken = default);
 }

@@ -1,6 +1,8 @@
-﻿namespace App1.Infrastructure.Data.Repositories.Models;
+﻿namespace App1.Infrastructure.WebApp.Data.Repositories.Models;
+
+using Infrastructure.Data.Repositories.Models;
 
 public class Class1 : BaseModel
 {
-	public string Name { get; set; } = null!;
+	public required string Name { get; set; }
 }

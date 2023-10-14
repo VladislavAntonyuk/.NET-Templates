@@ -4,7 +4,6 @@ using Application.Configuration;
 using CommunityToolkit.Maui;
 using Infrastructure.Client.Business;
 using Infrastructure.Client.Data.Configuration;
-using Infrastructure.Data.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
 using ViewModels;
 using Views;

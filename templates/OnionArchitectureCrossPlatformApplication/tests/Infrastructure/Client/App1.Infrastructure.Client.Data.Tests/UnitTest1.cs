@@ -1,4 +1,4 @@
-﻿namespace App1.Infrastructure.WebApp.Business.Tests;
+﻿namespace App1.Infrastructure.Client.Data.Tests;
 
 using Xunit;
 

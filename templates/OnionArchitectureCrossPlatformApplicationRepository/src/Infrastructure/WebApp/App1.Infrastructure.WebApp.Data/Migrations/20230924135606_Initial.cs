@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-#nullable disable
+﻿#nullable disable
 
 namespace App1.Infrastructure.WebApp.Data.Migrations
 {
-    /// <inheritdoc />
+	using Microsoft.EntityFrameworkCore.Migrations;
+
+	/// <inheritdoc />
     public partial class Initial : Migration
     {
         /// <inheritdoc />

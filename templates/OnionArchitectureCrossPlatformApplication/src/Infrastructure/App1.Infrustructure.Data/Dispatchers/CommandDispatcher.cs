@@ -3,17 +3,9 @@
 using Application.Interfaces.CQRS;
 using Mediator;
 
-public class CommandDispatcher : ICommandDispatcher
+public class CommandDispatcher(ISender sender) : ICommandDispatcher
 {
-	private readonly ISender sender;
-
-	public CommandDispatcher(ISender sender)
-	{
-		this.sender = sender;
-	}
-
-	public ValueTask<IOperationResult<TResult>> SendAsync<TResult, TCommand>(TCommand command, CancellationToken cancellationToken)
-		where TCommand : Application.Interfaces.CQRS.ICommand<TResult>
+	public ValueTask<TResult> SendAsync<TResult>(ICommand<TResult> command, CancellationToken cancellationToken = default)
 	{
 		return sender.Send(command, cancellationToken);
 	}

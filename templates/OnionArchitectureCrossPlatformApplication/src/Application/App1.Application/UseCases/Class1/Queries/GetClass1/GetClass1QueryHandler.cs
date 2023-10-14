@@ -1,19 +1,14 @@
 ﻿namespace App1.Application.UseCases.Class1.Queries.GetClass1;
 
-using Infrastructure.Data.Repositories.Models;
+using Configuration.Database;
 using Interfaces.CQRS;
+using Mediator;
 using Microsoft.EntityFrameworkCore;
+using Models;
 
-public class GetClass1QueryHandler : IQueryHandler<GetClass1ByFilterResponse, GetClass1Query>
+public class GetClass1QueryHandler(IDbContextFactory<ApplicationContext> dbContextFactory) : IQueryHandler<GetClass1Query, OperationResult<GetClass1ByFilterResponse>>
 {
-	private readonly IDbContextFactory<ApplicationContext> dbContextFactory;
-
-	public GetClass1QueryHandler(IDbContextFactory<ApplicationContext> dbContextFactory)
-	{
-		this.dbContextFactory = dbContextFactory;
-	}
-
-	public async ValueTask<IOperationResult<GetClass1ByFilterResponse>> Handle(GetClass1Query request, CancellationToken cancellationToken)
+	public async ValueTask<OperationResult<GetClass1ByFilterResponse>> Handle(GetClass1Query request, CancellationToken cancellationToken)
 	{
 		await using var dbContext = await dbContextFactory.CreateDbContextAsync(cancellationToken);
 		var query = dbContext.Class1.Skip(request.Offset);
@@ -30,7 +25,7 @@ public class GetClass1QueryHandler : IQueryHandler<GetClass1ByFilterResponse, Ge
 		var result = await query.Select(x => Class1Dto.From(x)).ToListAsync(cancellationToken);
 		return new OperationResult<GetClass1ByFilterResponse>
 		{
-			Value = new GetClass1ByFilterResponse()
+			Value = new GetClass1ByFilterResponse
 			{
 				Items = result,
 				TotalCount = result.Count,

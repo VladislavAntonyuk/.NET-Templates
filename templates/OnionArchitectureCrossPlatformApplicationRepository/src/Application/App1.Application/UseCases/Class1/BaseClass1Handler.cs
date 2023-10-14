@@ -2,12 +2,7 @@
 
 using Interfaces.Repositories;
 
-public abstract class BaseClass1Handler
+public abstract class BaseClass1Handler(IClass1Repository class1Repository)
 {
-	protected readonly IClass1Repository Class1Repository;
-
-	protected BaseClass1Handler(IClass1Repository class1Repository)
-	{
-		Class1Repository = class1Repository;
-	}
+	protected readonly IClass1Repository Class1Repository = class1Repository;
 }

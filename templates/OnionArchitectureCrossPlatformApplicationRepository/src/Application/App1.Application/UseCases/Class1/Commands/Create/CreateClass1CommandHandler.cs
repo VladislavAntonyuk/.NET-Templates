@@ -3,16 +3,14 @@
 using Domain.Entities;
 using Interfaces.CQRS;
 using Interfaces.Repositories;
+using Mediator;
 
-public class CreateClass1CommandHandler : BaseClass1Handler, ICommandHandler<Class1Dto, CreateClass1Command>
+public class CreateClass1CommandHandler(IClass1Repository class1Repository) : BaseClass1Handler(class1Repository),
+                                                                              ICommandHandler<CreateClass1Command, OperationResult<Class1Dto>>
 {
-	public CreateClass1CommandHandler(IClass1Repository class1Repository) : base(class1Repository)
+	public async ValueTask<OperationResult<Class1Dto>> Handle(CreateClass1Command command, CancellationToken cancellationToken)
 	{
-	}
-
-	public async ValueTask<IOperationResult<Class1Dto>> Handle(CreateClass1Command command, CancellationToken cancellationToken)
-	{
-		var class1 = new Class1()
+		var class1 = new Class1
 		{
 			Name = command.Name
 		};

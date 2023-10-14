@@ -1,5 +1,3 @@
 ﻿namespace App1.Application.Interfaces;
 
-public interface IServiceInterface1
-{
-}
+public interface IServiceInterface1;

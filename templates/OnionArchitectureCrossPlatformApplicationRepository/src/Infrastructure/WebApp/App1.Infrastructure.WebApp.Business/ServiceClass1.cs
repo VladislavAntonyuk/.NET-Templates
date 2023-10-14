@@ -2,6 +2,4 @@
 
 using Application.Interfaces;
 
-public class ServiceClass1 : IServiceInterface1
-{
-}
+public class ServiceClass1 : IServiceInterface1;

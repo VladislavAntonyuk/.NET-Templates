@@ -4,5 +4,5 @@ using Infrastructure.Data.Repositories.Models;
 
 public class Class1 : BaseModel
 {
-	public string Name { get; set; } = null!;
+	public required string Name { get; set; }
 }

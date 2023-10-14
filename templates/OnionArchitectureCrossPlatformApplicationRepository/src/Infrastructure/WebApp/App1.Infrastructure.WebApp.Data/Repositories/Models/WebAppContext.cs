@@ -1,13 +1,9 @@
-﻿namespace App1.Infrastructure.Data.Repositories.Models;
+﻿namespace App1.Infrastructure.WebApp.Data.Repositories.Models;
 
 using Microsoft.EntityFrameworkCore;
 
-public partial class WebAppContext : DbContext
+public partial class WebAppContext(DbContextOptions<WebAppContext> options) : DbContext(options)
 {
-	public WebAppContext(DbContextOptions<WebAppContext> options) : base(options)
-	{
-	}
-
 	public virtual DbSet<Class1> Class1 => Set<Class1>();
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)

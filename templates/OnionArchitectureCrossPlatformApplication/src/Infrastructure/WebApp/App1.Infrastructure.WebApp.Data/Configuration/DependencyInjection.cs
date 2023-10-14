@@ -1,8 +1,8 @@
 ﻿namespace App1.Infrastructure.WebApp.Data.Configuration;
 
 using System.Reflection;
+using Application.Configuration.Database;
 using Infrastructure.Data.Configuration;
-using Infrastructure.Data.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 

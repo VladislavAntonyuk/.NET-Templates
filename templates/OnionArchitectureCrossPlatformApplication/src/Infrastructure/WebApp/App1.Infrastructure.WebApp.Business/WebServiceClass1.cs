@@ -2,6 +2,4 @@
 
 using App1.WebApp.Application;
 
-public class WebServiceClass1 : IWebAppInterface
-{
-}
+public class WebServiceClass1 : IWebAppInterface;

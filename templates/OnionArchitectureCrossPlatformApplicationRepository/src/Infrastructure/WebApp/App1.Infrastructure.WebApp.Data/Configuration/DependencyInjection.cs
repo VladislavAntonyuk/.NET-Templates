@@ -3,10 +3,10 @@
 using System.Reflection;
 using Application.Interfaces.Repositories;
 using Infrastructure.Data.Configuration;
-using Infrastructure.Data.Repositories;
-using Infrastructure.Data.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Repositories;
+using Repositories.Models;
 
 public static class DependencyInjection
 {

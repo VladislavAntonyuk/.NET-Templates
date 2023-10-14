@@ -3,15 +3,9 @@
 using Mediator;
 using Microsoft.Extensions.Logging;
 
-public class LoggingBehavior<TRequest, TResponse> : MessagePreProcessor<TRequest, TResponse> where TRequest : IMessage
+public class LoggingBehavior<TRequest, TResponse>(ILogger<TRequest> logger) : MessagePreProcessor<TRequest, TResponse>
+	where TRequest : IMessage
 {
-	private readonly ILogger<TRequest> logger;
-
-	public LoggingBehavior(ILogger<TRequest> logger)
-	{
-		this.logger = logger;
-	}
-
 	protected override ValueTask Handle(TRequest message, CancellationToken cancellationToken)
 	{
 		var requestName = typeof(TRequest).Name;

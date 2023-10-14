@@ -2,12 +2,8 @@
 
 using Microsoft.EntityFrameworkCore;
 
-public partial class ClientAppContext : DbContext
+public partial class ClientAppContext(DbContextOptions<ClientAppContext> options) : DbContext(options)
 {
-	public ClientAppContext(DbContextOptions<ClientAppContext> options) : base(options)
-	{
-	}
-
 	public virtual DbSet<Class1> Class1 => Set<Class1>();
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
