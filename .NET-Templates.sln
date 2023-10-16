@@ -327,6 +327,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Application", "templates\OnionArchitectureBlazorRepository\src\Application\App1.Application\App1.Application.csproj", "{9951C4F2-DAB7-47F1-8844-CAF96FD9C2B1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorWebAppMicrosoftIdentityPlatform", "BlazorWebAppMicrosoftIdentityPlatform", "{10687C74-8B1E-4F3F-9035-C54566BB0258}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp1", "templates\BlazorWebAppMicrosoftIdentityPlatform\WebApp1\WebApp1.csproj", "{A51BB60B-104E-40D9-82BB-76CC66DD9D14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -639,6 +643,10 @@ Global
 		{9951C4F2-DAB7-47F1-8844-CAF96FD9C2B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9951C4F2-DAB7-47F1-8844-CAF96FD9C2B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9951C4F2-DAB7-47F1-8844-CAF96FD9C2B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A51BB60B-104E-40D9-82BB-76CC66DD9D14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A51BB60B-104E-40D9-82BB-76CC66DD9D14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A51BB60B-104E-40D9-82BB-76CC66DD9D14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A51BB60B-104E-40D9-82BB-76CC66DD9D14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -786,6 +794,7 @@ Global
 		{788FE547-235F-46CA-88D5-03B37E60D791} = {3BCC68F2-5C5A-41D3-9FD8-5FE8DB6A3AEB}
 		{B2BF1C06-BDB7-4AAE-BF0E-4FFB565C9D5B} = {71BA96A6-7FAE-4D79-9D17-5A09CD4FCA35}
 		{9951C4F2-DAB7-47F1-8844-CAF96FD9C2B1} = {B2BF1C06-BDB7-4AAE-BF0E-4FFB565C9D5B}
+		{A51BB60B-104E-40D9-82BB-76CC66DD9D14} = {10687C74-8B1E-4F3F-9035-C54566BB0258}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A592B96F-BA26-478C-A5DB-DA54E9E1A49C}

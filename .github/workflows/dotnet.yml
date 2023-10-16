@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 8.x
     - name: Pack
-      run: dotnet pack VladislavAntonyukDotnetTemplates.csproj -c Release -p:PackageVersion="3.0.${{github.run_number}}-pre3"
+      run: dotnet pack VladislavAntonyukDotnetTemplates.csproj -c Release -p:PackageVersion="3.0.${{github.run_number}}-pre4"
     - name: Publish NuGet
       run: dotnet nuget push **/bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
       if: github.ref == 'refs/heads/main'

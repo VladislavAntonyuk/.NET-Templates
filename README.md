@@ -9,6 +9,7 @@
 
 Table of contents:
 * [BlazorMauiShared](#blazor-maui-shared)
+* [Blazor WebApp Microsoft Identity Platform](#blazor-webapp-microsoft-identity-platform)
 * [Onion Architecture Templates](#onion-architecture-templates)
   + [Onion Architecture Cross-Platform Application](#onion-architecture-cross-platform-application)
   + [Onion Architecture Cross-Platform Application Repository](#onion-architecture-cross-platform-application-repository)
@@ -43,9 +44,9 @@ Table of contents:
 
 [<a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a>]: <>
 
-## BlazorMauiShared
+## Blazor Maui Shared
 
-Creates .NET MAUI application, Blazor Server and Blazor WebAssembly projects with shared UI.
+Creates .NET MAUI application, Blazor WevApp and Blazor WebAssembly projects with shared UI.
 
 Create solution:
 
@@ -53,11 +54,21 @@ Create solution:
 dotnet new blazor-maui-shared -n MyProductName --ApplicationId com.vladislavantonyuk.myapp
 ```
 
+## Blazor WebApp Microsoft Identity Platform
+
+Creates Blazor Web application with Microsoft Identity Platform authentication (Azure Active Directory B2C).
+
+Create solution:
+
+```pwsh
+dotnet new blazor-microsoft-identity -n MyProductName
+```
+
 ## Onion Architecture Templates
 
 ### Onion Architecture Cross-Platform Application
 
-Cross-platform application (Blazor Server WebApp + .NET MAUI) with onion architecture.
+Cross-platform application (Blazor WebApp + .NET MAUI) with onion architecture.
 
 Create solution:
 
@@ -66,7 +77,7 @@ dotnet new onion-app -n MyProductName --entityName MyEntityName
 
 ### Onion Architecture Cross-Platform Application Repository
 
-Cross-platform application (Blazor Server WebApp + .NET MAUI) with onion architecture, using Repository pattern.
+Cross-platform application (Blazor WebApp + .NET MAUI) with onion architecture, using Repository pattern.
 
 Create solution:
 

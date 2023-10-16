@@ -1,0 +1,39 @@
+﻿@page "/auth"
+
+<PageTitle>Auth</PageTitle>
+
+<AuthorizeView>
+    <Authorized>
+        <MudText>User name: @user?.Identity?.Name</MudText>
+        <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="SignOut">Sign out</MudButton>
+    </Authorized>
+    <NotAuthorized>
+        <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="SignIn">Sign in</MudButton>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private ClaimsPrincipal? user;
+
+    [CascadingParameter]
+    public required Task<AuthenticationState> AuthenticationState { get; set; }
+
+    [Inject]
+    public required NavigationManager NavigationManager { get; set; }
+
+    private void SignOut()
+    {
+        NavigationManager.NavigateTo("MicrosoftIdentity/Account/SignOut", true);
+    }
+
+    private void SignIn()
+    {
+        NavigationManager.NavigateTo("MicrosoftIdentity/Account/SignIn", true);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authenticationState = await AuthenticationState;
+        user = authenticationState.User;
+    }
+}
