@@ -4,7 +4,7 @@ using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-public class Class1Configuration:IEntityTypeConfiguration<Class1>
+public class Class1Configuration : IEntityTypeConfiguration<Class1>
 {
 	public void Configure(EntityTypeBuilder<Class1> builder)
 	{

@@ -5,7 +5,7 @@ using Interfaces.Repositories;
 using Mediator;
 
 public class DeleteClass1CommandHandler(IClass1Repository class1Repository) : BaseClass1Handler(class1Repository),
-                                                                              ICommandHandler<DeleteClass1Command, OperationResult>
+																			  ICommandHandler<DeleteClass1Command, OperationResult>
 {
 	public async ValueTask<OperationResult> Handle(DeleteClass1Command command, CancellationToken cancellationToken)
 	{

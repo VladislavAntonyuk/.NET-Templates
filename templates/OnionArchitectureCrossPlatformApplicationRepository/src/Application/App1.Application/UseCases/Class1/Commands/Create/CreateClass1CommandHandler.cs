@@ -6,7 +6,7 @@ using Interfaces.Repositories;
 using Mediator;
 
 public class CreateClass1CommandHandler(IClass1Repository class1Repository) : BaseClass1Handler(class1Repository),
-                                                                              ICommandHandler<CreateClass1Command, OperationResult<Class1Dto>>
+																			  ICommandHandler<CreateClass1Command, OperationResult<Class1Dto>>
 {
 	public async ValueTask<OperationResult<Class1Dto>> Handle(CreateClass1Command command, CancellationToken cancellationToken)
 	{

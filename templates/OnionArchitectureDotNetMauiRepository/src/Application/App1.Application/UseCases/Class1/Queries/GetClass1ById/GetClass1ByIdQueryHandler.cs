@@ -5,7 +5,7 @@ using Interfaces.Repositories;
 using Mediator;
 
 public class GetClass1ByIdQueryHandler(IClass1Repository class1Repository) : BaseClass1Handler(class1Repository),
-                                                                             IQueryHandler<GetClass1ByIdQuery, OperationResult<Class1Dto>>
+																			 IQueryHandler<GetClass1ByIdQuery, OperationResult<Class1Dto>>
 {
 	public async ValueTask<OperationResult<Class1Dto>> Handle(GetClass1ByIdQuery request, CancellationToken cancellationToken)
 	{

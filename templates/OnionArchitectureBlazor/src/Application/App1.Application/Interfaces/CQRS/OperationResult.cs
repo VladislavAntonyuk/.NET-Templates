@@ -16,7 +16,7 @@ public class OperationResult
 
 	public ICollection<Error> Errors { get; } = new List<Error>();
 
-	public static OperationResult Success => new ();
+	public static OperationResult Success => new();
 }
 
 public class Error
