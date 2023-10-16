@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Vladislav Antonyuk",
-  "classifications": ["MAUI","Android","iOS","Mac Catalyst","Windows","Tizen","Blazor","Web"],
+  "classifications": ["MAUI","Android","iOS","Mac Catalyst","Windows","Tizen","Web","Blazor"],
   "description": "Creates a new onion architecture cross-platform app with Repository pattern.",
   "name": "Onion Architecture Cross Platform Application Repository",
   "identity": "VladislavAntonyuk.DotNetTemplates.OnionArchitectureCrossPlatformApplicationRepository",

@@ -1,9 +1,9 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Vladislav Antonyuk",
-  "classifications": ["Blazor","Web"],
+  "classifications": ["Web","Blazor"],
   "description": "Creates Blazor Web application with Microsoft Identity Platform authentication (Azure Active Directory B2C).",
-  "name": "Onion Architecture Blazor Web Application",
+  "name": "Blazor WebApp with Microsoft Identity Platform authentication",
   "identity": "VladislavAntonyuk.DotNetTemplates.BlazorWebMicrosoftIdentityPlatform",
   "tags": {
     "language": "C#",

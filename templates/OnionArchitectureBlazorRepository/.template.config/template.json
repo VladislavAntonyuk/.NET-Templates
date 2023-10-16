@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Vladislav Antonyuk",
-  "classifications": ["Blazor","Web"],
+  "classifications": ["Web","Blazor"],
   "description": "Creates a new onion architecture Blazor web application with Repository pattern.",
   "name": "Onion Architecture Blazor Web Application Repository",
   "identity": "VladislavAntonyuk.DotNetTemplates.OnionArchitectureBlazorRepository",
