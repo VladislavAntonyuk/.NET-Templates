@@ -1,4 +1,4 @@
-﻿namespace App1Shared.Shared;
+﻿namespace App1Shared.Components.Layout;
 
 using Microsoft.AspNetCore.Components;
 

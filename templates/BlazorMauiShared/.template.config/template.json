@@ -2,7 +2,7 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "Vladislav Antonyuk",
   "classifications": ["MAUI","Blazor"],
-  "description": "Creates a new solution with a shared UI for .NET MAUI, Blazor Server and Blazor WebAssembly.",
+  "description": "Creates a new solution with a shared UI for .NET MAUI, Blazor WebApp and Blazor WebAssembly.",
   "name": "Blazor and .NET MAUI Shared UI",
   "identity": "VladislavAntonyuk.DotNetTemplates.BlazorMauiShared",
   "tags": {

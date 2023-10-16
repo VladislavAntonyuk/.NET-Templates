@@ -1,7 +1,7 @@
 ﻿using App1.Application.Configuration;
 using App1.Infrastructure.Business;
 using App1.Infrastructure.Data.Configuration;
-using App1.WebApp;
+using App1.WebApp.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;

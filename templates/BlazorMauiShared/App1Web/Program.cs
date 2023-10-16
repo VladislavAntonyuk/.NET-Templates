@@ -1,12 +1,13 @@
 ﻿using App1Shared;
+using App1Web.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
-
 builder.Services.AddShared();
+
+builder.Services.AddRazorComponents()
+	.AddInteractiveServerComponents();
 
 var app = builder.Build();
 
@@ -21,10 +22,9 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
+app.UseAntiforgery();
 
-app.UseRouting();
-
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
+app.MapRazorComponents<App>()
+	.AddInteractiveServerRenderMode();
 
 app.Run();

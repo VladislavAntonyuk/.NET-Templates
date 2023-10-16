@@ -1,4 +1,4 @@
-﻿namespace App1.WebApp.Shared;
+﻿namespace App1.WebApp.Components.Layout;
 
 using Microsoft.AspNetCore.Components;
 using MudBlazor;

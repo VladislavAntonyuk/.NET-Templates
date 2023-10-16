@@ -1,11 +1,11 @@
-﻿namespace App1.WebApp.Pages;
+﻿namespace App1.WebApp.Components.Pages;
 
-using Application.Interfaces.CQRS;
-using Application.UseCases.Class1.Commands.Create;
-using Application.UseCases.Class1.Commands.Delete;
-using Application.UseCases.Class1.Commands.Update;
-using Application.UseCases.Class1.Models;
-using Application.UseCases.Class1.Queries.GetClass1;
+using App1.Application.Interfaces.CQRS;
+using App1.Application.UseCases.Class1.Commands.Create;
+using App1.Application.UseCases.Class1.Commands.Delete;
+using App1.Application.UseCases.Class1.Commands.Update;
+using App1.Application.UseCases.Class1.Models;
+using App1.Application.UseCases.Class1.Queries.GetClass1;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
