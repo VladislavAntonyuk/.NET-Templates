@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.0" />
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.1" />
 		<PackageReference Include="Mediator.Abstractions" Version="3.0.0-preview.11" />
 		<PackageReference Include="Mediator.SourceGenerator" Version="3.0.0-preview.11">
 			<PrivateAssets>all</PrivateAssets>
