@@ -113,30 +113,22 @@ updates:
     - "VladislavAntonyuk"
   open-pull-requests-limit: 10
 - package-ecosystem: nuget
-  directory: "/templates/OnionArchitectureBlazorServer"
+  directory: "/"
   schedule:
     interval: daily
   reviewers:
     - "VladislavAntonyuk"
   open-pull-requests-limit: 10
-- package-ecosystem: nuget
-  directory: "/templates/OnionArchitectureBlazorWebAssembly"
-  schedule:
-    interval: daily
-  reviewers:
-    - "VladislavAntonyuk"
-  open-pull-requests-limit: 10
-- package-ecosystem: nuget
-  directory: "/templates/OnionArchitectureCrossPlatformApplication"
-  schedule:
-    interval: daily
-  reviewers:
-    - "VladislavAntonyuk"
-  open-pull-requests-limit: 10
-- package-ecosystem: nuget
-  directory: "/templates/OnionArchitectureDotNetMaui"
-  schedule:
-    interval: daily
-  reviewers:
-    - "VladislavAntonyuk"
-  open-pull-requests-limit: 10
+  groups:
+    Microsoft:
+      patterns:
+      - "Microsoft*"
+    CommunityToolkit:
+      patterns:
+      - "CommunityToolkit*"
+    xUnit:
+      patterns:
+      - "xunit*"
+    SQLite:
+      patterns:
+      - "sqlite*"

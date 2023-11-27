@@ -52,10 +52,10 @@
 	</ItemGroup>
 	
 	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios' or $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) =='maccatalyst' ">
-		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.6" />
-		<PackageReference Include="SQLitePCLRaw.core" Version="2.1.6" />
-		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.6" />
-		<PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.6" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.7" />
+		<PackageReference Include="SQLitePCLRaw.core" Version="2.1.7" />
+		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.7" />
+		<PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.7" />
 	</ItemGroup>
 
 	<!-- Build Properties must be defined within these property groups to ensure successful publishing

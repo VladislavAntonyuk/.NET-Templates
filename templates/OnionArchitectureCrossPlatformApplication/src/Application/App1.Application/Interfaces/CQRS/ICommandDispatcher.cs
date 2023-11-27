@@ -6,5 +6,5 @@ public interface ICommandDispatcher
 {
 	ValueTask<TResult> SendAsync<TResult>(
 		ICommand<TResult> command,
-		CancellationToken cancellationToken = default);
+		CancellationToken cancellationToken = default) where TResult : OperationResult, new();
 }

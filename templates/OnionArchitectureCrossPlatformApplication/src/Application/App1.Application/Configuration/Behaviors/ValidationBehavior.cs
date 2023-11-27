@@ -6,7 +6,7 @@ using Mediator;
 
 public class ValidationBehavior<TRequest, TResponse>
 	(IEnumerable<IValidator<TRequest>> validators) : IPipelineBehavior<TRequest, TResponse>
-	where TRequest : IRequest<TResponse> where TResponse : OperationResult, new()
+	where TRequest : IRequest<TResponse>
 {
 	public async ValueTask<TResponse> Handle(TRequest request,
 		MessageHandlerDelegate<TRequest, TResponse> next,
@@ -23,16 +23,7 @@ public class ValidationBehavior<TRequest, TResponse>
 		var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
 		if (failures.Count != 0)
 		{
-			var response = new TResponse();
-			foreach (var failure in failures)
-			{
-				response.Errors.Add(new Error
-				{
-					Description = failure.ErrorMessage
-				});
-			}
-
-			return response;
+			throw new ValidationException(failures);
 		}
 
 		return await next(request, cancellationToken);

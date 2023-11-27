@@ -4,7 +4,6 @@ using Mediator;
 
 public interface IQueryDispatcher
 {
-	ValueTask<TResult> SendAsync<TResult>(
-		IQuery<TResult> query,
-		CancellationToken cancellationToken = default);
+	ValueTask<TResult> SendAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken = default)
+		where TResult : OperationResult, new();
 }

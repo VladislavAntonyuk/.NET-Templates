@@ -1,6 +1,7 @@
 ﻿namespace App1.Client.ViewModels;
 
 using System.Collections.ObjectModel;
+using System.Threading;
 using Application.Interfaces.CQRS;
 using Application.UseCases.Class1.Commands.Create;
 using Application.UseCases.Class1.Commands.Delete;
@@ -44,8 +45,7 @@ public partial class MainViewModel : ObservableObject
 		}
 		else
 		{
-			var errors = string.Join(Environment.NewLine, result.Errors);
-			await Toast.Make(errors, ToastDuration.Long).Show(cancellationToken);
+			await HandleErrors(result);
 		}
 	}
 
@@ -62,8 +62,7 @@ public partial class MainViewModel : ObservableObject
 		}
 		else
 		{
-			var errors = string.Join(Environment.NewLine, result.Errors);
-			await Toast.Make(errors, ToastDuration.Long).Show(cancellationToken);
+			await HandleErrors(result);
 		}
 	}
 
@@ -80,8 +79,7 @@ public partial class MainViewModel : ObservableObject
 		}
 		else
 		{
-			var errors = string.Join(Environment.NewLine, result.Errors);
-			await Toast.Make(errors, ToastDuration.Long).Show(cancellationToken);
+			await HandleErrors(result);
 		}
 	}
 
@@ -95,8 +93,13 @@ public partial class MainViewModel : ObservableObject
 		}
 		else
 		{
-			var errors = string.Join(Environment.NewLine, result.Errors);
-			await Toast.Make(errors, ToastDuration.Long).Show(cancellationToken);
+			await HandleErrors(result);
 		}
+	}
+
+	private async Task HandleErrors(OperationResult result)
+	{
+		var errors = string.Join(Environment.NewLine, result.Errors.Select(x => x.Description));
+		await Toast.Make(errors, ToastDuration.Long).Show();
 	}
 }

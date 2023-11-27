@@ -3,6 +3,7 @@
 using System.Reflection;
 using Behaviors;
 using FluentValidation;
+using Interfaces.CQRS;
 using Mediator;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,7 +14,6 @@ public static class DependencyInjection
 		var assembly = Assembly.GetExecutingAssembly();
 
 		services.AddMediator(options => options.ServiceLifetime = ServiceLifetime.Scoped);
-		services.AddScoped(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehavior<,>));
 		services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 		services.AddScoped(typeof(IPipelineBehavior<,>), typeof(PerformanceBehavior<,>));
 		services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
