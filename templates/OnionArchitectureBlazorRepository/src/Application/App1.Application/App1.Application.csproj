@@ -6,7 +6,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.1" />
-		<PackageReference Include="Mediator.Abstractions" Version="3.0.0-preview.11" />
+		<PackageReference Include="Mediator.Abstractions" Version="3.0.0-preview.21" />
 		<PackageReference Include="Mediator.SourceGenerator" Version="3.0.0-preview.11">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
