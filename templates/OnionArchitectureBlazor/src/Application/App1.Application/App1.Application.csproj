@@ -12,7 +12,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<TreatAsUsed>true</TreatAsUsed>
 		</PackageReference>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
