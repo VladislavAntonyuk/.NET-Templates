@@ -21,5 +21,5 @@ public class OperationResult
 
 public class Error
 {
-	public string? Description { get; init; }
+	public required string Description { get; init; }
 }

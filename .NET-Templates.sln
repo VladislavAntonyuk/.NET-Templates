@@ -140,22 +140,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Application", "templates\OnionArchitectureBlazorWebAssembly\src\Application\App1.Application\App1.Application.csproj", "{B3D77311-3DDD-42E6-A7E7-147D248BBD3A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorMauiShared", "BlazorMauiShared", "{30BF1453-3D5B-4348-BDC1-4FBCCD5CB7A6}"
-	ProjectSection(SolutionItems) = preProject
-		templates\BlazorMauiShared\Directory.Build.props = templates\BlazorMauiShared\Directory.Build.props
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1WebAssembly", "templates\BlazorMauiShared\App1WebAssembly\App1WebAssembly.csproj", "{866D0BC9-22B3-4CE6-B111-09EB6BA8D2CC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1Web", "templates\BlazorMauiShared\App1Web\App1Web.csproj", "{43DEC564-D532-4514-8215-13A5BBFFC0C9}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1Shared", "templates\BlazorMauiShared\App1Shared\App1Shared.csproj", "{472FE885-C2C7-467D-8FE8-73FB78B624A9}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1Client", "templates\BlazorMauiShared\App1Client\App1Client.csproj", "{F19C5BFD-1AAC-48F7-BFD1-B09517003912}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OnionArchitectureDotNetMauiRepository", "OnionArchitectureDotNetMauiRepository", "{BEFDDA02-7C41-47D0-B70C-0E47CD3C14D5}"
 	ProjectSection(SolutionItems) = preProject
-		templates\OnionArchitectureBlazorServer\Directory.Build.props = templates\OnionArchitectureBlazorServer\Directory.Build.props
+		templates\OnionArchitectureDotNetMauiRepository\Directory.Build.props = templates\OnionArchitectureDotNetMauiRepository\Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FF94AD6B-7455-4D17-B3BF-0A34D0A1D57B}"
@@ -192,7 +179,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Application", "templat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OnionArchitectureCrossPlatformApplicationRepository", "OnionArchitectureCrossPlatformApplicationRepository", "{7783630E-583B-40FC-B466-4A7F889D41F5}"
 	ProjectSection(SolutionItems) = preProject
-		templates\OnionArchitectureBlazorServer\Directory.Build.props = templates\OnionArchitectureBlazorServer\Directory.Build.props
+		templates\OnionArchitectureCrossPlatformApplicationRepository\Directory.Build.props = templates\OnionArchitectureCrossPlatformApplicationRepository\Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5F7E278A-6E3E-4E16-B1C3-1808C1AC30E4}"
@@ -255,7 +242,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Application", "templat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OnionArchitectureBlazor", "OnionArchitectureBlazor", "{F3920638-0D5D-4F45-A783-7AEE77510299}"
 	ProjectSection(SolutionItems) = preProject
-		templates\OnionArchitectureBlazorServer\Directory.Build.props = templates\OnionArchitectureBlazorServer\Directory.Build.props
+		templates\OnionArchitectureBlazor\Directory.Build.props = templates\OnionArchitectureBlazor\Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5849C7A4-D8C8-4C10-B707-BCC66DFFBB5B}"
@@ -292,7 +279,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.Application", "templat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OnionArchitectureBlazorRepository", "OnionArchitectureBlazorRepository", "{49A8B757-6749-44FC-8D26-7F1E336920F5}"
 	ProjectSection(SolutionItems) = preProject
-		templates\OnionArchitectureBlazorServer\Directory.Build.props = templates\OnionArchitectureBlazorServer\Directory.Build.props
+		templates\OnionArchitectureBlazorRepository\Directory.Build.props = templates\OnionArchitectureBlazorRepository\Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1475C294-98E8-4860-B381-078017646943}"
@@ -465,24 +452,6 @@ Global
 		{B3D77311-3DDD-42E6-A7E7-147D248BBD3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3D77311-3DDD-42E6-A7E7-147D248BBD3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3D77311-3DDD-42E6-A7E7-147D248BBD3A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{866D0BC9-22B3-4CE6-B111-09EB6BA8D2CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{866D0BC9-22B3-4CE6-B111-09EB6BA8D2CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{866D0BC9-22B3-4CE6-B111-09EB6BA8D2CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{866D0BC9-22B3-4CE6-B111-09EB6BA8D2CC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{43DEC564-D532-4514-8215-13A5BBFFC0C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{43DEC564-D532-4514-8215-13A5BBFFC0C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{43DEC564-D532-4514-8215-13A5BBFFC0C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{43DEC564-D532-4514-8215-13A5BBFFC0C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{472FE885-C2C7-467D-8FE8-73FB78B624A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{472FE885-C2C7-467D-8FE8-73FB78B624A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{472FE885-C2C7-467D-8FE8-73FB78B624A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{472FE885-C2C7-467D-8FE8-73FB78B624A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F19C5BFD-1AAC-48F7-BFD1-B09517003912}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F19C5BFD-1AAC-48F7-BFD1-B09517003912}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F19C5BFD-1AAC-48F7-BFD1-B09517003912}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{F19C5BFD-1AAC-48F7-BFD1-B09517003912}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F19C5BFD-1AAC-48F7-BFD1-B09517003912}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F19C5BFD-1AAC-48F7-BFD1-B09517003912}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{6FA7EF54-2B29-43A1-999F-06865BB8B700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6FA7EF54-2B29-43A1-999F-06865BB8B700}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FA7EF54-2B29-43A1-999F-06865BB8B700}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -713,10 +682,6 @@ Global
 		{9EA6C5A0-D27F-43E7-89EE-B354935C8DAD} = {A41E1C1F-80A1-4C63-9E86-1554318449F2}
 		{3B8B4D5D-675D-4BFB-B352-5E68C315419E} = {18F34221-74BF-4CB3-841B-9540F983DFC7}
 		{B3D77311-3DDD-42E6-A7E7-147D248BBD3A} = {3B8B4D5D-675D-4BFB-B352-5E68C315419E}
-		{866D0BC9-22B3-4CE6-B111-09EB6BA8D2CC} = {30BF1453-3D5B-4348-BDC1-4FBCCD5CB7A6}
-		{43DEC564-D532-4514-8215-13A5BBFFC0C9} = {30BF1453-3D5B-4348-BDC1-4FBCCD5CB7A6}
-		{472FE885-C2C7-467D-8FE8-73FB78B624A9} = {30BF1453-3D5B-4348-BDC1-4FBCCD5CB7A6}
-		{F19C5BFD-1AAC-48F7-BFD1-B09517003912} = {30BF1453-3D5B-4348-BDC1-4FBCCD5CB7A6}
 		{FF94AD6B-7455-4D17-B3BF-0A34D0A1D57B} = {BEFDDA02-7C41-47D0-B70C-0E47CD3C14D5}
 		{0BAC67FE-0E7C-4DB7-B607-2FE008504846} = {FF94AD6B-7455-4D17-B3BF-0A34D0A1D57B}
 		{6FA7EF54-2B29-43A1-999F-06865BB8B700} = {0BAC67FE-0E7C-4DB7-B607-2FE008504846}

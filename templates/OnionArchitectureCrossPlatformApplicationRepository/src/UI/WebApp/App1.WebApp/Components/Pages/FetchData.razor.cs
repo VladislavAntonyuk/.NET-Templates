@@ -24,9 +24,9 @@ public partial class FetchData : App1BaseComponent
 	[Inject]
 	public required ISnackbar Snackbar { get; set; }
 
-	private async Task<TableData<Class1Dto>> LoadClass1s(TableState state)
+	private async Task<TableData<Class1Dto>> LoadClass1s(TableState state, CancellationToken cancellationToken)
 	{
-		var result = await QueryDispatcher.SendAsync(new GetClass1Query(), CancellationToken.None);
+		var result = await QueryDispatcher.SendAsync(new GetClass1Query(), cancellationToken);
 		if (result.IsSuccessful)
 		{
 			return new TableData<Class1Dto>

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>3.0</PackageVersion>
+    <PackageVersion>4.0</PackageVersion>
     <PackageId>VladislavAntonyuk.DotNetTemplates</PackageId>
     <Title>Vladislav Antonyuk .NET Templates</Title>
     <Authors>Vladislav Antonyuk</Authors>
@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\"/>
-    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\packages\**;templates\**\.vs\**;templates\**\.idea\**;templates\**\TestResults\**;" />
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\packages\**;templates\**\.vs\**;templates\**\.vscode\**;templates\**\.idea\**;templates\**\TestResults\**;" />
     <Compile Remove="**\*" />
   </ItemGroup>
 

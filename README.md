@@ -8,7 +8,6 @@
 [![NuGet Downloads](https://img.shields.io/nuget/dt/VladislavAntonyuk.DotNetTemplates.svg?style=flat-square)](https://www.nuget.org/packages/VladislavAntonyuk.DotNetTemplates)
 
 Table of contents:
-* [BlazorMauiShared](#blazor-maui-shared)
 * [Blazor WebApp Microsoft Identity Platform](#blazor-webapp-microsoft-identity-platform)
 * [Onion Architecture Templates](#onion-architecture-templates)
   + [Onion Architecture Cross-Platform Application](#onion-architecture-cross-platform-application)
@@ -382,7 +381,7 @@ dotnet new install VladislavAntonyuk.DotNetTemplates
 From file:
 
 ```pwsh
-dotnet new install VladislavAntonyuk.DotNetTemplates.3.0.0.nupkg
+dotnet new install VladislavAntonyuk.DotNetTemplates.4.0.0.nupkg
 ```
 
 ## Uninstall

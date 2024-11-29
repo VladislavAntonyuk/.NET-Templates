@@ -12,13 +12,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.x
+        dotnet-version: 9.x
+
     - name: Pack
-      run: dotnet pack VladislavAntonyukDotnetTemplates.csproj -p:PackageVersion="3.0.${{github.run_number}}"
+      run: dotnet pack VladislavAntonyukDotnetTemplates.csproj -p:PackageVersion="4.0.${{github.run_number}}"
+
     - name: Publish NuGet
       run: dotnet nuget push **/bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
       if: github.ref == 'refs/heads/main'

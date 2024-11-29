@@ -11,7 +11,7 @@
 
 <MudButton OnClick="@CreateClass1" Color="Color.Primary">Create item</MudButton>
 
-<MudTable @ref="table" ServerData="@(new Func<TableState, Task<TableData<Class1Dto>>>(LoadClass1s))" Virtualize="true" FixedHeader="true">
+<MudTable @ref="table" T="Class1Dto" ServerData="LoadClass1s" Virtualize="true" FixedHeader="true">
     <ToolBarContent>
         <MudText Typo="Typo.h6">Class1</MudText>
         <MudSpacer />
