@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>$(NetVersion)</TargetFramework>
+		<IsPackable>false</IsPackable>
+		<IsTestProject>true</IsTestProject>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Aspire.Hosting.Testing" Version="9.0.0" />
+		<PackageReference Include="coverlet.collector" Version="6.0.3">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+		<PackageReference Include="xunit" Version="2.9.3" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="3.0.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\App1.AppHost\App1.AppHost.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="System.Net" />
+		<Using Include="Microsoft.Extensions.DependencyInjection" />
+		<Using Include="Aspire.Hosting.ApplicationModel" />
+		<Using Include="Aspire.Hosting.Testing" />
+		<Using Include="Xunit" />
+	</ItemGroup>
+
+</Project>

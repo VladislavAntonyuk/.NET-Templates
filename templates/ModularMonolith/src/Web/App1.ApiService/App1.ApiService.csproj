@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>$(NetVersion)</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Modules\Module1s\App1.Modules.Module1s.Infrastructure\App1.Modules.Module1s.Infrastructure.csproj" />
+		<ProjectReference Include="..\..\Modules\Module2s\App1.Modules.Module2s.Infrastructure\App1.Modules.Module2s.Infrastructure.csproj" />
+		<ProjectReference Include="..\App1.ServiceDefaults\App1.ServiceDefaults.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Scalar.AspNetCore" Version="1.2.74" />
+	</ItemGroup>
+</Project>

@@ -318,6 +318,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorWebAppMicrosoftIdenti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp1", "templates\BlazorWebAppMicrosoftIdentityPlatform\WebApp1\WebApp1.csproj", "{A51BB60B-104E-40D9-82BB-76CC66DD9D14}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		validate-build.ps1 = validate-build.ps1
+		validate-build.sh = validate-build.sh
+		validate-packages.ps1 = validate-packages.ps1
+		validate-packages.sh = validate-packages.sh
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

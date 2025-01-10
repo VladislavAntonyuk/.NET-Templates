@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>$(NetVersion)</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Common\App1.Common.Infrastructure\App1.Common.Infrastructure.csproj" />
+		<ProjectReference Include="..\App1.Modules.Module1s.Application\App1.Modules.Module1s.Application.csproj" />
+		<ProjectReference Include="..\App1.Modules.Module1s.Presentation\App1.Modules.Module1s.Presentation.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="App1.Modules.Module1s.IntegrationTests" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Graph.Beta" Version="5.93.0-preview" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>

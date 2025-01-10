@@ -8,6 +8,7 @@
 [![NuGet Downloads](https://img.shields.io/nuget/dt/VladislavAntonyuk.DotNetTemplates.svg?style=flat-square)](https://www.nuget.org/packages/VladislavAntonyuk.DotNetTemplates)
 
 Table of contents:
+* [Modular Monolith](#modular-monolith)
 * [Blazor WebApp Microsoft Identity Platform](#blazor-webapp-microsoft-identity-platform)
 * [Onion Architecture Templates](#onion-architecture-templates)
   + [Onion Architecture Cross-Platform Application](#onion-architecture-cross-platform-application)
@@ -43,14 +44,14 @@ Table of contents:
 
 [<a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a>]: <>
 
-## Blazor Maui Shared
+## Modular Monolith
 
-Creates .NET MAUI application, Blazor WevApp and Blazor WebAssembly projects with shared UI.
+Creates a Modular Monolith application.
 
 Create solution:
 
 ```pwsh
-dotnet new blazor-maui-shared -n MyProductName --ApplicationId com.vladislavantonyuk.myapp
+dotnet new modular-monolith -n MyProductName --module1 MyModule1Name --module2 MyModule2Name
 ```
 
 ## Blazor WebApp Microsoft Identity Platform
@@ -73,6 +74,7 @@ Create solution:
 
 ```pwsh
 dotnet new onion-app -n MyProductName --entityName MyEntityName
+```
 
 ### Onion Architecture Cross-Platform Application Repository
 
@@ -367,7 +369,7 @@ The final application id: `com.vladislavantonyuk.myapp.myapp-TodayExtension`.
 ## Build 
 
 ```pwsh
-dotnet pack
+dotnet pack .\VladislavAntonyukDotnetTemplates.csproj
 ```
 
 ## Install Templates

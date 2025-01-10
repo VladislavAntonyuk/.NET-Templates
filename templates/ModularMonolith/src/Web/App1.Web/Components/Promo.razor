@@ -1,0 +1,48 @@
+﻿@inherits App1BaseComponent
+
+<MudContainer>
+	<MudGrid Justify="Justify.Center">
+		<MudItem md="5" Class="d-flex flex-column justify-center align-center flex-wrap">
+			<MudText Typo="Typo.h1" Align="Align.Center">@Constants.ProductName</MudText>
+			<MudText Align="Align.Center" Class="my-6">Translation.Promo</MudText>
+			<MudGrid>
+				<MudItem xs="4">
+					<MudLink Href="https://play.google.com/store/apps/details?id=com.vladislavantonyuk.App1" Target="_blank">
+						<MudImage Src="https://ik.imagekit.io/VladislavAntonyuk/projects/drawgo/google-play.png" Alt="Google Play" Style="width: 100%"/>
+					</MudLink>
+				</MudItem>
+				<MudItem xs="4">
+					<MudLink Href="https://github.com/VladislavAntonyuk/App1" Target="_blank">
+						<MudImage Src="https://ik.imagekit.io/VladislavAntonyuk/projects/drawgo/app-store.png" Alt="App Store" Style="width: 100%"/>
+					</MudLink>
+				</MudItem>
+				<MudItem xs="4">
+					<MudLink Href="https://www.microsoft.com/store/apps/9P90J9GZJSK2" Target="_blank">
+						<MudImage Src="https://ik.imagekit.io/VladislavAntonyuk/projects/drawgo/microsoft-store.png" Alt="Microsoft Store" Style="width: 100%"/>
+					</MudLink>
+				</MudItem>
+			</MudGrid>
+			<AuthorizeView>
+				<NotAuthorized>
+					<MudButton FullWidth="true" class="my-1 p-2 custom-button" OnClick="SignIn" ButtonType="ButtonType.Button" Color="Color.Secondary">Translation.Register</MudButton>
+				</NotAuthorized>
+			</AuthorizeView>
+		</MudItem>
+		<MudItem md="5">
+			<iframe class="video" src="https://www.youtube.com/embed/Gh91gtFd7a0?controls=0" title="@Constants.ProductName" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</MudItem>
+		<MudItem xs="12">
+			<MudText Typo="Typo.h5" Align="Align.Center" Class="mt-3">Translation.PromoShortDescription</MudText>
+		</MudItem>
+	</MudGrid>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250">
+		<linearGradient id="linear-gradient">
+			<stop offset="0%" stop-color="rgb(5, 39, 103)"/>
+			<stop offset="70%" stop-color="#3a0647"/>
+		</linearGradient>
+		<path fill="url(#linear-gradient)"
+		      fill-opacity="1"
+		      d="M0,128L48,117.3C96,107,192,85,288,80C384,75,480,85,576,112C672,139,768,181,864,181.3C960,181,1056,139,1152,122.7C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+		</path>
+	</svg>
+</MudContainer>

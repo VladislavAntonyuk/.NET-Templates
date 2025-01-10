@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>$(NetVersion)</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Common\App1.Common.Infrastructure\App1.Common.Infrastructure.csproj" />
+		<ProjectReference Include="..\..\Modules\Module1s\App1.Modules.Module1s.Application\App1.Modules.Module1s.Application.csproj" />
+		<ProjectReference Include="..\..\Modules\Module2s\App1.Modules.Module2s.Application\App1.Modules.Module2s.Application.csproj" />
+		<ProjectReference Include="..\App1.ServiceDefaults\App1.ServiceDefaults.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Aspire.StackExchange.Redis.DistributedCaching" Version="9.0.0" />
+		<PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="9.0.0" />
+		<PackageReference Include="MudBlazor" Version="8.0.0-rc.2" />
+		<PackageReference Include="Toolbelt.Blazor.I18nText" Version="13.0.0" />
+		<PackageReference Include="Microsoft.Identity.Web.UI" Version="3.5.0" />
+	</ItemGroup>
+
+</Project>

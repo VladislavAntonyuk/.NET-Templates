@@ -1,0 +1,95 @@
+name: Build and deploy client
+
+on:
+    push:
+        branches: [ main ]
+        paths:
+          - 'src/Client/**'
+          - '.github/workflows/main_world-explorer_client.yml'
+    pull_request:
+        branches: [ main ]
+        paths:
+          - 'src/Client/**'
+          - '.github/workflows/main_world-explorer_client.yml'
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
+
+env:  
+  VERSION: 2.0.${{github.run_number}}.0
+
+jobs:
+    buildClient:
+        runs-on: ${{ matrix.os }}
+        strategy:
+          fail-fast: false
+          matrix:
+            os: [windows-latest]
+            #os: [windows-latest, macos-latest]
+
+        steps:
+            -   uses: actions/checkout@v4
+
+            -   name: Set up .NET
+                uses: actions/setup-dotnet@v4
+                with:
+                    dotnet-version: '9.x'
+
+            -   name: Install workloads
+                run: dotnet workload install maui
+
+            -   name: Prepare build
+                run: |
+                    (Get-Content src\Client\Client\Platforms\Windows\Package.appxmanifest).Replace('1.0.0.0', '${{ env.VERSION }}') | Set-Content src\Client\Client\Platforms\Windows\Package.appxmanifest
+                    (Get-Content src\Client\Client\Client.csproj).Replace('<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>', '<ApplicationDisplayVersion>${{ env.VERSION }}</ApplicationDisplayVersion>') | Set-Content src\Client\Client\Client.csproj
+                    (Get-Content src\Client\Client\Client.csproj).Replace('<ApplicationVersion>1</ApplicationVersion>', '<ApplicationVersion>${{github.run_number}}</ApplicationVersion>') | Set-Content src\Client\Client\Client.csproj
+
+            -   name: Build Client (Android)
+                run: |
+                    dotnet publish src/Client/Client/Client.csproj -f net9.0-android /p:Version="${{ env.VERSION }}"
+                    mkdir output\android
+                    copy ".\src\Client\Client\bin\Release\net9.0-android\publish\com.vladislavantonyuk.worldexplorer.aab" "output\android"
+
+            -   name: Build Client (Apple)
+                run: |
+                    dotnet build src/Client/Client/Client.csproj -f net9.0-ios /p:Version="${{ env.VERSION }}"
+                    dotnet publish src/Client/Client/Client.csproj -f net9.0-maccatalyst /p:Version="${{ env.VERSION }}"
+                    mkdir output\maccatalyst
+                    copy ".\src\Client\Client\bin\Release\net9.0-maccatalyst\**\*.pkg" "output\maccatalyst"
+
+            -   name: Build Client (Windows)
+                run: |
+                    dotnet publish src/Client/Client/Client.csproj -f net9.0-windows10.0.19041.0 /p:Version="${{ env.VERSION }}"
+                    mkdir output\windows
+                    copy ".\src\Client\Client\bin\Release\net9.0-windows10.0.19041.0\win10-x64\AppPackages\**\*.msix" "output\windows"
+
+            -   name: Upload artifact for deployment job
+                uses: actions/upload-artifact@v4
+                with:
+                    name: client
+                    path: output
+                    retention-days: 7
+
+    deployClient:
+        runs-on: windows-latest
+        needs: buildClient
+        if: github.event_name != 'pull_request'
+        environment:
+            name: 'Production'
+
+        steps:
+            -   name: Download artifact from build job
+                uses: actions/download-artifact@v4
+                with:
+                    name: client
+                    path: "${{ github.workspace }}/client"
+
+            # - name: Deploy Windows App to Microsoft Store
+            #   uses: isaacrlevin/windows-store-action
+            #   with:
+            #     tenant-id: ${{ secrets.AZURE_AD_TENANT_ID }}
+            #     client-id: ${{ secrets.AZURE_AD_APPLICATION_CLIENT_ID }}
+            #     client-secret: ${{ secrets.AZURE_AD_APPLICATION_SECRET }}
+            #     app-id: ${{ secrets.STORE_APP_ID }}
+            #     package-path: "${{ github.workspace }}/client/windows/WorldExplorer.msix"

@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>$(NetVersion)</TargetFramework>
+	</PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\App1.Common.Infrastructure\App1.Common.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\Common\App1.Common.Presentation\App1.Common.Presentation.csproj" />
+    <ProjectReference Include="..\App1.Modules.Module2s.Application\App1.Modules.Module2s.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<InternalsVisibleTo Include="App1.Modules.Module2s.IntegrationTests" />
+  </ItemGroup>
+
+</Project>

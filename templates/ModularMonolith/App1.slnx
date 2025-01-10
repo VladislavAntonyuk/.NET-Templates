@@ -1,0 +1,42 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".github/dependabot.yml" />
+    <File Path=".github/workflows/main_App1_client.yml" />
+    <File Path=".github/workflows/main_App1_webapp.yml" />
+    <File Path="Directory.Build.props" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Common/" Id="bff2df6e-aa54-47c7-211f-79accbb4577c">
+    <Project Path="src/Common/App1.Common.Application/App1.Common.Application.csproj" />
+    <Project Path="src/Common/App1.Common.Domain/App1.Common.Domain.csproj" />
+    <Project Path="src/Common/App1.Common.Infrastructure/App1.Common.Infrastructure.csproj" />
+    <Project Path="src/Common/App1.Common.Presentation/App1.Common.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/" Id="ec447dcf-abfa-6e24-52a5-d7fd48a5c558" />
+  <Folder Name="/src/Modules/Module1s/" Id="a26f344d-182e-ce53-ad51-2154946ac6f3">
+    <Project Path="src/Modules/Module1s/App1.Modules.Module1s.Application/App1.Modules.Module1s.Application.csproj" />
+    <Project Path="src/Modules/Module1s/App1.Modules.Module1s.ArchitectureTests/App1.Modules.Module1s.ArchitectureTests.csproj" />
+    <Project Path="src/Modules/Module1s/App1.Modules.Module1s.Domain/App1.Modules.Module1s.Domain.csproj" />
+    <Project Path="src/Modules/Module1s/App1.Modules.Module1s.Infrastructure/App1.Modules.Module1s.Infrastructure.csproj" />
+    <Project Path="src/Modules/Module1s/App1.Modules.Module1s.IntegrationEvents/App1.Modules.Module1s.IntegrationEvents.csproj" />
+    <Project Path="src/Modules/Module1s/App1.Modules.Module1s.IntegrationTests/App1.Modules.Module1s.IntegrationTests.csproj" />
+    <Project Path="src/Modules/Module1s/App1.Modules.Module1s.Presentation/App1.Modules.Module1s.Presentation.csproj" />
+    <Project Path="src/Modules/Module1s/App1.Modules.Module1s.UnitTests/App1.Modules.Module1s.UnitTests.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Module2s/" Id="099873af-e720-6d90-987a-e56777ad913c">
+    <Project Path="src/Modules/Module2s/App1.Modules.Module2s.Application/App1.Modules.Module2s.Application.csproj" />
+    <Project Path="src/Modules/Module2s/App1.Modules.Module2s.Domain/App1.Modules.Module2s.Domain.csproj" />
+    <Project Path="src/Modules/Module2s/App1.Modules.Module2s.Infrastructure/App1.Modules.Module2s.Infrastructure.csproj" />
+    <Project Path="src/Modules/Module2s/App1.Modules.Module2s.IntegrationEvents/App1.Modules.Module2s.IntegrationEvents.csproj" />
+    <Project Path="src/Modules/Module2s/App1.Modules.Module2s.Presentation/App1.Modules.Module2s.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/src/Web/" Id="03997797-e7f5-0643-168d-b8ea7178c2fe">
+    <Project Path="src/Web/App1.ApiService/App1.ApiService.csproj" />
+    <Project Path="src/Web/App1.AppHost.Tests/App1.AppHost.Tests.csproj" />
+    <Project Path="src/Web/App1.AppHost/App1.AppHost.csproj" />
+    <Project Path="src/Web/App1.ServiceDefaults/App1.ServiceDefaults.csproj" />
+    <Project Path="src/Web/App1.Web/App1.Web.csproj" />
+  </Folder>
+</Solution>

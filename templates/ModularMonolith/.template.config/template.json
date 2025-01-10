@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Vladislav Antonyuk",
+  "classifications": ["Web","MAUI"],
+  "description": "Creates Modular Monolith application with Microsoft Identity Platform authentication (Azure Active Directory B2C).",
+  "name": "Modular Monolith App with Microsoft Identity Platform authentication",
+  "identity": "VladislavAntonyuk.DotNetTemplates.ModularMonolith",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "shortName": "modular-monolith",
+  "sourceName": "App1",
+  "preferNameDirectory":true,
+  "symbols": {
+    "module1": {
+      "description": "Module1 name",
+      "type": "parameter",
+      "replaces": "Module1",
+      "FileRename": "Module1"
+    },
+    "module1Lower": {
+        "type": "generated",
+        "generator": "casing",
+        "parameters": {
+          "source": "module1",
+          "toLower": true
+        },
+        "replaces": "module1",
+        "FileRename": "module1"
+    },
+    "module2": {
+      "description": "Module2 name",
+      "type": "parameter",
+      "replaces": "Module2",
+      "FileRename": "Module2"
+    },
+    "module2Lower": {
+        "type": "generated",
+        "generator": "casing",
+        "parameters": {
+          "source": "module2",
+          "toLower": true
+        },
+        "replaces": "module2",
+        "FileRename": "module2"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>$(NetVersion)</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Common\App1.Common.Application\App1.Common.Application.csproj" />
+		<ProjectReference Include="..\App1.Modules.Module1s.Domain\App1.Modules.Module1s.Domain.csproj" />
+		<ProjectReference Include="..\App1.Modules.Module1s.IntegrationEvents\App1.Modules.Module1s.IntegrationEvents.csproj" />
+	</ItemGroup>
+
+</Project>
