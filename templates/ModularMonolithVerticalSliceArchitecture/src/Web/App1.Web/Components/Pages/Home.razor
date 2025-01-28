@@ -1,0 +1,13 @@
+﻿@inherits App1BaseComponent
+@page "/"
+
+<PageTitle>@Constants.ProductName</PageTitle>
+
+<AuthorizeView>
+	<Authorized>
+		
+	</Authorized>
+	<NotAuthorized>
+		<Promo/>
+	</NotAuthorized>
+</AuthorizeView>

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>$(NetVersion)</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Common\App1.Common.Infrastructure\App1.Common.Infrastructure.csproj" />
+		<ProjectReference Include="..\..\..\Common\App1.Common.Presentation\App1.Common.Presentation.csproj" />
+		<ProjectReference Include="..\..\Module1s\App1.Modules.Module1s.IntegrationEvents\App1.Modules.Module1s.IntegrationEvents.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>

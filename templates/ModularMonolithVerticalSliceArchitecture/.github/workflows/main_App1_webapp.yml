@@ -1,0 +1,123 @@
+name: Build and deploy webapp
+
+on:
+    push:
+        branches: [ main ]
+        paths:
+          - 'src/Web/**'
+          - 'src/Common/**'
+          - 'src/Modules/**'
+          - '.github/workflows/main_world-explorer_webapp.yml'
+    pull_request:
+        branches: [ main ]
+        paths:
+          - 'src/Web/**'
+          - 'src/Common/**'
+          - 'src/Modules/**'
+          - '.github/workflows/main_world-explorer_webapp.yml'
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
+
+env:  
+  VERSION: 2.0.${{github.run_number}}.0
+
+jobs:
+    buildWebApp:
+        runs-on: windows-latest
+
+        steps:
+            -   uses: actions/checkout@v4
+
+            -   name: Set up .NET
+                uses: actions/setup-dotnet@v4
+                with:
+                    dotnet-version: '9.x'
+
+            -   name: Publish WebApp
+                run: dotnet publish src/Web/WorldExplorer.Web/WorldExplorer.Web.csproj -o '${{env.DOTNET_ROOT}}/webapp' /p:Version="${{ env.VERSION }}"
+
+            -   name: Publish WebApi
+                run: dotnet publish src/Web/WorldExplorer.ApiService/WorldExplorer.ApiService.csproj -o '${{env.DOTNET_ROOT}}/webapi' /p:Version="${{ env.VERSION }}"
+
+            -   name: Upload artifact for webapp job
+                uses: actions/upload-artifact@v4
+                with:
+                    name: webapp
+                    path: ${{env.DOTNET_ROOT}}/webapp
+                    retention-days: 1
+
+            -   name: Upload artifact for webapi job
+                uses: actions/upload-artifact@v4
+                with:
+                    name: webapi
+                    path: ${{env.DOTNET_ROOT}}/webapi
+                    retention-days: 1
+
+    deployWebApi:
+        runs-on: windows-latest
+        needs: buildWebApp
+        if: github.event_name != 'pull_request'
+        environment:
+            name: 'Production'
+            url: ${{ steps.deploy-to-webapi.outputs.webapp-url }}
+
+        steps:
+        - name: Download artifact from build job
+          uses: actions/download-artifact@v4
+          with:
+            name: webapi
+        
+        - uses: cschleiden/replace-tokens@v1
+          env:
+            AAD_B2C_CLAIMS_BASIC_AUTH_USERNAME: ${{ secrets.AAD_B2C_CLAIMS_BASIC_AUTH_USERNAME }}
+            AAD_B2C_CLAIMS_BASIC_AUTH_PASSWORD: ${{ secrets.AAD_B2C_CLAIMS_BASIC_AUTH_PASSWORD }}
+            AAD_B2C_CLIENT_SECRET: ${{ secrets.AAD_B2C_CLIENT_SECRET }}
+            AAD_B2C_GRAPH_CLIENT_SECRET: ${{ secrets.AAD_B2C_GRAPH_CLIENT_SECRET }}
+            GOOGLE_SEARCH_APIKEY: ${{ secrets.GOOGLE_SEARCH_APIKEY }}
+          with:
+            tokenPrefix: '#{'
+            tokenSuffix: '}#'
+            files: '["**/appsettings.json", "**/modules.**.json"]'
+        
+        - name: Deploy to Azure Web App
+          id: deploy-to-webapi
+          uses: azure/webapps-deploy@v3
+          with:
+            app-name: 'world-explorer-api'
+            slot-name: 'Production'
+            publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_680706DABCBA4243912E52268C835D16 }}
+            package: .
+
+    deployWebApp:
+        runs-on: windows-latest
+        needs: deployWebApi
+        if: github.event_name != 'pull_request'
+        environment:
+          name: 'Production'
+          url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+        steps:
+          - name: Download artifact from build job
+            uses: actions/download-artifact@v4
+            with:
+              name: webapp
+  
+          - uses: cschleiden/replace-tokens@v1
+            env:
+              AAD_B2C_CLIENT_SECRET: ${{ secrets.AAD_B2C_CLIENT_SECRET }}
+              WORLD_EXPLORER_API_CLIENT_SCOPES: ${{ secrets.WORLD_EXPLORER_API_CLIENT_SCOPES }}
+            with:
+              tokenPrefix: '#{'
+              tokenSuffix: '}#'
+              files: '["**/appsettings.json"]'
+  
+          - name: Deploy to Azure Web App
+            id: deploy-to-webapp
+            uses: azure/webapps-deploy@v3
+            with:
+              app-name: 'world-explorer'
+              slot-name: 'Production'
+              publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_649309CDF7F74F7B9D0D75A9017C1111 }}
+              package: .

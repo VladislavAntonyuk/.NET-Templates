@@ -5,6 +5,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\App1.Common.Infrastructure\App1.Common.Infrastructure.csproj" />
     <ProjectReference Include="..\..\..\Common\App1.Common.Presentation\App1.Common.Presentation.csproj" />
+    <ProjectReference Include="..\..\Module1s\App1.Modules.Module1s.IntegrationEvents\App1.Modules.Module1s.IntegrationEvents.csproj" />
     <ProjectReference Include="..\App1.Modules.Module2s.Application\App1.Modules.Module2s.Application.csproj" />
   </ItemGroup>
 

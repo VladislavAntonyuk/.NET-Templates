@@ -1,0 +1,8 @@
+﻿using App1.Common.Domain;
+
+namespace App1.Modules.Module1s.Application.Update;
+
+public sealed class Module1UpdatedDomainEvent(Guid module1Id) : DomainEvent
+{
+	public Guid Module1Id { get; init; } = module1Id;
+}

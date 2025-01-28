@@ -9,6 +9,7 @@
 
 Table of contents:
 * [Modular Monolith](#modular-monolith)
+* [Modular Monolith With Vertical Slice Architecture](#modular-monolith-with-vertical-slice-architecture)
 * [Blazor WebApp Microsoft Identity Platform](#blazor-webapp-microsoft-identity-platform)
 * [Onion Architecture Templates](#onion-architecture-templates)
   + [Onion Architecture Cross-Platform Application](#onion-architecture-cross-platform-application)
@@ -52,6 +53,16 @@ Create solution:
 
 ```pwsh
 dotnet new modular-monolith -n MyProductName --module1 MyModule1Name --module2 MyModule2Name
+```
+
+## Modular Monolith With Vertical Slice Architecture
+
+Creates a Modular Monolith application with Vertical Slice Architecture.
+
+Create solution:
+
+```pwsh
+dotnet new modular-monolith-vertical-slice-architecture -n MyProductName --module1 MyModule1Name --module2 MyModule2Name
 ```
 
 ## Blazor WebApp Microsoft Identity Platform
