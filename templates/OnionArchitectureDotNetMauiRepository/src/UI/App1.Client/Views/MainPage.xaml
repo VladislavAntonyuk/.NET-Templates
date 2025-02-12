@@ -4,7 +4,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App1.Client.Views.MainPage"
              xmlns:viewModels="clr-namespace:App1.Client.ViewModels;assembly=App1.Client"
-             x:Name="Class1Page">
+             xmlns:class1="clr-namespace:App1.Application.UseCases.Class1;assembly=App1.Application"
+             x:Name="Class1Page"
+             x:DataType="viewModels:MainViewModel">
 
 	<ScrollView>
 		<VerticalStackLayout Spacing="25" Padding="30">
@@ -14,7 +16,7 @@
 			<CollectionView ItemsSource="{Binding Items}"
 			                EmptyView="No items">
 				<CollectionView.ItemTemplate>
-					<DataTemplate>
+					<DataTemplate x:DataType="class1:Class1Dto">
 						<Grid ColumnDefinitions="*, 5*, *, *"
 						      RowDefinitions="40">
 							<Label Grid.Column="0"
@@ -25,12 +27,12 @@
 
 							<Button Grid.Column="2"
 							        Text="Update"
-							        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=UpdateItemCommand}"
+							        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=UpdateItemCommand, x:DataType={x:Type viewModels:MainViewModel}}"
 							        CommandParameter="{Binding Id}" />
 
 							<Button Grid.Column="3"
 							        Text="Delete"
-							        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=DeleteItemCommand}"
+							        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=DeleteItemCommand, x:DataType={x:Type viewModels:MainViewModel}}"
 							        CommandParameter="{Binding Id}" />
 						</Grid>
 					</DataTemplate>

@@ -8,11 +8,11 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-		<NoWarn>$(NoWarn);NU1902;NU1903;S101</NoWarn>
+		<NoWarn>$(NoWarn);S101</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="SonarAnalyzer.CSharp" Version="10.5.0.109200">
+		<PackageReference Include="SonarAnalyzer.CSharp" Version="10.6.0.109712">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>

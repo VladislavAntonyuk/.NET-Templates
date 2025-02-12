@@ -1,8 +1,11 @@
 ﻿using System.Security.Claims;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.Identity.Web;
+using Microsoft.IdentityModel.JsonWebTokens;
 
 namespace App1.Modules.Module2s.IntegrationTests.Abstractions.Fixtures;
 
@@ -26,8 +29,8 @@ public class TestAuthHandler(
             new(ClaimConstants.NameIdentifierId, "123123"),
             new(JwtRegisteredClaimNames.Iat, GetEpochTimeFromSeconds().ToString()),
             options.CurrentValue.FailPermission
-                ? new(ClaimConstants.PreferredModule2Name, NoPermissionEmail)
-                : new(ClaimConstants.PreferredModule2Name, Email)
+                ? new(ClaimConstants.PreferredUserName, NoPermissionEmail)
+                : new(ClaimConstants.PreferredUserName, Email)
         ];
 
         var identity = new ClaimsIdentity(claims, AuthenticationScheme);

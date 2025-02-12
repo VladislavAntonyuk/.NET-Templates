@@ -3,8 +3,6 @@ using App1.Modules.Module1s.Application.Module1s.CreateModule1;
 using App1.Modules.Module1s.Application.Module1s.UpdateModule1;
 using App1.Modules.Module1s.Domain.Module1s;
 using App1.Modules.Module1s.IntegrationTests.Abstractions;
-using AutoFixture;
-using FluentAssertions;
 
 namespace App1.Modules.Module1s.IntegrationTests.Module1s;
 
@@ -20,11 +18,11 @@ public class UpdateModule1Tests(IntegrationTestWebAppFactory factory) : BaseInte
     public async Task Should_ReturnError_WhenCommandIsNotValid(UpdateModule1Command command)
     {
         // Act
-        Result result = await Sender.Send(command);
+        Result result = await Sender.Send(command, TestContext.Current.CancellationToken);
 
         // Assert
-        result.IsFailure.Should().BeTrue();
-        result.Error.Type.Should().Be(ErrorType.Validation);
+        Assert.True(result.IsFailure);
+        Assert.Equal(ErrorType.Validation, result.Error.Type);
     }
 
     [Fact]
@@ -34,26 +32,24 @@ public class UpdateModule1Tests(IntegrationTestWebAppFactory factory) : BaseInte
         var module1Id = Guid.NewGuid();
 
         // Act
-        Result updateResult = await Sender.Send(
-            new UpdateModule1Command(module1Id));
+        Result updateResult = await Sender.Send(new UpdateModule1Command(module1Id), TestContext.Current.CancellationToken);
 
         // Assert
-        updateResult.Error.Should().Be(Module1Errors.NotFound(module1Id));
+        Assert.Equal(Module1Errors.NotFound(module1Id), updateResult.Error);
     }
 
     [Fact]
     public async Task Should_ReturnSuccess_WhenModule1Exists()
     {
         // Arrange
-        var result = await Sender.Send(new CreateModule1Command(Guid.Parse("19d3b2c7-8714-4851-ac73-95aeecfba3a6")));
+        var result = await Sender.Send(new CreateModule1Command(Guid.Parse("19d3b2c7-8714-4851-ac73-95aeecfba3a6")), TestContext.Current.CancellationToken);
 
         Guid module1Id = result.Value.Id;
 
         // Act
-        Result updateResult = await Sender.Send(
-            new UpdateModule1Command(module1Id));
+        Result updateResult = await Sender.Send(new UpdateModule1Command(module1Id), TestContext.Current.CancellationToken);
 
         // Assert
-        updateResult.IsSuccess.Should().BeTrue();
+        Assert.True(updateResult.IsSuccess);
     }
 }

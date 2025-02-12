@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using App1.Common.Domain;
 using App1.Modules.Module2s.ArchitectureTests.Abstractions;
-using FluentAssertions;
 using NetArchTest.Rules;
 
 namespace App1.Modules.Module2s.ArchitectureTests.Domain;
@@ -44,7 +43,9 @@ public class DomainTests : BaseTest
 		var failingTypes = new List<Type>();
 		foreach (var entityType in entityTypes)
 		{
+#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 			var constructors = entityType.GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance);
+#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
 			if (!constructors.Any(c => c.IsPrivate && c.GetParameters().Length == 0))
 			{
@@ -52,7 +53,7 @@ public class DomainTests : BaseTest
 			}
 		}
 
-		failingTypes.Should().BeEmpty();
+		Assert.Empty(failingTypes);
 	}
 
 	[Fact]
@@ -65,12 +66,12 @@ public class DomainTests : BaseTest
 		{
 			var constructors = entityType.GetConstructors(BindingFlags.Public | BindingFlags.Instance);
 
-			if (constructors.Any())
+			if (constructors.Length > 0)
 			{
 				failingTypes.Add(entityType);
 			}
 		}
 
-		failingTypes.Should().BeEmpty();
+		Assert.Empty(failingTypes);
 	}
 }

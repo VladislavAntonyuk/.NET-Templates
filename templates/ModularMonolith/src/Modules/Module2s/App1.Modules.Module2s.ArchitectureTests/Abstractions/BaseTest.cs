@@ -11,7 +11,7 @@ public abstract class BaseTest
 
 	protected static readonly Assembly DomainAssembly = typeof(Module2).Assembly;
 
-	protected static readonly Assembly InfrastructureAssembly = typeof(Module2SModule).Assembly;
+	protected static readonly Assembly InfrastructureAssembly = typeof(Module2sModule).Assembly;
 
 	protected static readonly Assembly PresentationAssembly = typeof(Module2s.Presentation.AssemblyReference).Assembly;
 }

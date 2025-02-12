@@ -1,8 +1,9 @@
 ﻿using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using App1.Modules.Module2s.Application.Module2s.GetModule2ById;
 using App1.Modules.Module2s.IntegrationTests.Abstractions;
-using FluentAssertions;
+using App1.Modules.Module2s.Presentation.Module2s;
 
 namespace App1.Modules.Module2s.IntegrationTests.Module2s;
 
@@ -14,10 +15,10 @@ public class GetModule2ProfileTests(IntegrationTestWebAppFactory factory) : Base
 		SetAuth(false);
 
         // Act
-        HttpResponseMessage response = await HttpClient.GetAsync("Module2s/profile");
+        HttpResponseMessage response = await HttpClient.GetAsync("Module2s/19d3b2c7-8714-4851-ac73-95aeecfba3a7", TestContext.Current.CancellationToken);
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
+        Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
     }
 
     [Fact]
@@ -26,34 +27,28 @@ public class GetModule2ProfileTests(IntegrationTestWebAppFactory factory) : Base
 		SetAuth(true);
 
 		// Arrange
-        string accessToken = await RegisterModule2AndGetAccessTokenAsync();
-        HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-            JwtBearerDefaults.AuthenticationScheme,
-            accessToken);
+        string id = await RegisterModule2AndGetAccessTokenAsync();
 
         // Act
-        HttpResponseMessage response = await HttpClient.GetAsync("Module2s/profile");
+        HttpResponseMessage response = await HttpClient.GetAsync($"Module2s/{id}", TestContext.Current.CancellationToken);
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
-        Module2Response? module2 = await response.Content.ReadFromJsonAsync<Module2Response>();
-        module2.Should().NotBeNull();
+        Module2Response? module2 = await response.Content.ReadFromJsonAsync<Module2Response>(TestContext.Current.CancellationToken);
+        Assert.NotNull(module2);
     }
 
     private async Task<string> RegisterModule2AndGetAccessTokenAsync()
     {
-        var request = new RegisterModule2.Request
+        var request = new CreateModule2.Request
         {
-	        ClientId = "3c3bdb4b-327b-49a9-a13e-0b565526b8a1",
 	        ObjectId = Guid.Parse("19d3b2c7-8714-4851-ac73-95aeecfba3a6")
 		};
 
-        var response = await HttpClient.PostAsJsonAsync("Module2s/register", request);
+        var response = await HttpClient.PostAsJsonAsync("Module2s", request);
         response.EnsureSuccessStatusCode();
 
-        string accessToken = string.Empty;
-
-        return accessToken;
+        return "19d3b2c7-8714-4851-ac73-95aeecfba3a6";
     }
 }

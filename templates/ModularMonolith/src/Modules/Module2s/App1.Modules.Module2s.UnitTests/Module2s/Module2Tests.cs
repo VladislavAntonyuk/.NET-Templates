@@ -1,6 +1,5 @@
 ﻿using App1.Modules.Module2s.Domain.Module2s;
 using App1.Modules.Module2s.UnitTests.Abstractions;
-using FluentAssertions;
 
 namespace App1.Modules.Module2s.UnitTests.Module2s;
 
@@ -13,7 +12,7 @@ public class Module2Tests : BaseTest
 		var module2 = Module2.Create(Guid.NewGuid());
 
 		// Assert
-		module2.Should().NotBeNull();
+		Assert.NotNull(module2);
 	}
 
 	[Fact]
@@ -25,7 +24,7 @@ public class Module2Tests : BaseTest
 		// Assert
 		var domainEvent = AssertDomainEventWasPublished<Module2CreatedDomainEvent>(module2);
 
-		domainEvent.Module2Id.Should().Be(module2.Id);
+		Assert.Equal(domainEvent.Module2Id, module2.Id);
 	}
 
 	[Fact]
@@ -40,7 +39,7 @@ public class Module2Tests : BaseTest
 		// Assert
 		var domainEvent = AssertDomainEventWasPublished<Module2UpdatedDomainEvent>(module2);
 
-		domainEvent.Module2Id.Should().Be(module2.Id);
+		Assert.Equal(domainEvent.Module2Id, module2.Id);
 	}
 
 	[Fact]
@@ -55,6 +54,6 @@ public class Module2Tests : BaseTest
 		module2.Update();
 
 		// Assert
-		module2.DomainEvents.Should().BeEmpty();
+		Assert.Empty(module2.DomainEvents);
 	}
 }

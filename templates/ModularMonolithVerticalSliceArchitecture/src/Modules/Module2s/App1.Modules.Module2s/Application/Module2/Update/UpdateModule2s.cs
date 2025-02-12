@@ -1,7 +1,6 @@
 ﻿using App1.Common.Domain;
 using App1.Common.Presentation.Endpoints;
 using App1.Common.Presentation.Results;
-using App1.Modules.Module2s.Application.Module2;
 using App1.Modules.Module2s.Infrastructure.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;

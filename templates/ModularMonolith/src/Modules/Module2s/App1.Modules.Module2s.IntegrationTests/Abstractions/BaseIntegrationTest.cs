@@ -1,5 +1,8 @@
-﻿using App1.Modules.Module2s.IntegrationTests.Abstractions.Fixtures;
+﻿using App1.Modules.Module2s.Infrastructure.Database;
+using App1.Modules.Module2s.IntegrationTests.Abstractions.Fixtures;
 using AutoFixture;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
@@ -9,7 +12,7 @@ namespace App1.Modules.Module2s.IntegrationTests.Abstractions;
 public abstract class BaseIntegrationTest : IDisposable
 {
 	protected static readonly Fixture Faker = new();
-	protected readonly Module2DbContext DbContext;
+	protected readonly Module2sDbContext DbContext;
 	protected readonly HttpClient HttpClient;
 	private readonly IServiceScope scope;
 	protected readonly ISender Sender;

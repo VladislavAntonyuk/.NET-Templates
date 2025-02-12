@@ -5,8 +5,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="MudBlazor" Version="7.15.0" />
-		<PackageReference Include="Toolbelt.Blazor.I18nText" Version="13.0.0" />
+		<PackageReference Include="MudBlazor" Version="8.2.0" />
+		<PackageReference Include="Toolbelt.Blazor.I18nText" Version="14.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>

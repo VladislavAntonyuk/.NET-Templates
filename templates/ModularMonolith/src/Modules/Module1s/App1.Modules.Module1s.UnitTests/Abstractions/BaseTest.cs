@@ -13,7 +13,7 @@ public abstract class BaseTest
 
 		if (domainEvent is null)
 		{
-			throw new Exception($"{typeof(T).Name} was not published");
+			throw new InvalidDataException($"{typeof(T).Name} was not published");
 		}
 
 		return domainEvent;

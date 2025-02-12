@@ -1,26 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>$(NetVersion)</TargetFramework>
-		<IsPackable>false</IsPackable>
-		<IsTestProject>true</IsTestProject>
-	</PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TestingPlatformDotnetTestSupport>false</TestingPlatformDotnetTestSupport>
+    <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AutoFixture" Version="5.0.0-preview0011" />
-		<PackageReference Include="coverlet.collector" Version="6.0.3">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="FluentAssertions" Version="8.0.0-rc.2" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.0" />
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
-		<PackageReference Include="Testcontainers.MsSql" Version="4.1.0" />
-		<PackageReference Include="Testcontainers.Redis" Version="4.1.0" />
-		<PackageReference Include="xunit" Version="2.9.2" />
-		<PackageReference Include="xunit.runner.visualstudio" Version="3.0.0">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
+		<PackageReference Include="AutoFixture" Version="5.0.0-preview0012" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.2" />
+		<PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="17.13.1" />
+		<PackageReference Include="Testcontainers.MsSql" Version="4.2.0" />
+		<PackageReference Include="Testcontainers.Redis" Version="4.2.0" />
+		<PackageReference Include="xunit.v3" Version="1.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>

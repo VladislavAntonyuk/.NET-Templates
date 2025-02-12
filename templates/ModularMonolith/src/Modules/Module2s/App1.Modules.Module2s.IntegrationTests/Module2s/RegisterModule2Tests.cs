@@ -1,38 +1,32 @@
 ﻿using System.Net;
 using System.Net.Http.Json;
 using App1.Modules.Module2s.IntegrationTests.Abstractions;
-using FluentAssertions;
+using App1.Modules.Module2s.Presentation.Module2s;
 
 namespace App1.Modules.Module2s.IntegrationTests.Module2s;
 
 public class RegisterModule2Tests(IntegrationTestWebAppFactory factory) : BaseIntegrationTest(factory)
 {
-	public static readonly TheoryData<string, string> InvalidRequests = new()
-    {
-	    {"", "19d3b2c7-8714-4851-ac73-95aeecfba3a6"}
-	};
+	public static readonly TheoryData<string> InvalidRequests = [""];
 
 
     [Theory]
     [MemberData(nameof(InvalidRequests))]
-    public async Task Should_ReturnUnauthorized_WhenRequestIsNotValid(
-        string clientId,
-        string objectId)
+    public async Task Should_ReturnUnauthorized_WhenRequestIsNotValid(string objectId)
     {
 		SetAuth(true);
 
         // Arrange
-        var request = new RegisterModule2.Request
+        var request = new CreateModule2.Request
         {
-	        ClientId = clientId,
 	        ObjectId = Guid.Parse(objectId)
 		};
 
         // Act
-        HttpResponseMessage response = await HttpClient.PostAsJsonAsync("Module2s/register", request);
+        HttpResponseMessage response = await HttpClient.PostAsJsonAsync("Module2s", request, TestContext.Current.CancellationToken);
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
+        Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
     }
 
 
@@ -42,13 +36,13 @@ public class RegisterModule2Tests(IntegrationTestWebAppFactory factory) : BaseIn
 		SetAuth(true);
 
 		// Arrange
-		RegisterModule2.Request? request = null;
+		CreateModule2.Request? request = null;
 
         // Act
-        HttpResponseMessage response = await HttpClient.PostAsJsonAsync("Module2s/register", request);
+        HttpResponseMessage response = await HttpClient.PostAsJsonAsync("Module2s", request, TestContext.Current.CancellationToken);
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
     }
 
     [Fact]
@@ -57,16 +51,15 @@ public class RegisterModule2Tests(IntegrationTestWebAppFactory factory) : BaseIn
 		SetAuth(true);
 
 		// Arrange
-		var request = new RegisterModule2.Request
+		var request = new CreateModule2.Request
         {
-	        ClientId = "3c3bdb4b-327b-49a9-a13e-0b565526b8a1",
 	        ObjectId = Guid.Parse("19d3b2c7-8714-4851-ac73-95aeecfba3a6")
         };
 
         // Act
-        HttpResponseMessage response = await HttpClient.PostAsJsonAsync("Module2s/register", request);
+        HttpResponseMessage response = await HttpClient.PostAsJsonAsync("Module2s", request, TestContext.Current.CancellationToken);
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
 }

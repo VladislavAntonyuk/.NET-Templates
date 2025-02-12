@@ -394,7 +394,7 @@ dotnet new install VladislavAntonyuk.DotNetTemplates
 From file:
 
 ```pwsh
-dotnet new install VladislavAntonyuk.DotNetTemplates.4.0.0.nupkg
+dotnet new install VladislavAntonyuk.DotNetTemplates.4.1.0.nupkg
 ```
 
 ## Uninstall

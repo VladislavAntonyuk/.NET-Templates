@@ -2,7 +2,6 @@
 using System.Net.Http.Json;
 using App1.Modules.Module1s.IntegrationTests.Abstractions;
 using App1.Modules.Module1s.Presentation.Module1s;
-using FluentAssertions;
 
 namespace App1.Modules.Module1s.IntegrationTests.Module1s;
 
@@ -24,10 +23,10 @@ public class RegisterModule1Tests(IntegrationTestWebAppFactory factory) : BaseIn
 		};
 
         // Act
-        HttpResponseMessage response = await HttpClient.PostAsJsonAsync("Module1s", request);
+        HttpResponseMessage response = await HttpClient.PostAsJsonAsync("Module1s", request, TestContext.Current.CancellationToken);
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
+        Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
     }
 
 
@@ -40,10 +39,10 @@ public class RegisterModule1Tests(IntegrationTestWebAppFactory factory) : BaseIn
 		CreateModule1.Request? request = null;
 
         // Act
-        HttpResponseMessage response = await HttpClient.PostAsJsonAsync("Module1s", request);
+        HttpResponseMessage response = await HttpClient.PostAsJsonAsync("Module1s", request, TestContext.Current.CancellationToken);
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
     }
 
     [Fact]
@@ -58,9 +57,9 @@ public class RegisterModule1Tests(IntegrationTestWebAppFactory factory) : BaseIn
         };
 
         // Act
-        HttpResponseMessage response = await HttpClient.PostAsJsonAsync("Module1s", request);
+        HttpResponseMessage response = await HttpClient.PostAsJsonAsync("Module1s", request, TestContext.Current.CancellationToken);
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
 }

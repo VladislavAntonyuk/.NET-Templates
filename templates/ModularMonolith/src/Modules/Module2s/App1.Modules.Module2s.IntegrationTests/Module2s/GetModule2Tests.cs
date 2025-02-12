@@ -1,4 +1,7 @@
-﻿using App1.Modules.Module2s.IntegrationTests.Abstractions;
+﻿using App1.Modules.Module2s.Application.Module2s.CreateModule2;
+using App1.Modules.Module2s.Application.Module2s.GetModule2ById;
+using App1.Modules.Module2s.Domain.Module2s;
+using App1.Modules.Module2s.IntegrationTests.Abstractions;
 
 namespace App1.Modules.Module2s.IntegrationTests.Module2s;
 
@@ -11,24 +14,24 @@ public class GetModule2Tests(IntegrationTestWebAppFactory factory) : BaseIntegra
         var module2Id = Guid.NewGuid();
 
         // Act
-        var module2Result = await Sender.Send(new GetModule2Query(module2Id));
+        var module2Result = await Sender.Send(new GetModule2Query(module2Id), TestContext.Current.CancellationToken);
 
         // Assert
-        module2Result.Error.Should().Be(Module2Errors.NotFound(module2Id));
+        Assert.Equal(Module2Errors.NotFound(module2Id), module2Result.Error);
     }
 
     [Fact]
     public async Task Should_ReturnModule2_WhenModule2Exists()
     {
         // Arrange
-        var result = await Sender.Send(new RegisterModule2Command(Guid.Parse("19d3b2c7-8714-4851-ac73-95aeecfba3a6")));
+        var result = await Sender.Send(new CreateModule2Command(Guid.Parse("19d3b2c7-8714-4851-ac73-95aeecfba3a6")), TestContext.Current.CancellationToken);
         var module2Id = result.Value.Id;
 
         // Act
-        var module2Result = await Sender.Send(new GetModule2Query(module2Id));
+        var module2Result = await Sender.Send(new GetModule2Query(module2Id), TestContext.Current.CancellationToken);
 
         // Assert
-        module2Result.IsSuccess.Should().BeTrue();
-        module2Result.Value.Should().NotBeNull();
+        Assert.True(module2Result.IsSuccess);
+        Assert.NotNull(module2Result.Value);
     }
 }
