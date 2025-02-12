@@ -9,6 +9,7 @@
     <Description>.NET Application templates like cross-platform app with onion architecture and iOS Extensions.</Description>
     <PackageTags>dotnet;dotnet-new;templates;onion;architecture;maui;dotnet-maui;ios;extensions;blazor;microsoft-identity;azure-ad</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <TargetFramework>netstandard2.0</TargetFramework>
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
