@@ -23,4 +23,8 @@
         <ImageAsset Include="Assets.xcassets\iMessage App Icon.stickersiconset\Contents.json" />
         <ImageAsset Include="Assets.xcassets\Contents.json" />
     </ItemGroup>
+      
+    <PropertyGroup>
+		<Registrar>static</Registrar>
+	</PropertyGroup>
   </Project>

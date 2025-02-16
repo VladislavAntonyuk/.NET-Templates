@@ -18,4 +18,8 @@
 		<IsAppExtension>True</IsAppExtension>
 		<IsWatchExtension>False</IsWatchExtension>
       </PropertyGroup>
+      
+    <PropertyGroup>
+		<Registrar>static</Registrar>
+	</PropertyGroup>
   </Project>

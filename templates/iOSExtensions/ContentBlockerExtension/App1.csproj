@@ -6,20 +6,24 @@
         <ApplicationId>com.companyname.app.app-CallBlockerExtension</ApplicationId>
 
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>1</ApplicationVersion>
+		    <ApplicationVersion>1</ApplicationVersion>
 
         <Nullable>enable</Nullable>
-		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<SupportedOSPlatformVersion>15.4</SupportedOSPlatformVersion>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <SupportedOSPlatformVersion>15.4</SupportedOSPlatformVersion>
      </PropertyGroup>
 
      <PropertyGroup>
-		<IsAppExtension>True</IsAppExtension>
-		<IsWatchExtension>False</IsWatchExtension>
-      </PropertyGroup>
+        <IsAppExtension>True</IsAppExtension>
+        <IsWatchExtension>False</IsWatchExtension>
+     </PropertyGroup>
 
-      <ItemGroup>
+    <ItemGroup>
         <BundleResource Include="blockerList.json" />
     </ItemGroup>
+      
+    <PropertyGroup>
+		  <Registrar>static</Registrar>
+	  </PropertyGroup>
   </Project>
