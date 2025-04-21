@@ -1,0 +1,25 @@
+﻿@using System.Reflection
+@inherits App1BaseComponent
+
+<MudNavMenu>
+	<AuthorizeView>
+		<Authorized>
+			<MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Outlined.Dashboard">Translation.MenuModule1s</MudNavLink>
+		</Authorized>
+	</AuthorizeView>
+	<AuthorizeView Policy="IsAdministrator">
+		<Authorized>
+			<MudNavLink Href="/admin" Match="NavLinkMatch.All" Icon="@Icons.Material.Outlined.Dashboard">Admin</MudNavLink>
+		</Authorized>
+	</AuthorizeView>
+</MudNavMenu>
+<div class="author">
+	<div>
+		<MudLink Href="https://vladislavantonyuk.github.io/" Target="_blank">Vladislav Antonyuk</MudLink>
+	</div>
+	<div>@frameworkName</div>
+	<div>
+		© @DateTime.UtcNow.Year
+	</div>
+	<div>@Translation.Version: @Assembly.GetEntryAssembly()?.GetName().Version</div>
+</div>

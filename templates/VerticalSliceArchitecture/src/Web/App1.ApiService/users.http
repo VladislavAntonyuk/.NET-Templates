@@ -1,0 +1,12 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@host=https://localhost:5002
+
+POST {{host}}/Module1s/register
+Content-Type: application/json
+Authorization: Basic JUpfRnFGYWNoUUwtc3FGbmRMSjJuX25EWV9ZLSQjdXg6cDdqTTUrI1lzeUBzRT1UWFhfcjR5K3BzYWFhTCpra2c=
+
+{
+	"client_id":"123",
+	"objectId":"19d3b2c7-8714-4851-ac73-95aeecfba3a6"
+}
+

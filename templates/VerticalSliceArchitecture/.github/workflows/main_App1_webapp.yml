@@ -1,0 +1,109 @@
+name: Build and deploy webapp
+
+on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
+
+env:  
+  VERSION: 1.0.${{github.run_number}}.0
+
+jobs:
+    buildWebApp:
+        runs-on: windows-latest
+
+        steps:
+            -   uses: actions/checkout@v4
+
+            -   name: Set up .NET
+                uses: actions/setup-dotnet@v4
+                with:
+                    dotnet-version: '9.x'
+
+            -   name: Publish WebApp
+                run: dotnet publish src/Web/App1.Web/App1.Web.csproj -o '${{env.DOTNET_ROOT}}/webapp' /p:Version="${{ env.VERSION }}"
+
+            -   name: Publish WebApi
+                run: dotnet publish src/Web/App1.ApiService/App1.ApiService.csproj -o '${{env.DOTNET_ROOT}}/webapi' /p:Version="${{ env.VERSION }}"
+
+            -   name: Upload artifact for webapp job
+                uses: actions/upload-artifact@v4
+                with:
+                    name: webapp
+                    path: ${{env.DOTNET_ROOT}}/webapp
+                    retention-days: 1
+
+            -   name: Upload artifact for webapi job
+                uses: actions/upload-artifact@v4
+                with:
+                    name: webapi
+                    path: ${{env.DOTNET_ROOT}}/webapi
+                    retention-days: 1
+
+    deployWebApi:
+        runs-on: windows-latest
+        needs: buildWebApp
+        if: github.event_name != 'pull_request'
+        environment:
+            name: 'Production'
+            url: ${{ steps.deploy-to-webapi.outputs.webapp-url }}
+
+        steps:
+        - name: Download artifact from build job
+          uses: actions/download-artifact@v4
+          with:
+            name: webapi
+        
+        - uses: cschleiden/replace-tokens@v1
+          env:
+            AAD_B2C_CLIENT_SECRET: ${{ secrets.AAD_B2C_CLIENT_SECRET }}
+          with:
+            tokenPrefix: '#{'
+            tokenSuffix: '}#'
+            files: '["**/appsettings.json", "**/modules.**.json"]'
+        
+        - name: Deploy to Azure Web App
+          id: deploy-to-webapi
+          uses: azure/webapps-deploy@v3
+          with:
+            app-name: 'app1-api'
+            slot-name: 'Production'
+            publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_WEBAPI }}
+            package: .
+
+    deployWebApp:
+        runs-on: windows-latest
+        needs: deployWebApi
+        if: github.event_name != 'pull_request'
+        environment:
+          name: 'Production'
+          url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+        steps:
+          - name: Download artifact from build job
+            uses: actions/download-artifact@v4
+            with:
+              name: webapp
+  
+          - uses: cschleiden/replace-tokens@v1
+            env:
+              AAD_B2C_CLIENT_SECRET: ${{ secrets.AAD_B2C_CLIENT_SECRET }}
+              APP1_API_CLIENT_SCOPES: ${{ secrets.API_CLIENT_SCOPES }}
+            with:
+              tokenPrefix: '#{'
+              tokenSuffix: '}#'
+              files: '["**/appsettings.json"]'
+  
+          - name: Deploy to Azure Web App
+            id: deploy-to-webapp
+            uses: azure/webapps-deploy@v3
+            with:
+              app-name: 'app1'
+              slot-name: 'Production'
+              publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_WEBAPP }}
+              package: .

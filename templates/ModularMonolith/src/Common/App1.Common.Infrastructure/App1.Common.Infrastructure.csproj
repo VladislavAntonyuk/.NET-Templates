@@ -14,7 +14,7 @@
 		<PackageReference Include="MassTransit.RabbitMQ" Version="8.3.6" />
 		<PackageReference Include="Microsoft.Extensions.Caching.Hybrid" Version="9.2.0-preview.1.25105.6" />
 
-		<PackageReference Include="Microsoft.Identity.Web" Version="3.7.0" />
+		<PackageReference Include="Microsoft.Identity.Web" Version="3.8.3" />
 		<PackageReference Include="Quartz.Extensions.Hosting" Version="3.13.1" />
 	</ItemGroup>
 
