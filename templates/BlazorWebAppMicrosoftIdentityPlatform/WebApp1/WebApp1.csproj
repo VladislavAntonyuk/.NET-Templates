@@ -7,7 +7,7 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="MudBlazor" Version="8.2.0" />
+		<PackageReference Include="MudBlazor" Version="8.5.1" />
 		<PackageReference Include="Microsoft.Identity.Web.UI" Version="3.8.3" />
 	</ItemGroup>
 </Project>

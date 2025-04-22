@@ -12,9 +12,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Aspire.StackExchange.Redis.DistributedCaching" Version="9.0.0" />
-		<PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="9.0.0" />
-		<PackageReference Include="MudBlazor" Version="8.2.0" />
+		<PackageReference Include="Aspire.StackExchange.Redis.DistributedCaching" Version="9.2.0" />
+		<PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="9.2.0" />
+		<PackageReference Include="MudBlazor" Version="8.5.1" />
 		<PackageReference Include="Toolbelt.Blazor.I18nText" Version="14.0.0" />
 		<PackageReference Include="Microsoft.Identity.Web.UI" Version="3.8.3" />
 	</ItemGroup>

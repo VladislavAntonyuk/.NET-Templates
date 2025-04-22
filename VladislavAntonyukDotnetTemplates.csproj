@@ -7,7 +7,7 @@
     <Title>Vladislav Antonyuk .NET Templates</Title>
     <Authors>Vladislav Antonyuk</Authors>
     <Description>.NET Application templates like cross-platform app with onion architecture and iOS Extensions.</Description>
-    <PackageTags>dotnet;dotnet-new;templates;onion;architecture;maui;dotnet-maui;ios;extensions;blazor;microsoft-identity;azure-ad</PackageTags>
+    <PackageTags>dotnet;dotnet new;templates;onion architecture;maui;dotnet maui;ios extensions;blazor;microsoft identity;azure ad;modular monolith; vertical slice architecture;</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <TargetFramework>netstandard2.0</TargetFramework>
