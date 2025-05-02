@@ -15,10 +15,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Aspire.Hosting.AppHost" Version="9.2.0" />
-		<PackageReference Include="Aspire.Hosting.Azure.Sql" Version="9.2.0" />
-		<PackageReference Include="Aspire.Hosting.RabbitMQ" Version="9.2.0" />
-		<PackageReference Include="Aspire.Hosting.Redis" Version="9.2.0" />
+		<PackageReference Include="Aspire.Hosting.AppHost" Version="9.2.1" />
+		<PackageReference Include="Aspire.Hosting.Azure.Sql" Version="9.2.1" />
+		<PackageReference Include="Aspire.Hosting.RabbitMQ" Version="9.2.1" />
+		<PackageReference Include="Aspire.Hosting.Redis" Version="9.2.1" />
 	</ItemGroup>
 
 </Project>

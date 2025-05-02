@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/Solution Items/">
+    <File Path="global.json" />
     <File Path="README.md" />
     <File Path="validate-build.ps1" />
     <File Path="validate-build.sh" />
@@ -7,19 +8,19 @@
     <File Path="validate-packages.sh" />
   </Folder>
   <Folder Name="/templates/" />
-  <Folder Name="/templates/BlazorWebAppMicrosoftIdentityPlatform/" Id="c680dbaa-b007-2683-4588-f23b6c48e46e">
+  <Folder Name="/templates/BlazorWebAppMicrosoftIdentityPlatform/">
     <Project Path="templates/BlazorWebAppMicrosoftIdentityPlatform/WebApp1/WebApp1.csproj" />
   </Folder>
-  <Folder Name="/templates/ModularMonolith/" Id="8d28d9d4-a6bd-81be-eb36-e05e5c9dd282" />
-  <Folder Name="/templates/ModularMonolith/src/" Id="d3ef2c6f-940c-35f7-7f85-894c00c4cd1a" />
-  <Folder Name="/templates/ModularMonolith/src/Common/" Id="5ed2510b-cde8-8621-8a25-b9189e5f17ab">
+  <Folder Name="/templates/ModularMonolith/" />
+  <Folder Name="/templates/ModularMonolith/src/" />
+  <Folder Name="/templates/ModularMonolith/src/Common/">
     <Project Path="templates/ModularMonolith/src/Common/App1.Common.Application/App1.Common.Application.csproj" />
     <Project Path="templates/ModularMonolith/src/Common/App1.Common.Domain/App1.Common.Domain.csproj" />
     <Project Path="templates/ModularMonolith/src/Common/App1.Common.Infrastructure/App1.Common.Infrastructure.csproj" />
     <Project Path="templates/ModularMonolith/src/Common/App1.Common.Presentation/App1.Common.Presentation.csproj" />
   </Folder>
-  <Folder Name="/templates/ModularMonolith/src/Modules/" Id="aa0b9372-9ca2-ff65-8c61-18d39d242d6d" />
-  <Folder Name="/templates/ModularMonolith/src/Modules/Module1s/" Id="e5d6da1d-2d93-3665-7705-ee59f7f89491">
+  <Folder Name="/templates/ModularMonolith/src/Modules/" />
+  <Folder Name="/templates/ModularMonolith/src/Modules/Module1s/">
     <Project Path="templates/ModularMonolith/src/Modules/Module1s/App1.Modules.Module1s.Application/App1.Modules.Module1s.Application.csproj" />
     <Project Path="templates/ModularMonolith/src/Modules/Module1s/App1.Modules.Module1s.ArchitectureTests/App1.Modules.Module1s.ArchitectureTests.csproj" />
     <Project Path="templates/ModularMonolith/src/Modules/Module1s/App1.Modules.Module1s.Domain/App1.Modules.Module1s.Domain.csproj" />
@@ -29,7 +30,7 @@
     <Project Path="templates/ModularMonolith/src/Modules/Module1s/App1.Modules.Module1s.Presentation/App1.Modules.Module1s.Presentation.csproj" />
     <Project Path="templates/ModularMonolith/src/Modules/Module1s/App1.Modules.Module1s.UnitTests/App1.Modules.Module1s.UnitTests.csproj" />
   </Folder>
-  <Folder Name="/templates/ModularMonolith/src/Modules/Module2s/" Id="d23da230-aa16-f0fb-0244-5e914c5d5326">
+  <Folder Name="/templates/ModularMonolith/src/Modules/Module2s/">
     <Project Path="templates/ModularMonolith/src/Modules/Module2s/App1.Modules.Module2s.Application/App1.Modules.Module2s.Application.csproj" />
     <Project Path="templates/ModularMonolith/src/Modules/Module2s/App1.Modules.Module2s.ArchitectureTests/App1.Modules.Module2s.ArchitectureTests.csproj" />
     <Project Path="templates/ModularMonolith/src/Modules/Module2s/App1.Modules.Module2s.Domain/App1.Modules.Module2s.Domain.csproj" />
@@ -39,236 +40,236 @@
     <Project Path="templates/ModularMonolith/src/Modules/Module2s/App1.Modules.Module2s.Presentation/App1.Modules.Module2s.Presentation.csproj" />
     <Project Path="templates/ModularMonolith/src/Modules/Module2s/App1.Modules.Module2s.UnitTests/App1.Modules.Module2s.UnitTests.csproj" />
   </Folder>
-  <Folder Name="/templates/ModularMonolith/src/Web/" Id="7e7d66e4-25a2-d9ab-d10e-5b8b77ffcde3">
+  <Folder Name="/templates/ModularMonolith/src/Web/">
     <Project Path="templates/ModularMonolith/src/Web/App1.ApiService/App1.ApiService.csproj" />
     <Project Path="templates/ModularMonolith/src/Web/App1.AppHost.Tests/App1.AppHost.Tests.csproj" />
     <Project Path="templates/ModularMonolith/src/Web/App1.AppHost/App1.AppHost.csproj" />
     <Project Path="templates/ModularMonolith/src/Web/App1.ServiceDefaults/App1.ServiceDefaults.csproj" />
     <Project Path="templates/ModularMonolith/src/Web/App1.Web/App1.Web.csproj" />
   </Folder>
-  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/" Id="17459795-3b70-4840-1fcf-2b63ee87a964" />
-  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/src/" Id="4e859020-fe51-4b7b-4547-56129a2f06c4" />
-  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/src/Common/" Id="22e1620b-50d5-a791-6c21-2a2fa0a52478">
+  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/" />
+  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/src/" />
+  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/src/Common/">
     <Project Path="templates/ModularMonolithVerticalSliceArchitecture/src/Common/App1.Common.Application/App1.Common.Application.csproj" />
     <Project Path="templates/ModularMonolithVerticalSliceArchitecture/src/Common/App1.Common.Domain/App1.Common.Domain.csproj" />
     <Project Path="templates/ModularMonolithVerticalSliceArchitecture/src/Common/App1.Common.Infrastructure/App1.Common.Infrastructure.csproj" />
     <Project Path="templates/ModularMonolithVerticalSliceArchitecture/src/Common/App1.Common.Presentation/App1.Common.Presentation.csproj" />
   </Folder>
-  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/src/Modules/" Id="a20b9b19-8554-152c-3174-e95ed65bdb30" />
-  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/src/Modules/Module1s/" Id="c1731155-b14f-b91e-c6b8-a3731d68bcb8">
+  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/src/Modules/" />
+  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/src/Modules/Module1s/">
     <Project Path="templates/ModularMonolithVerticalSliceArchitecture/src/Modules/Module1s/App1.Modules.Module1s.IntegrationEvents/App1.Modules.Module1s.IntegrationEvents.csproj" />
     <Project Path="templates/ModularMonolithVerticalSliceArchitecture/src/Modules/Module1s/App1.Modules.Module1s/App1.Modules.Module1s.csproj" />
   </Folder>
-  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/src/Modules/Module2s/" Id="ffc37081-9689-74b8-eaaa-80f40769ac67">
+  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/src/Modules/Module2s/">
     <Project Path="templates/ModularMonolithVerticalSliceArchitecture/src/Modules/Module2s/App1.Modules.Module2s/App1.Modules.Module2s.csproj" />
   </Folder>
-  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/src/Web/" Id="04dcc221-b125-fbb0-8043-da3511a55d84">
+  <Folder Name="/templates/ModularMonolithVerticalSliceArchitecture/src/Web/">
     <Project Path="templates/ModularMonolithVerticalSliceArchitecture/src/Web/App1.ApiService/App1.ApiService.csproj" />
     <Project Path="templates/ModularMonolithVerticalSliceArchitecture/src/Web/App1.AppHost.Tests/App1.AppHost.Tests.csproj" />
     <Project Path="templates/ModularMonolithVerticalSliceArchitecture/src/Web/App1.AppHost/App1.AppHost.csproj" />
     <Project Path="templates/ModularMonolithVerticalSliceArchitecture/src/Web/App1.ServiceDefaults/App1.ServiceDefaults.csproj" />
     <Project Path="templates/ModularMonolithVerticalSliceArchitecture/src/Web/App1.Web/App1.Web.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazor/" Id="a25efc98-5b12-168d-1a64-db086b8cf5ca" />
-  <Folder Name="/templates/OnionArchitectureBlazor/src/" Id="b24e3195-564e-3497-3170-f4f4e03593d4" />
-  <Folder Name="/templates/OnionArchitectureBlazor/src/Application/" Id="a99c0392-a701-c995-967e-a46b83192159">
+  <Folder Name="/templates/OnionArchitectureBlazor/" />
+  <Folder Name="/templates/OnionArchitectureBlazor/src/" />
+  <Folder Name="/templates/OnionArchitectureBlazor/src/Application/">
     <Project Path="templates/OnionArchitectureBlazor/src/Application/App1.Application/App1.Application.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazor/src/Domain/" Id="3f8f4300-be11-72e4-e98d-76e87c54ba86">
+  <Folder Name="/templates/OnionArchitectureBlazor/src/Domain/">
     <Project Path="templates/OnionArchitectureBlazor/src/Domain/App1.Domain/App1.Domain.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazor/src/Infrastructure/" Id="0fdf6eec-0c70-b579-6677-afddb256da5d">
+  <Folder Name="/templates/OnionArchitectureBlazor/src/Infrastructure/">
     <Project Path="templates/OnionArchitectureBlazor/src/Infrastructure/App1.Infrastructure.Business/App1.Infrastructure.Business.csproj" />
     <Project Path="templates/OnionArchitectureBlazor/src/Infrastructure/App1.Infrustructure.Data/App1.Infrastructure.Data.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazor/src/UI/" Id="b6d0d7ab-d0d5-6a30-ba31-9169a7dd19a2">
+  <Folder Name="/templates/OnionArchitectureBlazor/src/UI/">
     <Project Path="templates/OnionArchitectureBlazor/src/UI/App1.WebApp/App1.WebApp.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazor/tests/" Id="8aabee20-2e4d-6762-c478-090c1ca0de6a" />
-  <Folder Name="/templates/OnionArchitectureBlazor/tests/Application/" Id="3191eda7-64ff-6c98-d6bb-99bf4c749428">
+  <Folder Name="/templates/OnionArchitectureBlazor/tests/" />
+  <Folder Name="/templates/OnionArchitectureBlazor/tests/Application/">
     <Project Path="templates/OnionArchitectureBlazor/tests/Application/App1.Application.Tests/App1.Application.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazor/tests/Infrastructure/" Id="81ae8bee-7722-a203-305e-3bcef7fee16f">
+  <Folder Name="/templates/OnionArchitectureBlazor/tests/Infrastructure/">
     <Project Path="templates/OnionArchitectureBlazor/tests/Infrastructure/App1.Infrastructure.Business.Tests/App1.Infrastructure.Business.Tests.csproj" />
     <Project Path="templates/OnionArchitectureBlazor/tests/Infrastructure/App1.Infrastructure.Data.Tests/App1.Infrastructure.Data.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazorRepository/" Id="9d91500e-a44d-7139-c6a6-ffa2d846ca93" />
-  <Folder Name="/templates/OnionArchitectureBlazorRepository/src/" Id="9ee444f5-3bb4-ea37-5b79-0de6eb36841d" />
-  <Folder Name="/templates/OnionArchitectureBlazorRepository/src/Application/" Id="eb1ad7ba-5949-b74c-8699-e7ca5a359c19">
+  <Folder Name="/templates/OnionArchitectureBlazorRepository/" />
+  <Folder Name="/templates/OnionArchitectureBlazorRepository/src/" />
+  <Folder Name="/templates/OnionArchitectureBlazorRepository/src/Application/">
     <Project Path="templates/OnionArchitectureBlazorRepository/src/Application/App1.Application/App1.Application.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazorRepository/src/Domain/" Id="1aef7434-5013-622e-4f5f-c4a2a7638425">
+  <Folder Name="/templates/OnionArchitectureBlazorRepository/src/Domain/">
     <Project Path="templates/OnionArchitectureBlazorRepository/src/Domain/App1.Domain/App1.Domain.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazorRepository/src/Infrastructure/" Id="5e908dd3-f569-2503-7546-013d654cfbd6">
+  <Folder Name="/templates/OnionArchitectureBlazorRepository/src/Infrastructure/">
     <Project Path="templates/OnionArchitectureBlazorRepository/src/Infrastructure/App1.Infrastructure.Business/App1.Infrastructure.Business.csproj" />
     <Project Path="templates/OnionArchitectureBlazorRepository/src/Infrastructure/App1.Infrustructure.Data/App1.Infrastructure.Data.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazorRepository/src/UI/" Id="8314f19b-32b3-3bdf-5c02-672be6e52471">
+  <Folder Name="/templates/OnionArchitectureBlazorRepository/src/UI/">
     <Project Path="templates/OnionArchitectureBlazorRepository/src/UI/App1.WebApp/App1.WebApp.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazorRepository/tests/" Id="2d4ca73c-5700-61a4-a977-693528c0c62b" />
-  <Folder Name="/templates/OnionArchitectureBlazorRepository/tests/Application/" Id="14911cbd-dd04-8b5d-c818-982087a881d3">
+  <Folder Name="/templates/OnionArchitectureBlazorRepository/tests/" />
+  <Folder Name="/templates/OnionArchitectureBlazorRepository/tests/Application/">
     <Project Path="templates/OnionArchitectureBlazorRepository/tests/Application/App1.Application.Tests/App1.Application.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazorRepository/tests/Infrastructure/" Id="dbd06467-403a-6c91-4ce3-f4059c9f35a8">
+  <Folder Name="/templates/OnionArchitectureBlazorRepository/tests/Infrastructure/">
     <Project Path="templates/OnionArchitectureBlazorRepository/tests/Infrastructure/App1.Infrastructure.Business.Tests/App1.Infrastructure.Business.Tests.csproj" />
     <Project Path="templates/OnionArchitectureBlazorRepository/tests/Infrastructure/App1.Infrastructure.Data.Tests/App1.Infrastructure.Data.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/" Id="b1794a10-e663-55f7-8559-3508b28ab8b1" />
-  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/src/" Id="ad1e4c30-e4c8-eb6e-1644-bc4d50de0aa0" />
-  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/src/Application/" Id="9e503ef2-ce2b-8f27-0cb3-06385af33a0e">
+  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/" />
+  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/src/" />
+  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/src/Application/">
     <Project Path="templates/OnionArchitectureBlazorWebAssembly/src/Application/App1.Application/App1.Application.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/src/Domain/" Id="5859df3e-7033-d332-4052-ae22e6023fac">
+  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/src/Domain/">
     <Project Path="templates/OnionArchitectureBlazorWebAssembly/src/Domain/App1.Domain/App1.Domain.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/src/Infrastructure/" Id="1b9bf9e3-29f6-b57e-e9a2-f4bdeb01bfa4">
+  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/src/Infrastructure/">
     <Project Path="templates/OnionArchitectureBlazorWebAssembly/src/Infrastructure/App1.Infrastructure.Business/App1.Infrastructure.Business.csproj" />
     <Project Path="templates/OnionArchitectureBlazorWebAssembly/src/Infrastructure/App1.Infrustructure.Data/App1.Infrastructure.Data.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/src/UI/" Id="db83aa27-fdff-65ee-58e2-20be80e03e7d">
+  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/src/UI/">
     <Project Path="templates/OnionArchitectureBlazorWebAssembly/src/UI/App1.WebApp/App1.WebApp.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/tests/" Id="caa64ecb-372d-dfd1-4e2d-de9644815372" />
-  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/tests/Application/" Id="ad241e59-6a7d-34a3-a6fd-f260a93fedd7">
+  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/tests/" />
+  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/tests/Application/">
     <Project Path="templates/OnionArchitectureBlazorWebAssembly/tests/Application/App1.Application.Tests/App1.Application.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/tests/Infrastructure/" Id="948af4a9-eeba-8993-5fe9-37b44515a18b">
+  <Folder Name="/templates/OnionArchitectureBlazorWebAssembly/tests/Infrastructure/">
     <Project Path="templates/OnionArchitectureBlazorWebAssembly/tests/Infrastructure/App1.Infrastructure.Business.Tests/App1.Infrastructure.Business.Tests.csproj" />
     <Project Path="templates/OnionArchitectureBlazorWebAssembly/tests/Infrastructure/App1.Infrastructure.Data.Tests/App1.Infrastructure.Data.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/" Id="c4e81601-9087-1d36-fee4-34c0743e8597" />
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/" Id="96aca5ea-ec70-b22c-0e4b-58809061b478" />
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/Application/" Id="f6f8bd80-a4ce-bede-9207-afb1f7fb2c3a">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/" />
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/" />
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/Application/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/src/Application/App1.Application/App1.Application.csproj" />
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/src/Application/App1.WebApp.Application/App1.WebApp.Application.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/Domain/" Id="5cbbefd8-e9f3-4c68-152c-063b31f07045">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/Domain/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/src/Domain/App1.Domain/App1.Domain.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/Infrastructure/" Id="f06aa4e1-71c6-d4fe-baf5-839ef41aba02">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/Infrastructure/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/src/Infrastructure/App1.Infrustructure.Data/App1.Infrastructure.Data.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/Infrastructure/Client/" Id="6072b3e5-e478-7abd-e8c0-01ec7a8aa668">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/Infrastructure/Client/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/src/Infrastructure/Client/App1.Infrastructure.Client.Business/App1.Infrastructure.Client.Business.csproj" />
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/src/Infrastructure/Client/App1.Infrastructure.Client.Data/App1.Infrastructure.Client.Data.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/Infrastructure/WebApp/" Id="d0c7c4d8-7f74-0752-f4cc-77a3f5cae02a">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/Infrastructure/WebApp/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/src/Infrastructure/WebApp/App1.Infrastructure.WebApp.Business/App1.Infrastructure.WebApp.Business.csproj" />
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/src/Infrastructure/WebApp/App1.Infrastructure.WebApp.Data/App1.Infrastructure.WebApp.Data.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/UI/" Id="182ad928-a432-293f-80d2-65e460712ce9" />
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/UI/Client/" Id="45f1aee1-975f-e641-9cbc-feac7a6cb4b5">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/UI/" />
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/UI/Client/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/src/UI/Client/App1.Client/App1.Client.csproj">
       <Deploy />
     </Project>
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/UI/WebApp/" Id="c317e488-f299-122b-12e2-52b5a787e9fe">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/src/UI/WebApp/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/src/UI/WebApp/App1.WebApp/App1.WebApp.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/tests/" Id="584d87f0-5551-a7b7-4a4c-a6c0330db2d7" />
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/tests/Application/" Id="c0acbff9-e448-691f-4d14-2072ea4aff7f">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/tests/" />
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/tests/Application/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/tests/Application/App1.Application.Tests/App1.Application.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/tests/Infrastructure/" Id="1091bbf3-93db-be6f-fcd4-d15a4c22481e" />
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/tests/Infrastructure/Client/" Id="3cc5c30a-6f79-5c0a-71ef-8cce5d3d9dc8">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/tests/Infrastructure/" />
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/tests/Infrastructure/Client/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/tests/Infrastructure/Client/App1.Infrastructure.Client.Business.Tests/App1.Infrastructure.Client.Business.Tests.csproj" />
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/tests/Infrastructure/Client/App1.Infrastructure.Client.Data.Tests/App1.Infrastructure.Client.Data.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/tests/Infrastructure/WebApp/" Id="24469e69-c0ad-1409-c08c-1b82365b78ed">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplication/tests/Infrastructure/WebApp/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/tests/Infrastructure/WebApp/App1.Infrastructure.WebApp.Business.Tests/App1.Infrastructure.WebApp.Business.Tests.csproj" />
     <Project Path="templates/OnionArchitectureCrossPlatformApplication/tests/Infrastructure/WebApp/App1.Infrastructure.WebApp.Data.Tests/App1.Infrastructure.WebApp.Data.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/" Id="c7c4dad9-c960-dca7-8463-908f89118125" />
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/" Id="d1d02aa4-925d-e8e7-f24b-b9e977dbb2ed" />
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/Application/" Id="e27cead4-d566-f729-624f-38ed6d677900">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/" />
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/" />
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/Application/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/src/Application/App1.Application/App1.Application.csproj" />
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/src/Application/App1.WebApp.Application/App1.WebApp.Application.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/Domain/" Id="4882ec52-c509-e530-240f-b7a51748aa7f">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/Domain/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/src/Domain/App1.Domain/App1.Domain.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/Infrastructure/" Id="dfcc5cfd-7178-87f8-3ea9-de6edf388306">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/Infrastructure/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/src/Infrastructure/App1.Infrustructure.Data/App1.Infrastructure.Data.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/Infrastructure/Client/" Id="99ef7690-33fd-06bb-b6db-7fc1bc4ff2e8">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/Infrastructure/Client/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/src/Infrastructure/Client/App1.Infrastructure.Client.Business/App1.Infrastructure.Client.Business.csproj" />
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/src/Infrastructure/Client/App1.Infrastructure.Client.Data/App1.Infrastructure.Client.Data.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/Infrastructure/WebApp/" Id="0b58bf37-fb5d-0faa-f0f2-076b2cd76816">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/Infrastructure/WebApp/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/src/Infrastructure/WebApp/App1.Infrastructure.WebApp.Business/App1.Infrastructure.WebApp.Business.csproj" />
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/src/Infrastructure/WebApp/App1.Infrastructure.WebApp.Data/App1.Infrastructure.WebApp.Data.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/UI/" Id="ef582d1f-81d9-7321-7d71-1012ff2b9543" />
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/UI/Client/" Id="17545b02-c9fe-bf93-6c5c-cbeb829acadb">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/UI/" />
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/UI/Client/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/src/UI/Client/App1.Client/App1.Client.csproj">
       <Deploy />
     </Project>
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/UI/WebApp/" Id="86dcc230-f989-3e85-b626-254ed420ce4b">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/src/UI/WebApp/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/src/UI/WebApp/App1.WebApp/App1.WebApp.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/tests/" Id="e56136e2-8cd4-b28f-05e1-7d0fe1a99a09" />
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/tests/Application/" Id="cc0abdbe-80a8-83f6-2c77-47dfe5922b4f">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/tests/" />
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/tests/Application/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/tests/Application/App1.Application.Tests/App1.Application.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/tests/Infrastructure/" Id="b6248a59-c464-c6f8-5b05-0eaaa6aba1f9" />
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/tests/Infrastructure/Client/" Id="7e7966e7-30cd-44ca-72e3-24a07b97e216">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/tests/Infrastructure/" />
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/tests/Infrastructure/Client/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/tests/Infrastructure/Client/App1.Infrastructure.Client.Business.Tests/App1.Infrastructure.Client.Business.Tests.csproj" />
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/tests/Infrastructure/Client/App1.Infrastructure.Client.Data.Tests/App1.Infrastructure.Client.Data.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/tests/Infrastructure/WebApp/" Id="193d2220-85ea-f5b8-c6a5-819c170b292c">
+  <Folder Name="/templates/OnionArchitectureCrossPlatformApplicationRepository/tests/Infrastructure/WebApp/">
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/tests/Infrastructure/WebApp/App1.Infrastructure.WebApp.Business.Tests/App1.Infrastructure.WebApp.Business.Tests.csproj" />
     <Project Path="templates/OnionArchitectureCrossPlatformApplicationRepository/tests/Infrastructure/WebApp/App1.Infrastructure.WebApp.Data.Tests/App1.Infrastructure.WebApp.Data.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureDotNetMaui/" Id="dc574abb-7606-18de-f9c9-ed6347f26c08" />
-  <Folder Name="/templates/OnionArchitectureDotNetMaui/src/" Id="22feef7f-75a5-6d78-7235-1e0aa1f84a57" />
-  <Folder Name="/templates/OnionArchitectureDotNetMaui/src/Application/" Id="2354fb6d-a28d-0a53-a821-665fdf2e98c3">
+  <Folder Name="/templates/OnionArchitectureDotNetMaui/" />
+  <Folder Name="/templates/OnionArchitectureDotNetMaui/src/" />
+  <Folder Name="/templates/OnionArchitectureDotNetMaui/src/Application/">
     <Project Path="templates/OnionArchitectureDotNetMaui/src/Application/App1.Application/App1.Application.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureDotNetMaui/src/Domain/" Id="584d0809-c706-6bde-c1c5-91b6fa0f0469">
+  <Folder Name="/templates/OnionArchitectureDotNetMaui/src/Domain/">
     <Project Path="templates/OnionArchitectureDotNetMaui/src/Domain/App1.Domain/App1.Domain.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureDotNetMaui/src/Infrastructure/" Id="c68f5b4b-87be-c0dc-7500-fdab36b777a7">
+  <Folder Name="/templates/OnionArchitectureDotNetMaui/src/Infrastructure/">
     <Project Path="templates/OnionArchitectureDotNetMaui/src/Infrastructure/App1.Infrastructure.Business/App1.Infrastructure.Business.csproj" />
     <Project Path="templates/OnionArchitectureDotNetMaui/src/Infrastructure/App1.Infrustructure.Data/App1.Infrastructure.Data.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureDotNetMaui/src/UI/" Id="303c8b9e-581b-fca4-01fb-8d48ab07b757">
+  <Folder Name="/templates/OnionArchitectureDotNetMaui/src/UI/">
     <Project Path="templates/OnionArchitectureDotNetMaui/src/UI/App1.Client/App1.Client.csproj">
       <Deploy />
     </Project>
   </Folder>
-  <Folder Name="/templates/OnionArchitectureDotNetMaui/tests/" Id="e3bd66fa-68b9-6664-8475-b131f90c5c83" />
-  <Folder Name="/templates/OnionArchitectureDotNetMaui/tests/Application/" Id="ac0b00c5-6c78-7353-5cdc-055c3ccf7c1f">
+  <Folder Name="/templates/OnionArchitectureDotNetMaui/tests/" />
+  <Folder Name="/templates/OnionArchitectureDotNetMaui/tests/Application/">
     <Project Path="templates/OnionArchitectureDotNetMaui/tests/Application/App1.Application.Tests/App1.Application.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureDotNetMaui/tests/Infrastructure/" Id="245d59ef-8f81-1739-f209-732172c3e296">
+  <Folder Name="/templates/OnionArchitectureDotNetMaui/tests/Infrastructure/">
     <Project Path="templates/OnionArchitectureDotNetMaui/tests/Infrastructure/App1.Infrastructure.Business.Tests/App1.Infrastructure.Business.Tests.csproj" />
     <Project Path="templates/OnionArchitectureDotNetMaui/tests/Infrastructure/App1.Infrastructure.Data.Tests/App1.Infrastructure.Data.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/" Id="132e25f5-94db-dc35-8ea6-79c0c1160f27" />
-  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/src/" Id="8233dc88-6898-4669-504e-9e10cde2c78c" />
-  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/src/Application/" Id="7fe10e32-61d4-f13d-df6d-de45225a89c3">
+  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/" />
+  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/src/" />
+  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/src/Application/">
     <Project Path="templates/OnionArchitectureDotNetMauiRepository/src/Application/App1.Application/App1.Application.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/src/Domain/" Id="df0b417c-2538-f0da-0de4-4af7e4fe54a7">
+  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/src/Domain/">
     <Project Path="templates/OnionArchitectureDotNetMauiRepository/src/Domain/App1.Domain/App1.Domain.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/src/Infrastructure/" Id="55ae5eca-5171-4935-e127-dd7a317e0b5a">
+  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/src/Infrastructure/">
     <Project Path="templates/OnionArchitectureDotNetMauiRepository/src/Infrastructure/App1.Infrastructure.Business/App1.Infrastructure.Business.csproj" />
     <Project Path="templates/OnionArchitectureDotNetMauiRepository/src/Infrastructure/App1.Infrustructure.Data/App1.Infrastructure.Data.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/src/UI/" Id="409368df-6202-c05f-a83e-58b058fcdbdd">
+  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/src/UI/">
     <Project Path="templates/OnionArchitectureDotNetMauiRepository/src/UI/App1.Client/App1.Client.csproj">
       <Deploy />
     </Project>
   </Folder>
-  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/tests/" Id="2eeddb00-07e6-2f82-8c9e-049cfff68dd1" />
-  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/tests/Application/" Id="9bef9957-890e-6250-f12a-62233d537d64">
+  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/tests/" />
+  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/tests/Application/">
     <Project Path="templates/OnionArchitectureDotNetMauiRepository/tests/Application/App1.Application.Tests/App1.Application.Tests.csproj" />
   </Folder>
-  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/tests/Infrastructure/" Id="5ebbdec7-a3c8-8654-ef7a-babaeb9f9d9b">
+  <Folder Name="/templates/OnionArchitectureDotNetMauiRepository/tests/Infrastructure/">
     <Project Path="templates/OnionArchitectureDotNetMauiRepository/tests/Infrastructure/App1.Infrastructure.Business.Tests/App1.Infrastructure.Business.Tests.csproj" />
     <Project Path="templates/OnionArchitectureDotNetMauiRepository/tests/Infrastructure/App1.Infrastructure.Data.Tests/App1.Infrastructure.Data.Tests.csproj" />
   </Folder>

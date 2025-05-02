@@ -13,7 +13,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Graph.Beta" Version="5.94.0-preview" />
+		<PackageReference Include="Microsoft.Graph.Beta" Version="5.106.0-preview" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
