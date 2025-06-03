@@ -282,4 +282,14 @@
     <Project Path="templates/VerticalSliceArchitecture/src/Web/App1.ServiceDefaults/App1.ServiceDefaults.csproj" />
     <Project Path="templates/VerticalSliceArchitecture/src/Web/App1.Web/App1.Web.csproj" />
   </Folder>
+  <Folder Name="/templates/VerticalSliceArchitectureBlazorWebAssembly/" />
+  <Folder Name="/templates/VerticalSliceArchitectureBlazorWebAssembly/src/" />
+  <Folder Name="/templates/VerticalSliceArchitectureBlazorWebAssembly/src/Web/">
+    <Project Path="templates/VerticalSliceArchitectureBlazorWebAssembly/src/Web/App1.ApiService/App1.ApiService.csproj" />
+    <Project Path="templates/VerticalSliceArchitectureBlazorWebAssembly/src/Web/App1.AppHost.Tests/App1.AppHost.Tests.csproj" />
+    <Project Path="templates/VerticalSliceArchitectureBlazorWebAssembly/src/Web/App1.AppHost/App1.AppHost.csproj" />
+    <Project Path="templates/VerticalSliceArchitectureBlazorWebAssembly/src/Web/App1.ServiceDefaults/App1.ServiceDefaults.csproj" />
+    <Project Path="templates/VerticalSliceArchitectureBlazorWebAssembly/src/Web/App1.Shared/App1.Shared.csproj" />
+    <Project Path="templates/VerticalSliceArchitectureBlazorWebAssembly/src/Web/App1.WebApp/App1.WebApp.csproj" />
+  </Folder>
 </Solution>

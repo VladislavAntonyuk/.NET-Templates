@@ -1,0 +1,56 @@
+﻿@page "/module1s"
+@using Microsoft.AspNetCore.Authorization
+@inject IHttpClientFactory Http
+
+@attribute [Authorize]
+<PageTitle>Weather</PageTitle>
+
+<h1>Weather</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (module1s == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prop1</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var module1 in module1s)
+            {
+                <tr>
+                    <td>@module1.Id</td>
+                    <td>@module1.Prop1</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Module1[]? module1s;
+
+    protected override async Task OnInitializedAsync()
+    {
+	    var httpClient = Http.CreateClient("MyBackendApi");
+	    await httpClient.PostAsJsonAsync($"/module1s", new Module1()
+	    {
+		    Id = Guid.CreateVersion7(),
+		    Prop1 = "data"
+	    });
+        module1s = await httpClient.GetFromJsonAsync<Module1[]>("/module1s");
+    }
+
+    public sealed class Module1
+    {
+	    public Guid Id { get; init; }
+	    public string? Prop1 { get; set; }
+    }
+}

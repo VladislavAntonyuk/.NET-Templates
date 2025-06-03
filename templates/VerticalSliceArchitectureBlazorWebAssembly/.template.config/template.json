@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Vladislav Antonyuk",
+  "classifications": ["Web", "Blazor"],
+  "description": "Creates application with Vertical Slice Architecture and Microsoft Identity Platform authentication (Entra External ID).",
+  "name": "App with Vertical Slice Architecture and Microsoft Identity Platform authentication for Blazor WebAssembly and API",
+  "identity": "VladislavAntonyuk.DotNetTemplates.VerticalSliceArchitectureBlazorWebAssembly",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "shortName": "vertical-slice-architecture-blazor-webassembly",
+  "sourceName": "App1",
+  "preferNameDirectory":true,
+  "symbols": {
+    "entityName": {
+      "description": "Entity name",
+      "type": "parameter",
+      "replaces": "Module1",
+      "FileRename": "Module1"
+    },
+    "entityNameLower": {
+        "type": "generated",
+        "generator": "casing",
+        "parameters": {
+          "source": "entityName",
+          "toLower": true
+        },
+        "replaces": "module1",
+        "FileRename": "module1"
+    }
+  }
+}

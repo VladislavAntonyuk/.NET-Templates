@@ -1,0 +1,73 @@
+@inherits App1BaseLayout
+
+<MudRTLProvider RightToLeft="@rightToLeft">
+	<MudThemeProvider @ref="@mudThemeProvider" @bind-IsDarkMode="@isDarkMode"/>
+	<MudPopoverProvider/>
+	<MudDialogProvider CloseButton="true"
+	                   CloseOnEscapeKey="true"
+	                   BackdropClick="false"
+	                   Position="DialogPosition.Center"/>
+	<MudSnackbarProvider/>
+
+	<MudLayout>
+		<MudAppBar Elevation="1">
+			<MudHidden Breakpoint="Breakpoint.SmAndDown">
+				<MudLink Href="/">
+					<img src="favicon.ico" alt="@Constants.ProductName" class="mud-icon-root mud-icon-size-large"/>
+				</MudLink>
+			</MudHidden>
+			<MudHidden Breakpoint="Breakpoint.MdAndUp">
+				<MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="DrawerToggle"/>
+			</MudHidden>
+			<MudHidden Breakpoint="Breakpoint.Xs">
+				<MudLink Href="/" Typo="Typo.h6" Class="ml-4" Color="Color.Inherit">@Constants.ProductName</MudLink>
+			</MudHidden>
+			<MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
+				<MudLink Href="/" Typo="Typo.subtitle2" Color="Color.Inherit">@Constants.ProductName</MudLink>
+			</MudHidden>
+			<MudSpacer/>
+			<MudToggleIconButton @bind-Toggled="rightToLeft"
+			                     Icon="@Icons.Material.Filled.FormatTextdirectionRToL"
+			                     ToggledIcon="@Icons.Material.Filled.FormatTextdirectionRToL"
+			                     Color="Color.Inherit"/>
+			<AuthorizeView>
+				<Authorized>
+					<LoginControl/>
+				</Authorized>
+			</AuthorizeView>
+		</MudAppBar>
+
+		<MudDrawer @bind-Open="drawerOpen" Elevation="1" ClipMode="DrawerClipMode.Always">
+			<NavMenu/>
+			<MudLink Href="https://www.buymeacoffee.com/vlad.antonyuk" Target="_blank">
+				<MudImage Src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png"
+				          Alt="Buy Me A Coffee"
+				          Fluid="true"
+				          Class="side-image"/>
+			</MudLink>
+		</MudDrawer>
+		<MudMainContent>
+			<MudContainer MaxWidth="MaxWidth.False">
+				<ErrorBoundary @ref="errorBoundary" MaximumErrorCount="5">
+					<ChildContent>
+						@Body
+					</ChildContent>
+					<ErrorContent Context="exception">
+						<MudText Typo="Typo.h1">Error has occurred</MudText>
+						<MudText Typo="Typo.body1">@exception.Message</MudText>
+						<MudButton OnClick="ResetError" Variant="Variant.Filled">Go To The Homepage</MudButton>
+					</ErrorContent>
+				</ErrorBoundary>
+			</MudContainer>
+			<MudScrollToTop Style="z-index: 1200">
+				<MudFab StartIcon="@Icons.Material.Filled.ArrowUpward" Color="Color.Primary"/>
+			</MudScrollToTop>
+		</MudMainContent>
+	</MudLayout>
+</MudRTLProvider>
+
+<div id="blazor-error-ui">
+	An unhandled error has occurred.
+	<a href="" class="reload">Reload</a>
+	<a class="dismiss">🗙</a>
+</div>

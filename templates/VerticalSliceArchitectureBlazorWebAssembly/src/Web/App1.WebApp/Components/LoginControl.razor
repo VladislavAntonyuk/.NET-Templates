@@ -1,0 +1,17 @@
+﻿@inherits App1BaseComponent
+
+<MudMenu AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight" Dense="true" Class="mt-1 ml-4" Style="display: block">
+	<ActivatorContent>
+		<MudIcon Icon="@Icons.Material.Outlined.Person"></MudIcon>
+	</ActivatorContent>
+	<ChildContent>
+		<MudText Class="ma-2">@CurrentUser</MudText>
+		<MudDivider Class="mb-2"/>
+		<MudMenuItem Href="Identity/Account/Manage">
+			<MudAlert Icon="@Icons.Material.Outlined.Person" Dense="true">Translation.Profile</MudAlert>
+		</MudMenuItem>
+		<MudMenuItem OnClick="Logout">
+			<MudAlert Icon="@Icons.Material.Outlined.Logout" Dense="true">Translation.Logout</MudAlert>
+		</MudMenuItem>
+	</ChildContent>
+</MudMenu>

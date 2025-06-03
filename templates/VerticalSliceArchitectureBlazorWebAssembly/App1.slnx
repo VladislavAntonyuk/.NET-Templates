@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".github/dependabot.yml" />
+    <File Path=".github/workflows/main_App1_webapp.yml" />
+    <File Path="Directory.Build.props" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Web/">
+    <Project Path="src/Web/App1.ApiService/App1.ApiService.csproj" />
+    <Project Path="src/Web/App1.AppHost.Tests/App1.AppHost.Tests.csproj" />
+    <Project Path="src/Web/App1.AppHost/App1.AppHost.csproj" />
+    <Project Path="src/Web/App1.ServiceDefaults/App1.ServiceDefaults.csproj" />
+    <Project Path="src/Web/App1.Shared/App1.Shared.csproj" Id="addd9c9f-8420-4cba-93cf-0046c7f8b6bb" />
+    <Project Path="src/Web/App1.WebApp/App1.WebApp.csproj" />
+  </Folder>
+</Solution>
