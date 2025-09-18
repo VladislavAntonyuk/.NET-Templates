@@ -19,6 +19,7 @@ builder.Services.AddHttpClient("MyBackendApi", (sp, client) =>
 	   })
 	   .AddHttpMessageHandler<GraphApiAuthorizationMessageHandler>();
 
+builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("MyBackendApi"));
 
 builder.Services.AddAuth(builder.Configuration);

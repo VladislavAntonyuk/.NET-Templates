@@ -1,0 +1,54 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".runsettings" />
+    <File Path="azure-pipelines.yml" />
+    <File Path="Directory.Build.props" />
+    <File Path="NuGet.config" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Application/">
+    <Project Path="src/Application/App1.Application/App1.Application.csproj" />
+    <Project Path="src/Application/App1.WebApp.Application/App1.WebApp.Application.csproj" />
+  </Folder>
+  <Folder Name="/src/Domain/">
+    <Project Path="src/Domain/App1.Domain/App1.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="src/Infrastructure/App1.Infrustructure.Data/App1.Infrastructure.Data.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/Client/">
+    <Project Path="src/Infrastructure/Client/App1.Infrastructure.Client.Business/App1.Infrastructure.Client.Business.csproj" />
+    <Project Path="src/Infrastructure/Client/App1.Infrastructure.Client.Data/App1.Infrastructure.Client.Data.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/WebApp/">
+    <Project Path="src/Infrastructure/WebApp/App1.Infrastructure.WebApp.Business/App1.Infrastructure.WebApp.Business.csproj" />
+    <Project Path="src/Infrastructure/WebApp/App1.Infrastructure.WebApp.Data/App1.Infrastructure.WebApp.Data.csproj" />
+  </Folder>
+  <Folder Name="/src/UI/" />
+  <Folder Name="/src/UI/Client/">
+    <Project Path="src/UI/Client/App1.Client/App1.Client.csproj">
+      <Deploy Solution="Debug|*" />
+    </Project>
+  </Folder>
+  <Folder Name="/src/UI/WebApp/">
+    <Project Path="src/UI/WebApp/App1.WebApp/App1.WebApp.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+  <Folder Name="/tests/Application/">
+    <Project Path="tests/Application/App1.Application.Tests/App1.Application.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tests/Infrastructure/" />
+  <Folder Name="/tests/Infrastructure/Client/">
+    <Project Path="tests/Infrastructure/Client/App1.Infrastructure.Client.Business.Tests/App1.Infrastructure.Client.Business.Tests.csproj" />
+    <Project Path="tests/Infrastructure/Client/App1.Infrastructure.Client.Data.Tests/App1.Infrastructure.Client.Data.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tests/Infrastructure/WebApp/">
+    <Project Path="tests/Infrastructure/WebApp/App1.Infrastructure.WebApp.Business.Tests/App1.Infrastructure.WebApp.Business.Tests.csproj" />
+    <Project Path="tests/Infrastructure/WebApp/App1.Infrastructure.WebApp.Data.Tests/App1.Infrastructure.WebApp.Data.Tests.csproj" />
+  </Folder>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
+</Solution>

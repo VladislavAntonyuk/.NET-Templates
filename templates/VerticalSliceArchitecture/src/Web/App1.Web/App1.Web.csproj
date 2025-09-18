@@ -2,6 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>$(NetVersion)</TargetFramework>
+		<BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -9,11 +10,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Aspire.StackExchange.Redis.DistributedCaching" Version="9.2.1" />
-		<PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="9.2.1" />
-		<PackageReference Include="MudBlazor" Version="8.6.0" />
-		<PackageReference Include="Toolbelt.Blazor.I18nText" Version="14.0.0" />
-		<PackageReference Include="Microsoft.Identity.Web.UI" Version="3.8.4" />
+		<PackageReference Include="Aspire.StackExchange.Redis.DistributedCaching" Version="9.4.2" />
+		<PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="9.4.2" />
+		<PackageReference Include="MudBlazor" Version="8.12.0" />
+		<PackageReference Include="Toolbelt.Blazor.I18nText" Version="14.0.1" />
+		<PackageReference Include="Microsoft.Identity.Web.UI" Version="3.14.1" />
 	</ItemGroup>
 
 </Project>

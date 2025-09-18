@@ -4,7 +4,7 @@ namespace App1.ApiService.Infrastructure;
 
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.OpenApi;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 
 internal sealed class BearerSecuritySchemeTransformer(IAuthenticationSchemeProvider authenticationSchemeProvider)
 	: IOpenApiDocumentTransformer
@@ -16,9 +16,9 @@ internal sealed class BearerSecuritySchemeTransformer(IAuthenticationSchemeProvi
 		var authenticationSchemes = await authenticationSchemeProvider.GetAllSchemesAsync();
 		if (authenticationSchemes.Any(authScheme => authScheme.Name == JwtBearerDefaults.AuthenticationScheme))
 		{
-			var requirements = new Dictionary<string, OpenApiSecurityScheme>
+			var requirements = new Dictionary<string, IOpenApiSecurityScheme>
 			{
-				[JwtBearerDefaults.AuthenticationScheme] = new()
+				[JwtBearerDefaults.AuthenticationScheme] = new OpenApiSecurityScheme()
 				{
 					Type = SecuritySchemeType.Http,
 					Scheme = JwtBearerDefaults.AuthenticationScheme,

@@ -2,22 +2,31 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-	<base href="/"/>
-	<link href="@Assets["_content/MudBlazor/MudBlazor.min.css"]" rel="stylesheet"/>
-	<link href="@Assets["css/site.css"]" rel="stylesheet"/>
-	<link href="@Assets["App1.Web.styles.css"]" rel="stylesheet"/>
-	<link rel="icon" type="image/png" href="@Assets["favicon.ico"]"/>
-	<meta name="keywords" content="App1"/>
-	<meta name="description" content="App1"/>
-	<HeadOutlet @rendermode="RenderMode.InteractiveServer"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <ResourcePreloader />
+	<link rel="stylesheet" href="@Assets["_content/MudBlazor/MudBlazor.min.css"]" />
+    <link rel="stylesheet" href="@Assets["app.css"]" />
+	<link rel="stylesheet" href="@Assets["App1.Web.styles.css"]" />
+    <ImportMap />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <HeadOutlet @rendermode="PageRenderMode" />
 </head>
 
 <body>
-<Routes @rendermode="RenderMode.InteractiveServer"/>
-<script src="@Assets["_content/MudBlazor/MudBlazor.min.js"]"></script>
-<script src="@Assets["_framework/blazor.web.js"]"></script>
+    <Routes @rendermode="PageRenderMode" />
+    <ReconnectModal />
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+	<script src="@Assets["_content/MudBlazor/MudBlazor.min.js"]"></script>
 </body>
 
 </html>
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    private IComponentRenderMode? PageRenderMode =>
+        HttpContext.AcceptsInteractiveRouting() ? InteractiveServer : null;
+}

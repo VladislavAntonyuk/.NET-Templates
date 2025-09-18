@@ -12,11 +12,11 @@
 
 	<ItemGroup>
 		<PackageReference Include="AutoFixture" Version="5.0.0-preview0012" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.4" />
-		<PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="17.14.2" />
-		<PackageReference Include="Testcontainers.MsSql" Version="4.4.0" />
-		<PackageReference Include="Testcontainers.Redis" Version="4.4.0" />
-		<PackageReference Include="xunit.v3" Version="2.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.0-rc.1.25451.107" />
+		<PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.1.0-preview.25412.3" />
+		<PackageReference Include="Testcontainers.MsSql" Version="4.7.0" />
+		<PackageReference Include="Testcontainers.Redis" Version="4.7.0" />
+		<PackageReference Include="xunit.v3" Version="3.2.0-pre.10" />
 	</ItemGroup>
 
 	<ItemGroup>

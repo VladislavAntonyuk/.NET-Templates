@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   webapp:
     image: ${DOCKER_REGISTRY-}webapp

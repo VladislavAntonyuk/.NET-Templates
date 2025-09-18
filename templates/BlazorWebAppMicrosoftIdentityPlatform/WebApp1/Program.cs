@@ -33,10 +33,11 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
 app.UseHttpsRedirection();
 
-app.MapStaticAssets();
 app.UseAntiforgery();
+app.MapStaticAssets();
 
 app.MapControllers();
 app.MapRazorComponents<App>()

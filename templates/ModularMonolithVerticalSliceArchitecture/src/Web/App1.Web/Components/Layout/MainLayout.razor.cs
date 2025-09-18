@@ -25,9 +25,9 @@ public partial class MainLayout : App1BaseLayout
 		await base.OnAfterRenderAsync(firstRender);
 		if (firstRender && mudThemeProvider is not null)
 		{
-			var isDarkSystemPreference = await mudThemeProvider.GetSystemPreference();
+			var isDarkSystemPreference = await mudThemeProvider.GetSystemDarkModeAsync();
 			await OnSystemPreferenceChanged(isDarkSystemPreference);
-			await mudThemeProvider.WatchSystemPreference(OnSystemPreferenceChanged);
+			await mudThemeProvider.WatchSystemDarkModeAsync(OnSystemPreferenceChanged);
 		}
 	}
 

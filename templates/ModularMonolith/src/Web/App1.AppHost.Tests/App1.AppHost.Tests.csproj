@@ -13,9 +13,9 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="Aspire.Hosting.Testing" Version="9.2.1" />
-		<PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="17.14.2" />
-		<PackageReference Include="xunit.v3" Version="2.0.1" />
+		<PackageReference Include="Aspire.Hosting.Testing" Version="9.4.2" />
+		<PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.1.0-preview.25412.3" />
+		<PackageReference Include="xunit.v3" Version="3.2.0-pre.10" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -9,11 +9,12 @@
 		<ChildContent>
 			<MudDialogProvider CloseButton="true"
 			                   CloseOnEscapeKey="true"
-			                   DisableBackdropClick="true"
+			                   BackdropClick="false"
 			                   Position="DialogPosition.Center"/>
 		</ChildContent>
 	</ErrorBoundary>
 	<MudSnackbarProvider/>
+	<MudPopoverProvider />
 
 	<MudLayout>
 		<MudAppBar Elevation="1">

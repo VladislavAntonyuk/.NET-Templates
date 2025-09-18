@@ -8,11 +8,12 @@
 		<ChildContent>
 			<MudDialogProvider CloseButton="true"
 			                   CloseOnEscapeKey="true"
-			                   DisableBackdropClick="true"
+			                   BackdropClick="false"
 			                   Position="DialogPosition.Center"/>
 		</ChildContent>
 	</ErrorBoundary>
 	<MudSnackbarProvider/>
+	<MudPopoverProvider />
 
 	<MudLayout>
 		<MudAppBar Elevation="1">
@@ -43,15 +44,10 @@
 				<ErrorBoundary>
 					<ChildContent>
 						@Body
-						<div id="blazor-error-ui">
-							<environment include="Staging,Production">
-								An error has occurred. This application may no longer respond until reloaded.
-							</environment>
-							<environment include="Development">
-								An unhandled exception has occurred. See browser dev tools for details.
-							</environment>
-							<a href="" class="reload">Reload</a>
-							<a class="dismiss">🗙</a>
+						<div id="blazor-error-ui" data-nosnippet>
+							An unhandled error has occurred.
+							<a href="." class="reload">Reload</a>
+							<span class="dismiss">🗙</span>
 						</div>
 					</ChildContent>
 				</ErrorBoundary>

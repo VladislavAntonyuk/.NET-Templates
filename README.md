@@ -15,12 +15,9 @@ Table of contents:
 * [Blazor WebApp Microsoft Identity Platform](#blazor-webapp-microsoft-identity-platform)
 * [Onion Architecture Templates](#onion-architecture-templates)
   + [Onion Architecture Cross-Platform Application](#onion-architecture-cross-platform-application)
-  + [Onion Architecture Cross-Platform Application Repository](#onion-architecture-cross-platform-application-repository)
   + [Onion Architecture Blazor Application](#onion-architecture-blazor-application)
-  + [Onion Architecture Blazor Application Repository](#onion-architecture-blazor-application-repository)
   + [Onion Architecture Blazor WebAssembly Application](#onion-architecture-blazor-webassembly-application)
   + [Onion Architecture .NET MAUI Application](#onion-architecture-net-maui-application)
-  + [Onion Architecture .NET MAUI Application Repository](#onion-architecture-net-maui-application-repository)
 * [iOS Extensions for .NET MAUI Application](#ios-extensions-for-net-maui-application)
   + [Action Extension](#action-extension)
   + [Audio Unit Extension](#audio-unit-extension)
@@ -109,16 +106,6 @@ Create solution:
 dotnet new onion-app -n MyProductName --entityName MyEntityName
 ```
 
-### Onion Architecture Cross-Platform Application Repository
-
-Cross-platform application (Blazor WebApp + .NET MAUI) with onion architecture, using Repository pattern.
-
-Create solution:
-
-```pwsh
-dotnet new onion-app-repository -n MyProductName --entityName MyEntityName
-```
-
 ### Onion Architecture Blazor Application
 
 Blazor application with onion architecture.
@@ -127,16 +114,6 @@ Create solution:
 
 ```pwsh
 dotnet new onion-blazor -n MyProductName --entityName MyEntityName
-```
-
-### Onion Architecture Blazor Application Repository
-
-Blazor application with onion architecture, using Repository pattern.
-
-Create solution:
-
-```pwsh
-dotnet new onion-blazor-repository -n MyProductName --entityName MyEntityName
 ```
 
 ### Onion Architecture Blazor WebAssembly Application
@@ -157,16 +134,6 @@ Create solution:
 
 ```pwsh
 dotnet new onion-maui -n MyProductName --entityName MyEntityName
-```
-
-### Onion Architecture .NET MAUI Application Repository
-
-.NET MAUI application with onion architecture, using Repository pattern.
-
-Create solution:
-
-```pwsh
-dotnet new onion-maui-repository -n MyProductName --entityName MyEntityName
 ```
 
 ## iOS Extensions for .NET MAUI Application

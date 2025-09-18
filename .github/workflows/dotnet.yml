@@ -17,10 +17,10 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 9.x
+        dotnet-version: 10.x
 
     - name: Pack
-      run: dotnet pack VladislavAntonyukDotnetTemplates.csproj -p:PackageVersion="4.1.${{github.run_number}}"
+      run: dotnet pack VladislavAntonyukDotnetTemplates.csproj -p:PackageVersion="5.0.${{github.run_number}}-pre1"
 
     - name: Publish NuGet
       run: dotnet nuget push **/bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json

@@ -21,7 +21,7 @@ public partial class MainLayout : LayoutComponentBase
 		{
 			if (mudThemeProvider is not null)
 			{
-				isDarkMode = await mudThemeProvider.GetSystemPreference();
+				isDarkMode = await mudThemeProvider.GetSystemDarkModeAsync();
 			}
 		}
 

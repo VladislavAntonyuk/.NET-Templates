@@ -16,15 +16,24 @@ public partial class MainLayout : LayoutComponentBase
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            if (mudThemeProvider is not null)
-            {
-                isDarkMode = await mudThemeProvider.GetSystemPreference();
-            }
-        }
+	{
+		await base.OnAfterRenderAsync(firstRender);
+		if (firstRender && mudThemeProvider is not null)
+		{
+			var isDarkSystemPreference = await mudThemeProvider.GetSystemDarkModeAsync();
+		    await OnSystemPreferenceChanged(isDarkSystemPreference);
+		    await mudThemeProvider.WatchSystemDarkModeAsync(OnSystemPreferenceChanged);
+		}
+	}
 
-        await base.OnAfterRenderAsync(firstRender);
-    }
+	private Task OnSystemPreferenceChanged(bool isDarkSystemPreference)
+	{
+		if (isDarkMode != isDarkSystemPreference)
+		{
+			isDarkMode = isDarkSystemPreference;
+			StateHasChanged();
+		}
+
+		return Task.CompletedTask;
+	}
 }
