@@ -36,6 +36,6 @@ To test your Call Directory extension:
 4. Check the extension logs in Xcode Console if the extension fails to activate
 
 ### Common Issues
-- **Extension immediately deactivates**: Check that App Groups are properly configured
-- **Numbers not blocking**: Ensure phone numbers are in correct format and sorted
-- **Extension times out**: Reduce the number of entries or implement incremental loading
+- **Extension immediately deactivates**: Check that App Groups are properly configured with matching identifiers
+- **Numbers not blocking**: Ensure phone numbers are in correct E.164 format (e.g., 14085551234 for US numbers) and sorted in ascending order
+- **Extension times out**: Extensions must complete within 10-30 seconds. For large datasets (>10,000 numbers), implement incremental loading with autorelease pools

@@ -16,7 +16,7 @@ namespace CallDirectoryExtension
 		public override void BeginRequestWithExtensionContext (NSExtensionContext context)
 		{
 			var cxContext = (CXCallDirectoryExtensionContext)context;
-			cxContext.Delegate = new CallDirectoryExtensionContextDelegate(cxContext);
+			cxContext.Delegate = new CallDirectoryExtensionContextDelegate();
 
 			if (!AddBlockingPhoneNumbers (cxContext)) {
 				Console.WriteLine ("Unable to add blocking phone numbers");
@@ -73,13 +73,6 @@ namespace CallDirectoryExtension
 
 	internal class CallDirectoryExtensionContextDelegate : CXCallDirectoryExtensionContextDelegate
 	{
-		private readonly CXCallDirectoryExtensionContext context;
-
-		public CallDirectoryExtensionContextDelegate(CXCallDirectoryExtensionContext context)
-		{
-			this.context = context;
-		}
-
 		public override void RequestFailed (CXCallDirectoryExtensionContext extensionContext, NSError error)
 		{
 			// An error occurred while adding blocking or identification entries, check the NSError for details.
