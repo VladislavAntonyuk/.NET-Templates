@@ -79,7 +79,7 @@ namespace CallDirectoryExtension
 			// For Call Directory error codes, see the CXErrorCodeCallDirectoryManagerError enum.
 			//
 			// This may be used to store the error details in a location accessible by the extension's containing app, so that the
-			// app may be notified about errors which occured while loading data even if the request to load data was initiated by
+			// app may be notified about errors which occurred while loading data even if the request to load data was initiated by
 			// the user in Settings instead of via the app itself.
 			Console.WriteLine ($"Call Directory request failed: {error.LocalizedDescription}");
 		}
