@@ -4,18 +4,18 @@
 		<TargetFramework>$(NetVersion)</TargetFramework>
 		<OutputType>Exe</OutputType>
 		<TestingPlatformDotnetTestSupport>false</TestingPlatformDotnetTestSupport>
-    <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
-  </PropertyGroup>
+		<UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
 
 
 	<ItemGroup>
-		<PackageReference Include="Aspire.Hosting.Testing" Version="9.4.2" />
-		<PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.1.0-preview.25412.3" />
-		<PackageReference Include="xunit.v3" Version="3.2.0-pre.10" />
+		<PackageReference Include="Aspire.Hosting.Testing" Version="13.0.0" />
+		<PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.1.0" />
+		<PackageReference Include="xunit.v3.mtp-v2" Version="3.2.0" />
 	</ItemGroup>
 
 	<ItemGroup>

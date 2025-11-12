@@ -2,15 +2,15 @@
 
 using System.Diagnostics;
 using Domain;
-using MediatR;
+using Mediator;
 using Microsoft.Extensions.Logging;
 
 internal sealed class RequestLoggingPipelineBehavior<TRequest, TResponse>(
 	ILogger<RequestLoggingPipelineBehavior<TRequest, TResponse>> logger)
-	: IPipelineBehavior<TRequest, TResponse> where TRequest : class where TResponse : Result
+	: IPipelineBehavior<TRequest, TResponse> where TRequest : class, IMessage where TResponse : Result
 {
-	public async Task<TResponse> Handle(TRequest request,
-		RequestHandlerDelegate<TResponse> next,
+	public async ValueTask<TResponse> Handle(TRequest message,
+		MessageHandlerDelegate<TRequest, TResponse> next,
 		CancellationToken cancellationToken)
 	{
 		var moduleName = GetModuleName(typeof(TRequest).FullName!);
@@ -23,7 +23,7 @@ internal sealed class RequestLoggingPipelineBehavior<TRequest, TResponse>(
 		{
 			logger.LogInformation("Processing request {RequestName}", requestName);
 
-			var result = await next();
+			var result = await next(message, cancellationToken);
 
 			if (result.IsSuccess)
 			{

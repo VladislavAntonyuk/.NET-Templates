@@ -7,7 +7,7 @@ namespace App1.Modules.Module2s.Application.Module2s.GetModule2s;
 internal sealed class GetModule2QueryHandler(IModule2Repository module2Repository)
 	: IQueryHandler<GetModule2SQuery, List<Module2Response>>
 {
-	public async Task<Result<List<Module2Response>>> Handle(GetModule2SQuery request, CancellationToken cancellationToken)
+	public async ValueTask<Result<List<Module2Response>>> Handle(GetModule2SQuery request, CancellationToken cancellationToken)
 	{
 		var dbModule2S = await module2Repository.GetAsync(cancellationToken);
 

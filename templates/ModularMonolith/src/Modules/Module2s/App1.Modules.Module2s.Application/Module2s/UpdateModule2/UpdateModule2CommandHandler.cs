@@ -8,7 +8,7 @@ namespace App1.Modules.Module2s.Application.Module2s.UpdateModule2;
 internal sealed class UpdateModule2CommandHandler(IModule2Repository module2Repository, IUnitOfWork unitOfWork)
 	: ICommandHandler<UpdateModule2Command>
 {
-	public async Task<Result> Handle(UpdateModule2Command request, CancellationToken cancellationToken)
+	public async ValueTask<Result> Handle(UpdateModule2Command request, CancellationToken cancellationToken)
 	{
 		var module2 = await module2Repository.GetAsync(request.Module2Id, cancellationToken);
 

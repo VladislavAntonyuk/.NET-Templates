@@ -2,7 +2,7 @@
 using App1.Common.Application.Exceptions;
 using App1.Modules.Module1s.IntegrationEvents;
 using App1.Modules.Module2s.Application.Module2s.DeleteModule2;
-using MediatR;
+using Mediator;
 
 namespace App1.Modules.Module2s.Presentation.Module1s;
 

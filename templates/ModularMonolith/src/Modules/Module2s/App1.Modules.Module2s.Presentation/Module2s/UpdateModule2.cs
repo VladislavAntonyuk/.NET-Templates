@@ -3,7 +3,7 @@ using App1.Common.Infrastructure.Authentication;
 using App1.Common.Presentation.Endpoints;
 using App1.Common.Presentation.Results;
 using App1.Modules.Module2s.Application.Module2s.UpdateModule2;
-using MediatR;
+using Mediator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;

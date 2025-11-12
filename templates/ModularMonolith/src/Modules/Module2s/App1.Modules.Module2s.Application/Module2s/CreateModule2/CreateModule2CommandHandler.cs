@@ -9,7 +9,7 @@ internal sealed class CreateModule2CommandHandler(
 	IModule2Repository module2Repository,
 	IUnitOfWork unitOfWork) : ICommandHandler<CreateModule2Command, Module2Response>
 {
-	public async Task<Result<Module2Response>> Handle(CreateModule2Command request, CancellationToken cancellationToken)
+	public async ValueTask<Result<Module2Response>> Handle(CreateModule2Command request, CancellationToken cancellationToken)
 	{
 		var module2 = await module2Repository.GetAsync(request.ProviderId, cancellationToken);
 		if (module2 is null)

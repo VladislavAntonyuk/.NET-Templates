@@ -20,7 +20,7 @@ jobs:
         dotnet-version: 10.x
 
     - name: Pack
-      run: dotnet pack VladislavAntonyukDotnetTemplates.csproj -p:PackageVersion="5.0.${{github.run_number}}-pre1"
+      run: dotnet pack VladislavAntonyukDotnetTemplates.csproj -p:PackageVersion="5.0.${{github.run_number}}"
 
     - name: Publish NuGet
       run: dotnet nuget push **/bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json

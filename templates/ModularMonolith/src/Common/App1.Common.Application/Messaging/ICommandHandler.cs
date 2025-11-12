@@ -1,7 +1,7 @@
 ﻿namespace App1.Common.Application.Messaging;
 
 using Domain;
-using MediatR;
+using Mediator;
 
 public interface ICommandHandler<in TCommand> : IRequestHandler<TCommand, Result> where TCommand : ICommand;
 

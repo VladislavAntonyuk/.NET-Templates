@@ -1,7 +1,7 @@
 ﻿using App1.Common.Presentation.Endpoints;
 using App1.Common.Presentation.Results;
 using App1.Modules.Module2s.Application.Module2s.GetModule2ById;
-using MediatR;
+using Mediator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;

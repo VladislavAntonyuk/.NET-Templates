@@ -9,7 +9,7 @@ internal sealed class DeleteModule1CommandHandler(
 	IModule1Repository module1Repository,
 	IUnitOfWork unitOfWork) : ICommandHandler<DeleteModule1Command>
 {
-	public async Task<Result> Handle(DeleteModule1Command request, CancellationToken cancellationToken)
+	public async ValueTask<Result> Handle(DeleteModule1Command request, CancellationToken cancellationToken)
 	{
 		var module1 = await module1Repository.GetAsync(request.Module1Id, cancellationToken);
 

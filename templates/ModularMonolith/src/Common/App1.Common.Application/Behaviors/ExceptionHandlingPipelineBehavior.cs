@@ -1,20 +1,21 @@
-﻿namespace App1.Common.Application.Behaviors;
+﻿using Mediator;
+
+namespace App1.Common.Application.Behaviors;
 
 using Exceptions;
-using MediatR;
 using Microsoft.Extensions.Logging;
 
 internal sealed class ExceptionHandlingPipelineBehavior<TRequest, TResponse>(
 	ILogger<ExceptionHandlingPipelineBehavior<TRequest, TResponse>> logger)
-	: IPipelineBehavior<TRequest, TResponse> where TRequest : class
+	: IPipelineBehavior<TRequest, TResponse> where TRequest : class, IMessage
 {
-	public async Task<TResponse> Handle(TRequest request,
-		RequestHandlerDelegate<TResponse> next,
+	public async ValueTask<TResponse> Handle(TRequest message,
+		MessageHandlerDelegate<TRequest, TResponse> next,
 		CancellationToken cancellationToken)
 	{
 		try
 		{
-			return await next();
+			return await next(message, cancellationToken);
 		}
 		catch (Exception exception)
 		{

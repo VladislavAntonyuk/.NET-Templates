@@ -1,7 +1,7 @@
 ﻿using App1.Modules.Module2s.Infrastructure.Database;
 using App1.Modules.Module2s.IntegrationTests.Abstractions.Fixtures;
 using AutoFixture;
-using MediatR;
+using Mediator;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;

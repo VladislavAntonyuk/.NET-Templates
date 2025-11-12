@@ -3,21 +3,21 @@
 using Domain;
 using FluentValidation;
 using FluentValidation.Results;
-using MediatR;
-using Messaging;
+using Mediator;
+using IBaseCommand = Messaging.IBaseCommand;
 
 internal sealed class ValidationPipelineBehavior<TRequest, TResponse>(IEnumerable<IValidator<TRequest>> validators)
 	: IPipelineBehavior<TRequest, TResponse> where TRequest : IBaseCommand
 {
-	public async Task<TResponse> Handle(TRequest request,
-		RequestHandlerDelegate<TResponse> next,
+	public async ValueTask<TResponse> Handle(TRequest message,
+		MessageHandlerDelegate<TRequest, TResponse> next,
 		CancellationToken cancellationToken)
 	{
-		var validationFailures = await ValidateAsync(request);
+		var validationFailures = await ValidateAsync(message);
 
 		if (validationFailures.Length == 0)
 		{
-			return await next();
+			return await next(message, cancellationToken);
 		}
 
 		if (typeof(TResponse).IsGenericType && typeof(TResponse).GetGenericTypeDefinition() == typeof(Result<>))

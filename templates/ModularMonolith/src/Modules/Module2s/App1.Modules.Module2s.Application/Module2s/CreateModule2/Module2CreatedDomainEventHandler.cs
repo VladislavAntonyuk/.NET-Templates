@@ -4,7 +4,7 @@ using App1.Common.Application.Messaging;
 using App1.Modules.Module2s.Application.Module2s.GetModule2ById;
 using App1.Modules.Module2s.Domain.Module2s;
 using App1.Modules.Module2s.IntegrationEvents;
-using MediatR;
+using Mediator;
 
 namespace App1.Modules.Module2s.Application.Module2s.CreateModule2;
 
