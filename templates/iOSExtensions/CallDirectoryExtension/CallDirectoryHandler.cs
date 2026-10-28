@@ -6,7 +6,7 @@ using CallKit;
 namespace CallDirectoryExtension
 {
 	[Register ("CallDirectoryHandler")]
-	public class CallDirectoryHandler : CXCallDirectoryProvider, ICXCallDirectoryExtensionContextDelegate
+	public class CallDirectoryHandler : CXCallDirectoryProvider
 	{
 		protected CallDirectoryHandler (IntPtr handle) : base (handle)
 		{
@@ -16,7 +16,7 @@ namespace CallDirectoryExtension
 		public override void BeginRequestWithExtensionContext (NSExtensionContext context)
 		{
 			var cxContext = (CXCallDirectoryExtensionContext)context;
-			cxContext.Delegate = this;
+			cxContext.Delegate = new CallDirectoryExtensionContextDelegate();
 
 			if (!AddBlockingPhoneNumbers (cxContext)) {
 				Console.WriteLine ("Unable to add blocking phone numbers");
@@ -69,15 +69,21 @@ namespace CallDirectoryExtension
 			return true;
 		}
 
-		public void RequestFailed (CXCallDirectoryExtensionContext extensionContext, NSError error)
+	}
+
+	internal class CallDirectoryExtensionContextDelegate : CXCallDirectoryExtensionContextDelegate
+	{
+		public override void RequestFailed (CXCallDirectoryExtensionContext extensionContext, NSError error)
 		{
 			// An error occurred while adding blocking or identification entries, check the NSError for details.
 			// For Call Directory error codes, see the CXErrorCodeCallDirectoryManagerError enum.
 			//
 			// This may be used to store the error details in a location accessible by the extension's containing app, so that the
-			// app may be notified about errors which occured while loading data even if the request to load data was initiated by
+			// app may be notified about errors which occurred while loading data even if the request to load data was initiated by
 			// the user in Settings instead of via the app itself.
+			Console.WriteLine ($"Call Directory request failed: {error.LocalizedDescription}");
 		}
 	}
 }
+
 
