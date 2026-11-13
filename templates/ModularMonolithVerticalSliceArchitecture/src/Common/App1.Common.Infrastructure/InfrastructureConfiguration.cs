@@ -33,12 +33,7 @@ public static class InfrastructureConfiguration
 
 		builder.Services.TryAddSingleton<InsertOutboxMessagesInterceptor>();
 
-		builder.Services.AddQuartz(configurator =>
-		{
-			var scheduler = Guid.NewGuid();
-			configurator.SchedulerId = $"default-id-{scheduler}";
-			configurator.SchedulerName = $"default-name-{scheduler}";
-		});
+		builder.Services.AddQuartz();
 
 		builder.Services.AddQuartzHostedService(options => options.WaitForJobsToComplete = true);
 

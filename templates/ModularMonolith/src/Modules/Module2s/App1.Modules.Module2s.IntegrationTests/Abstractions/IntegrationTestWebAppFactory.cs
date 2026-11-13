@@ -1,5 +1,4 @@
-﻿using App1.ApiService;
-using App1.Modules.Module2s.IntegrationTests.Abstractions.Fixtures;
+﻿using App1.Modules.Module2s.IntegrationTests.Abstractions.Fixtures;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -11,11 +10,10 @@ namespace App1.Modules.Module2s.IntegrationTests.Abstractions;
 
 public class IntegrationTestWebAppFactory : WebApplicationFactory<Program>, IAsyncLifetime
 {
-	private readonly MsSqlContainer dbContainer = new MsSqlBuilder()
-	                                              .WithImage("mcr.microsoft.com/mssql/server:2022-latest")
+	private readonly MsSqlContainer dbContainer = new MsSqlBuilder("mcr.microsoft.com/mssql/server:2022-latest")
 	                                              .Build();
 
-	private readonly RedisContainer redisContainer = new RedisBuilder().WithImage("redis:latest").Build();
+	private readonly RedisContainer redisContainer = new RedisBuilder("redis:latest").Build();
 
 	public async ValueTask InitializeAsync()
 	{

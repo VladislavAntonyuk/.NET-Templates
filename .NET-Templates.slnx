@@ -1,5 +1,9 @@
 <Solution>
   <Folder Name="/Solution Items/">
+    <File Path=".github/agents/C# Expert.md" />
+    <File Path=".github/dependabot.yml" />
+    <File Path=".github/FUNDING.yml" />
+    <File Path=".github/workflows/dotnet.yml" />
     <File Path="global.json" />
     <File Path="README.md" />
     <File Path="validate-build.ps1" />

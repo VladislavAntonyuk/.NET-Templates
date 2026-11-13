@@ -6,6 +6,8 @@ using App1.Modules.Module1s.Infrastructure.Database;
 using App1.Modules.Module1s.Infrastructure.Outbox;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+using Quartz;
 
 namespace App1.Modules.Module1s;
 
@@ -40,8 +42,7 @@ public static class Module1sModule
 		});
 
 		builder.Services.Configure<OutboxOptions>(builder.Configuration.GetSection("Module1s:Outbox"));
-
-		builder.Services.ConfigureOptions<ConfigureProcessOutboxJob>();
+		builder.Services.AddJob<ProcessOutboxJob>(serviceProvider => serviceProvider.GetRequiredService<IOptions<OutboxOptions>>().Value.IntervalInSeconds);
 	}
 
 	private static void AddDomainEventHandlers(this IServiceCollection services)
@@ -53,7 +54,7 @@ public static class Module1sModule
 		{
 			services.AddKeyedScoped(typeof(IDomainEventHandler), GetKey(domainEventHandler), domainEventHandler);
 		}
-		
+
 		static string GetKey(Type type)
 		{
 			const int handlerNameSuffixLength = 7;
