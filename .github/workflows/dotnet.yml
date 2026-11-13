@@ -8,22 +8,28 @@ on:
 
 jobs:
   build:
+    permissions:
+      id-token: write  # enable GitHub OIDC token issuance for this job
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v5
-      with:
-        dotnet-version: 11.x
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 11.x
 
-    - name: Pack
-      run: dotnet pack VladislavAntonyukDotnetTemplates.csproj -p:PackageVersion="6.0.${{github.run_number}}"
-
-    - name: Publish NuGet
-      run: dotnet nuget push **/bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
-      if: github.ref == 'refs/heads/main'
-      env:
-        NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
+      - name: Pack
+        run: dotnet pack VladislavAntonyukDotnetTemplates.csproj -p:PackageVersion="6.0.${{github.run_number}}"
+          
+      - name: NuGet login (OIDC → temp API key)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: ${{ secrets.NUGET_USER }}
+      
+      - name: NuGet push
+        if: github.ref == 'refs/heads/main'
+        run: dotnet nuget push **/bin/Release/*.nupkg --api-key ${{steps.login.outputs.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
